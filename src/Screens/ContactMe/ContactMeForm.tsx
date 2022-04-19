@@ -10,8 +10,8 @@ import {
 import { useMediaQuery } from 'Hooks/useMediaQuery';
 import React from 'react';
 import { THEME_PALETTE } from 'Theme/themeConstants';
-import '../../../src/App.css';
-import Razorpay from 'razorpay';
+import '../../App.css';
+import { userSchema } from './UserValidation';
 
 const TextFieldInfo: {
   label: string;
@@ -40,39 +40,55 @@ const TextFieldInfo: {
     rows: 3,
   },
 ];
-const handleClick = () => {
-  var options = {
-    "key": "rzp_test_IVTdOzbCilVhxX",
-    // key secret : ogXMFXR3ATo8rcwvbJ6vwMsN // Enter the Key ID generated from the Dashboard
-    "amount": 300*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "INR",
-    "name": "SRM University, Sonepat, Haryana",
-    "description": "Test Transaction",
-    "image": "https://example.com/your_logo",
-    "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "handler": function (response: any){
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature)
-    },
-    "prefill": {
-        "name": "Gaurav Kumar",
-        "email": "gaurav.kumar@example.com",
-        "contact": "9999999999"
-    },
-    "notes": {
-        "address": "Razorpay Corporate Office"
-    },
-    "theme": {
-        "color": "#3399cc"
-    }
-};
-var rzp1 = new Razorpay(options);
-rzp1.open();
+declare global {
+  interface Window {
+    Razorpay: Window | any;
+  }
 }
+const handleClick = () => {
+  const options = {
+    key: 'rzp_test_6pc6uApcFYOURV',
+    amount: 300 * 100,
+    currency: 'INR',
+    name: 'SRM University, Sonepat, Haryana',
+    description: 'Test Transaction',
+    image: 'https://example.com/your_logo',
+    handler(response: any) {
+      alert(response.razorpay_payment_id);
+      alert(response.razorpay_order_id);
+      alert(response.razorpay_signature);
+    },
+    prefill: {
+      name: 'Jai Dhingra',
+      email: 'jigyasudhingra@gmail.com',
+      contact: '9873219946',
+    },
+    notes: {
+      address: 'MusicBot',
+    },
+    theme: {
+      color: '#3399cc',
+    },
+  };
+  const rzp1 = new window.Razorpay(options);
+  rzp1.open();
+};
+
 const ContactMeForm: React.FC = () => {
   const classes = useStyles();
   const { isDeviceSm } = useMediaQuery();
+
+  const createUser = async (event: any) => {
+    event.preventDefault();
+    const formData = {
+      name: event.target[0].value,
+      email: event.target[1].value,
+      phone: event.target[2].value,
+    };
+    const isValid = await userSchema.isValid(formData);
+    console.log(isValid);
+  };
+
   return (
     <Box
       pt={4}
@@ -83,28 +99,36 @@ const ContactMeForm: React.FC = () => {
     >
       <Box className={classes.background} width="90%">
         <Box pl={isDeviceSm ? 4 : 6} pr={isDeviceSm ? 4 : 6} pt={3} pb={4}>
-          {TextFieldInfo.map((t) => (
-            <Box mt={2.5} key={t.id}>
-              <TextField
+          <form onSubmit={createUser}>
+            {TextFieldInfo.map((t) => (
+              <Box mt={2.5} key={t.id}>
+                <TextField
+                  fullWidth
+                  id={t.id}
+                  label={t.label}
+                  variant="filled"
+                  className={classes.textField}
+                  InputProps={{
+                    disableUnderline: true,
+                  }}
+                  multiline={!!t.multiline}
+                  maxRows={t.maxRows ?? 1}
+                  minRows={t.rows ?? 1}
+                />
+              </Box>
+            ))}
+            <Box mt={3}>
+              <Button
                 fullWidth
-                id={t.id}
-                label={t.label}
-                variant="filled"
-                className={classes.textField}
-                InputProps={{
-                  disableUnderline: true,
-                }}
-                multiline={!!t.multiline}
-                maxRows={t.maxRows ?? 1}
-                rows={t.rows ?? 1}
-              />
+                variant="outlined"
+                color="primary"
+                type="submit"
+                onClick={() => handleClick()}
+              >
+                Pay Rs. 300
+              </Button>
             </Box>
-          ))}
-          <Box mt={3}>
-            <Button fullWidth variant="outlined" color="primary" onClick={() => handleClick(  )}>
-              Pay Rs. 300
-            </Button>
-          </Box>
+          </form>
         </Box>
       </Box>
     </Box>
