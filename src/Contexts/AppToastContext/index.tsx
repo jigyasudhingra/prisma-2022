@@ -1,85 +1,31 @@
-import React, { FC, useState } from 'react';
-import { SnackbarProps } from '@material-ui/core';
-import { ToastMessage, ToastProps } from 'Components/ToastMessage';
-
-interface ContextProps {
-  open: boolean;
-  message: string;
-  variant: ToastProps['variant'];
-  showToast: (message: string, options?: Partial<IToastContext>) => void;
-  hideToast: () => void;
-}
-
-export const AppToastContext = React.createContext<ContextProps>({
-  open: false,
-  message: '',
-  variant: 'success',
-  showToast: (message: string, options?: Partial<IToastContext>) => {},
-  hideToast: () => {},
-});
-
-export interface IToastContext extends SnackbarProps {
-  message?: string;
-  variant?: ToastProps['variant'];
-}
-
-export const useAppToast = (initialState: IToastContext) => {
-  const [toastState, setToastState] = useState({
-    open: false,
-    message: '',
-    ...initialState,
-  });
-
-  const showToast = (message: string, options?: Partial<IToastContext>) => {
-    setToastState({
-      ...toastState,
-      message,
-      open: true,
-      ...options,
-    });
-  };
-  const hideToast = () => {
-    setToastState({
-      ...toastState,
-      open: false,
-      message: '',
-    });
-  };
-  return {
-    showToast,
-    hideToast,
-    message: toastState.message || '',
-    open: toastState.open,
-    variant: toastState.variant || 'success',
-  };
-};
+import React, { FC } from 'react';
+import { SnackbarProvider } from 'notistack';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { THEME_PALETTE } from 'Theme/themeConstants';
 
 const AppToastProvider: FC = (props) => {
-  const { showToast, hideToast, message, open, variant } = useAppToast({
-    open: false,
-  });
   const { children } = props;
+  const classes = useStyles();
   return (
-    <AppToastContext.Provider
-      value={{
-        message,
-        open,
-        showToast,
-        hideToast,
-        variant,
-      }}
+    <SnackbarProvider
+      maxSnack={3}
+      classes={{ variantSuccess: classes.success, variantInfo: classes.info }}
     >
       {children}
-      <ToastMessage
-        ContentProps={{ style: { fontSize: 16 } }}
-        autoHideDuration={6000}
-        message={message}
-        open={open}
-        variant={variant}
-        onClose={hideToast}
-      />
-    </AppToastContext.Provider>
+    </SnackbarProvider>
   );
 };
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    success: {
+      background: `${THEME_PALETTE.primary.main} !important`,
+      border: '1px solid white',
+    },
+    info: {
+      background: `${THEME_PALETTE.others.main} !important`,
+    },
+  })
+);
 
 export default AppToastProvider;

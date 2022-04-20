@@ -1,6 +1,6 @@
-import { useContext } from 'react';
+import { SnackbarOrigin } from '@material-ui/core';
 import { get } from 'lodash';
-import { AppToastContext } from '../Contexts/AppToastContext';
+import { useSnackbar, VariantType } from 'notistack';
 
 const SUCCESS_TOAST_MESSAGE = 'Success';
 const ERROR_TOAST_MESSAGE = 'Something went wrong';
@@ -20,24 +20,41 @@ const ERROR_TOAST_MESSAGE = 'Something went wrong';
  *  });
  */
 export default () => {
-  const { showToast } = useContext(AppToastContext);
+  const { enqueueSnackbar } = useSnackbar();
 
-  const withToast = async (
+  const withToast = async <T = any>(
     action: () => any,
     toastConfig: WithToastConfig = {}
-  ) => {
+  ): Promise<T> => {
+    const {
+      errorToastMessage,
+      anchorOrigin,
+      variant = 'success',
+    } = toastConfig;
     try {
       const res = await action();
-      showToast(toastConfig.successToastMessage || SUCCESS_TOAST_MESSAGE, {
-        variant: 'success',
-      });
+      enqueueSnackbar(
+        toastConfig.successToastMessage || SUCCESS_TOAST_MESSAGE,
+        {
+          variant,
+          anchorOrigin,
+        }
+      );
       return res;
     } catch (error) {
+      const errortext =
+        typeof errorToastMessage === 'string'
+          ? errorToastMessage
+          : errorToastMessage?.(error);
+      console.log('error', errortext, typeof errorToastMessage === 'string');
       const msg =
         toastConfig.showApiErrorMsg === false
-          ? toastConfig.errorToastMessage || ERROR_TOAST_MESSAGE
+          ? errortext || ERROR_TOAST_MESSAGE
           : get(error, 'response.data.error.message');
-      showToast(msg, { variant: 'error' });
+      enqueueSnackbar(msg, {
+        variant: 'error',
+        anchorOrigin: toastConfig.anchorOrigin,
+      });
       throw error;
     }
   };
@@ -47,6 +64,8 @@ export default () => {
 
 export interface WithToastConfig {
   successToastMessage?: string;
-  errorToastMessage?: string;
+  errorToastMessage?: string | ((error: any) => string);
   showApiErrorMsg?: boolean;
+  variant?: VariantType;
+  anchorOrigin?: SnackbarOrigin;
 }

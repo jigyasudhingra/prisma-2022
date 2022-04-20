@@ -8,10 +8,12 @@ import {
   Theme,
 } from '@material-ui/core';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { THEME_PALETTE } from 'Theme/themeConstants';
 import '../../App.css';
+import { useSnackbar } from 'notistack';
 import { userSchema } from './UserValidation';
+import PRISMA_LOGO from '../../Assets/PrismaLogo.png';
 
 const TextFieldInfo: {
   label: string;
@@ -45,38 +47,71 @@ declare global {
     Razorpay: Window | any;
   }
 }
-const handleClick = () => {
-  const options = {
-    key: 'rzp_test_6pc6uApcFYOURV',
-    amount: 300 * 100,
-    currency: 'INR',
-    name: 'SRM University, Sonepat, Haryana',
-    description: 'Test Transaction',
-    image: 'https://example.com/your_logo',
-    handler(response: any) {
-      alert(response.razorpay_payment_id);
-      alert(response.razorpay_order_id);
-      alert(response.razorpay_signature);
-    },
-    prefill: {
-      name: 'Jai Dhingra',
-      email: 'jigyasudhingra@gmail.com',
-      contact: '9873219946',
-    },
-    notes: {
-      address: 'MusicBot',
-    },
-    theme: {
-      color: '#3399cc',
-    },
-  };
-  const rzp1 = new window.Razorpay(options);
-  rzp1.open();
-};
 
 const ContactMeForm: React.FC = () => {
   const classes = useStyles();
   const { isDeviceSm } = useMediaQuery();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const [razorpayError, setRazorpayError] = useState('');
+  const [razorpaySuccess, setRazorpaySuccess] = useState('');
+
+  useEffect(() => {
+    if (razorpayError !== '') {
+      const action = (key: any) => (
+        <Button
+          onClick={() => {
+            closeSnackbar(key);
+          }}
+        >
+          Dismiss
+        </Button>
+      );
+      enqueueSnackbar('Checkout failed', {
+        variant: 'error',
+        anchorOrigin: { horizontal: 'center', vertical: 'bottom' },
+        autoHideDuration: null,
+        action,
+      });
+    }
+  }, [razorpayError]);
+
+  console.log(razorpayError);
+  const handleClick = (formData: any) => {
+    const options = {
+      key: 'rzp_test_6pc6uApcFYOURV',
+      amount: 300 * 100,
+      currency: 'INR',
+      name: 'SRM University, Sonepat, Haryana',
+      description: 'Test Transaction',
+      image: PRISMA_LOGO,
+      handler(response: any) {
+        formData.paymentId = response.razorpay_payment_id;
+      },
+      prefill: {
+        name: formData.name,
+        email: formData.email,
+        contact: formData.phone,
+      },
+      notes: {
+        address: 'SRM University, Sonepat, Haryana',
+      },
+      theme: {
+        color: '#3399cc',
+      },
+    };
+    const rzp1 = new window.Razorpay(options);
+    rzp1.on('payment.failed', function (response: any) {
+      setRazorpayError(
+        `1. ${response.error.reason}2. ${response.error.source} 3. ${response.error.description} 4. ${response.error.step} 5. ${response.error.code} 6. ${response.error.metadata.order_id} 7. ${response.error.metadata.payment_id}`
+      );
+    });
+
+    // document.getElementById('rzp-button')!.onclick = function (e) {
+    //   rzp1.open();
+    //   e.preventDefault();
+    // };
+    rzp1.open();
+  };
 
   const createUser = async (event: any) => {
     event.preventDefault();
@@ -84,15 +119,17 @@ const ContactMeForm: React.FC = () => {
       name: event.target[0].value,
       email: event.target[1].value,
       phone: event.target[2].value,
+      paymentId: '',
     };
     const isValid = await userSchema.isValid(formData);
+    handleClick(formData);
     console.log(isValid);
   };
 
   return (
     <Box
       pt={4}
-      pl={isDeviceSm ? 4 : 15}
+      pl={isDeviceSm ? 4 : 5}
       pr={isDeviceSm ? 4 : 5}
       pb={4}
       className="subHeading"
@@ -123,7 +160,7 @@ const ContactMeForm: React.FC = () => {
                 variant="outlined"
                 color="primary"
                 type="submit"
-                onClick={() => handleClick()}
+                id="rzp-button"
               >
                 Pay Rs. 300
               </Button>

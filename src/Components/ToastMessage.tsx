@@ -109,7 +109,7 @@ export const ToastMessage: FC<ToastProps> = (props) => {
     <Snackbar {...snackBarProps}>
       <ToastMessageContent
         {...props.ContentProps}
-        onClose={props.onClose}
+        onClose={onClose}
         message={props.message}
         variantClassName={variant}
         className={className}

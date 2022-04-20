@@ -1,56 +1,32 @@
-import { Box } from '@material-ui/core';
+import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
 import Typo from 'Components/Typo';
+import { useMediaQuery } from 'Hooks/useMediaQuery';
 import React from 'react';
-// import LocationIcon from '../../../Assets/LocationIcon.png';
-// import PhoneIcon from '../../../Assets/PhoneIcon.png';
-// import MailIcon from '../../../Assets/EmailIcon.png';
-
-// const contactDetailsInfo: {
-//   label: string;
-//   data: string;
-//   icon: string;
-//   id: string;
-// }[] = [
-//   {
-//     label: 'Phone Number',
-//     data: '+91 9873219946',
-//     icon: PhoneIcon,
-//     id: 'phone-number',
-//   },
-//   {
-//     label: 'Email Address',
-//     data: 'jigyausdhingra@gmail.com',
-//     icon: MailIcon,
-//     id: 'email-address',
-//   },
-//   {
-//     label: 'Location',
-//     data: 'New Delhi, India',
-//     icon: LocationIcon,
-//     id: 'location-icon',
-//   },
-// ];
+import { THEME_PALETTE } from 'Theme/themeConstants';
 
 const ContactDetails = () => {
+  const classes = useStyles();
+  const { isDeviceSm } = useMediaQuery();
   return (
-    <Box pt={5} pl={5}>
-      {/* {contactDetailsInfo.map((info) => (
-        <Box display="flex" flexDirection="row" key={info.id} mb={4}>
-          <Box alignSelf="center" mx={4}>
-            <img src={info.icon} width={23} alt={info.id} />
-          </Box>
-          <Box>
-            <Box>
-              <Typo variant="body1" color="textSecondary">
-                {info.label}
-              </Typo>
-              <Typo variant="body2">{info.data}</Typo>
-            </Box>
-          </Box>
+    <Box pt={4} pl={isDeviceSm ? 4 : 9} pr={isDeviceSm ? 4 : 5} pb={4}>
+      <Box className={classes.background} px={4} pt={4} pb={4}>
+        <Box className={classes.innerBackground} py={20}>
+          <Typo>hello</Typo>
         </Box>
-      ))} */}
+      </Box>
     </Box>
   );
 };
 
 export default ContactDetails;
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    background: {
+      backgroundColor: THEME_PALETTE.others.main,
+    },
+    innerBackground: {
+      backgroundColor: THEME_PALETTE.primary.main,
+    },
+  })
+);

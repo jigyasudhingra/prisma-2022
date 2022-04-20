@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core';
 import React, { FC } from 'react';
 import RootContextProviders from '../Contexts';
 import AppNavigation from '../Routes/AppNavigation';

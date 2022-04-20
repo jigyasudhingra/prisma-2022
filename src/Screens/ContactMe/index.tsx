@@ -20,25 +20,18 @@ const ContactMe: React.FC = () => {
                 <Box className={classes.verticalLine} />
               </Box>
             </Box>
-            <Box marginTop={1} />
-            <Typo variant="caption" className={classes.verticalLineText}>
-              Get In Touch
-            </Typo>
           </Box>
 
           <Box width="100%" textAlign="center" pt={1}>
-            <Typo style={{ fontSize: 38, color: '#ffff' }} color="textPrimary">
-              Contact Me
+            <Typo style={{ fontSize: 50, color: '#ffff' }} color="textPrimary">
+              Register
             </Typo>
           </Box>
         </>
       ) : (
         <Box width="100%" textAlign="center" pt={2.5}>
           <Typo variant="h5" color="textPrimary" gutterBottom>
-            Contact Me
-          </Typo>
-          <Typo variant="caption" className={classes.verticalLineText}>
-            Get In Touch
+            Register
           </Typo>
         </Box>
       )}
@@ -47,10 +40,10 @@ const ContactMe: React.FC = () => {
       ) : (
         <Box display="flex" flexDirection="row">
           <Box width="50%">
-            <ContactMeForm />
+            <ContactDetails />
           </Box>
           <Box width="50%">
-            <ContactDetails />
+            <ContactMeForm />
           </Box>
         </Box>
       )}
@@ -63,7 +56,7 @@ export default ContactMe;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     background: {
-      height: '100%',
+      // height: '100vh',
       backgroundSize: 'cover',
       // minHeight: 689,
       position: 'relative',

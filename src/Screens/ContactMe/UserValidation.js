@@ -8,7 +8,7 @@ export const userSchema = yup.object().shape({
     .required()
     .matches(
       new RegExp(
-        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(stu.srmuniversity.ac.in|domainname.com)$/
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(stu.srmuniversity.ac.in|srmuniversity.ac.in)$/
       )
     ),
   phone: yup.number().required(),
