@@ -18,6 +18,8 @@ import { useSnackbar } from 'notistack';
 import { storage } from 'firebase-config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { userSchema } from './UserValidation';
+import { Icon } from '@iconify/react';
+import Typo from 'Components/Typo';
 
 const TextFieldInfo: {
   label: string;
@@ -207,7 +209,11 @@ const ContactMeForm: React.FC = () => {
                 }}
               />
             </Box>
-            <Box mt={2.5} key="fromSRM">
+            <Box mt={2.5} key="fromSRM" display='flex' flexDirection='row' alignItems='center'>
+              <Box>
+              <Typo>Are you from SRM: </Typo>
+              </Box>
+              <Box pl={3}>
               <RadioGroup row name="fromSRM" onChange={handleCheckBox}>
                 <FormControlLabel
                   value="yes"
@@ -222,6 +228,7 @@ const ContactMeForm: React.FC = () => {
                   style={{ color: THEME_PALETTE.text.primary }}
                 />
               </RadioGroup>
+              </Box>
             </Box>
             {TextFieldInfo.map((t, ind) => (
               <Box mt={2.5} key={t.id}>
@@ -237,8 +244,12 @@ const ContactMeForm: React.FC = () => {
                 />
               </Box>
             ))}
-            <Box mt={3} alignItems="center">
-              <label htmlFor="upload-photo">
+            <Box display='flex' flexDirection='row' mt={3} alignItems='center' style={{backgroundColor: THEME_PALETTE.primary.main}}>
+            <Box 
+             display='flex' flexDirection='row' 
+            style={{backgroundColor: THEME_PALETTE.primary.main}}
+             alignItems='center' width='100%' >
+              <label htmlFor="upload-photo" style={{width:"100%"}} >
                 <input
                   style={{ display: 'none' }}
                   id="upload-photo"
@@ -247,22 +258,31 @@ const ContactMeForm: React.FC = () => {
                   accept="image/*"
                   onChange={handleIdChange}
                 />
+                <Box display='flex' flexDirection='row' alignItems='center' p={2}>
 
-                <Box>+</Box>
-                {/* <Box>
-              </Box> */}
-                <Button onClick={handleUploadId}>Upload</Button>
-                <Box>{progress}</Box>
+                <Box width="100%">
+                <Typo  variant='body2' >Upload your college id</Typo>
+                </Box>
+                <Box  width="100%">
+                <Icon icon="akar-icons:cloud-upload" color='#a4a4a4' width={20}></Icon>
+                </Box>
+                </Box>
+                
+                {/* <Box>{progress}</Box> */}
               </label>
+                {/* <Box alignItems='center'> */}
+                  <Button  onClick={handleUploadId}>Upload</Button>
+                {/* </Box> */}
             </Box>
-            <Box mt={3}>
+                </Box>
+            <Box mt={3} pr={20/8}>
               <Button
                 fullWidth
                 variant="outlined"
                 color="primary"
                 type="submit"
               >
-                Pay Rs. 300
+                {!fromSRM ? 'Pay Rs. 300' : 'Register'}
               </Button>
             </Box>
           </form>

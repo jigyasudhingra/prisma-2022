@@ -107,11 +107,14 @@ const HeroContent: React.FC = () => {
 
           {/* Scroll With Vertical Line */}
           {!isDeviceSm && (
-            <Box height="100%" className="subHeading">
+            <Box marginTop={85 / 8} className="subHeading">
+              <Box>
+                <Typo className={classes.verticalText}>SCROLL</Typo>
+              </Box>
               <Box
                 display="flex"
                 width="100%"
-                pb={1}
+                marginTop={2}
                 // className="animate__animated animate__bounce animate__infinite animate__slower "
               >
                 <Box width="100%" />
@@ -151,9 +154,9 @@ const useStyles = makeStyles(() =>
     background: {
       // backgroundImage: `url(HERO_IMAGE)`,
       // background
-      // height: '100vh',
+      height: '100vh',
       // backgroundSize: 'cover',
-      minHeight: 690,
+      // minHeight: 690,
       position: 'relative',
     },
     overlay: {

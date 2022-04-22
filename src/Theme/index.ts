@@ -63,11 +63,11 @@ export default createTheme({
         backgroundSize: '300% 300%',
         fontWeight: 600,
         transition: '2s',
-        // border: '1.2px solid',
-        borderColor: 'transparent',
-        borderImageSlice: 1,
+        border: '1px solid #C216F2',
+        // borderColor: 'transparent',
+        // borderImageSlice: 1,
         // borderRadius: '6 !important',
-        borderImageSource: 'linear-gradient(135deg,#C216F2 25%,  #140D40 70%)',
+        // borderImageSource: 'linear-gradient(135deg,#C216F2 25%,  #140D40 70%)',
         '&:hover': {
           backgroundPosition: 'right center',
           backgroundImage:

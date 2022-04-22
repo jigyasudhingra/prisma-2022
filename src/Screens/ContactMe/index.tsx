@@ -20,18 +20,22 @@ const ContactMe: React.FC = () => {
                 <Box className={classes.verticalLine} />
               </Box>
             </Box>
+            <Box marginTop={1} />
+            <Typo variant="caption" className={classes.verticalLineText}>
+              Get yourself registered
+            </Typo>
           </Box>
 
           <Box width="100%" textAlign="center" pt={1}>
-            <Typo style={{ fontSize: 50, color: '#ffff' }} color="textPrimary">
-              Register
+            <Typo style={{ fontSize: 38, color: '#ffff' }} color="textPrimary" >
+              Register for the event
             </Typo>
           </Box>
         </>
       ) : (
         <Box width="100%" textAlign="center" pt={2.5}>
           <Typo variant="h5" color="textPrimary" gutterBottom>
-            Register
+            Register for the event
           </Typo>
         </Box>
       )}
