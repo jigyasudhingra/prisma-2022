@@ -4,6 +4,7 @@ import {
   Button,
   createStyles,
   FormControlLabel,
+  LinearProgress,
   makeStyles,
   Radio,
   RadioGroup,
@@ -11,15 +12,16 @@ import {
   Theme,
 } from '@material-ui/core';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { THEME_PALETTE } from 'Theme/themeConstants';
 import '../../App.css';
 import { useSnackbar } from 'notistack';
 import { storage } from 'firebase-config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { userSchema } from './UserValidation';
-import { Icon } from '@iconify/react';
 import Typo from 'Components/Typo';
+import { AppDialogContext } from 'Contexts/AppDialogContext';
+import useAsyncTask from 'Hooks/useAsyncTask';
+import { userSchema } from './UserValidation';
 
 const TextFieldInfo: {
   label: string;
@@ -44,11 +46,13 @@ declare global {
   }
 }
 export interface FormDetails {
-  name: string;
-  email: string;
-  phone: number;
-  collegeName: string;
-  fromSRM: boolean;
+  name: string | undefined;
+  email: string | undefined;
+  phone: number | undefined;
+  collegeName?: string;
+  fromSRM: boolean | undefined;
+  imageURL: string | undefined;
+  paymentID?: string;
 }
 
 const ContactMeForm: React.FC = () => {
@@ -57,10 +61,13 @@ const ContactMeForm: React.FC = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [razorpayError, setRazorpayError] = useState<string>('');
   const [razorpaySuccess, setRazorpaySuccess] = useState<boolean>(false);
+  const [razorpayPaymentID, setRazorpayPaymentID] = useState('');
   const [formDetails, setFormDetails] = useState<FormDetails>();
   const [fromSRM, setFromSRM] = useState<boolean>(false);
   const [file, setFile] = useState<any>('');
   const [progress, setProgress] = useState(0);
+  const [imageURL, setImageURL] = useState('');
+  const { showDialog } = useContext(AppDialogContext);
 
   useEffect(() => {
     if (razorpaySuccess !== false) {
@@ -111,6 +118,7 @@ const ContactMeForm: React.FC = () => {
         if (response.razorpay_payment_id) {
           formData.paymentId = response.razorpay_payment_id;
           setRazorpaySuccess(true);
+          setRazorpayPaymentID(response.razorpay_payment_id);
         }
       },
       prefill: {
@@ -139,15 +147,30 @@ const ContactMeForm: React.FC = () => {
     rzp1.open();
   };
 
+  useEffect(() => {
+    const tempForm = {
+      name: formDetails?.name,
+      email: formDetails?.email,
+      fromSRM: formDetails?.fromSRM,
+      phone: formDetails?.phone,
+      imageURL: formDetails?.imageURL,
+      paymentId: razorpayPaymentID,
+    };
+    setFormDetails(tempForm);
+  }, [razorpaySuccess]);
+
   const createUser = async (event: any) => {
     event.preventDefault();
-    const formData = {
+    const formData: FormDetails = {
       name: event.target[0].value,
       fromSRM,
       email: event.target[3].value,
+      // collegName: 'SRM',
       phone: event.target[5].value,
-      paymentId: '',
+      imageURL,
+      // paymentId: '',
     };
+    setFormDetails(formData);
     const isValid = await userSchema.isValid(formData);
     // const res = await handleClick(formData);
     console.log(formData, isValid);
@@ -157,14 +180,11 @@ const ContactMeForm: React.FC = () => {
   const handleCheckBox = (e: any) => {
     if (e?.target.value === 'yes') setFromSRM(true);
   };
+
   const printChange = (e: any) => {
     console.log(e.target);
   };
-  const handleIdChange = (e: any) => {
-    e.preventDefault();
-    if (e.target.files) setFile(e.target.files[0]);
-  };
-  const handleUploadId = () => {
+  const handleUploadId = async () => {
     //
     if (!file) return;
     const sotrageRef = ref(storage, `files/${file.name}`);
@@ -182,10 +202,32 @@ const ContactMeForm: React.FC = () => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log('File available at', downloadURL);
+          setImageURL(downloadURL);
         });
       }
     );
   };
+  console.log('Hello');
+  const handleUploadTask = useAsyncTask(handleUploadId);
+
+  useEffect(() => {
+    if (file !== '') {
+      handleUploadTask.run({});
+    }
+  }, [file]);
+  useEffect(() => {
+    if (imageURL !== '') {
+      setProgress(0);
+    }
+  }, [imageURL]);
+
+  const handleIdChange = async (e: any) => {
+    e.preventDefault();
+    if (e.target.files) {
+      await setFile(e.target.files[0]);
+    }
+  };
+
   return (
     <Box
       pt={4}
@@ -209,25 +251,31 @@ const ContactMeForm: React.FC = () => {
                 }}
               />
             </Box>
-            <Box mt={2.5} key="fromSRM" display='flex' flexDirection='row' alignItems='center'>
+            <Box
+              mt={2.5}
+              key="fromSRM"
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+            >
               <Box>
-              <Typo>Are you from SRM: </Typo>
+                <Typo>Are you from SRM: </Typo>
               </Box>
               <Box pl={3}>
-              <RadioGroup row name="fromSRM" onChange={handleCheckBox}>
-                <FormControlLabel
-                  value="yes"
-                  control={<Radio />}
-                  label="Yes"
-                  style={{ color: THEME_PALETTE.text.primary }}
-                />
-                <FormControlLabel
-                  value="no"
-                  control={<Radio />}
-                  label="No"
-                  style={{ color: THEME_PALETTE.text.primary }}
-                />
-              </RadioGroup>
+                <RadioGroup row name="fromSRM" onChange={handleCheckBox}>
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                    style={{ color: THEME_PALETTE.text.primary }}
+                  />
+                  <FormControlLabel
+                    value="no"
+                    control={<Radio />}
+                    label="No"
+                    style={{ color: THEME_PALETTE.text.primary }}
+                  />
+                </RadioGroup>
               </Box>
             </Box>
             {TextFieldInfo.map((t, ind) => (
@@ -244,38 +292,85 @@ const ContactMeForm: React.FC = () => {
                 />
               </Box>
             ))}
-            <Box display='flex' flexDirection='row' mt={3} alignItems='center' style={{backgroundColor: THEME_PALETTE.primary.main}}>
-            <Box 
-             display='flex' flexDirection='row' 
-            style={{backgroundColor: THEME_PALETTE.primary.main}}
-             alignItems='center' width='100%' >
-              <label htmlFor="upload-photo" style={{width:"100%"}} >
-                <input
-                  style={{ display: 'none' }}
-                  id="upload-photo"
-                  name="upload-photo"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleIdChange}
-                />
-                <Box display='flex' flexDirection='row' alignItems='center' p={2}>
-
+            <Box
+              display={!isDeviceSm && 'flex'}
+              flexDirection={!isDeviceSm && 'row'}
+              mt={3}
+              alignItems="center"
+              // style={{ backgroundColor: THEME_PALETTE.primary.main }}
+            >
+              <Box width="100%" pb={isDeviceSm ? 2 : 0}>
+                <Typo style={{ textAlignLast: isDeviceSm ? 'center' : 'left' }}>
+                  Upload your college ID:
+                </Typo>
+              </Box>
+              {/* <Box
+                display="flex"
+                flexDirection="row"
+                style={{ backgroundColor: THEME_PALETTE.primary.main }}
+                alignItems="center"
+                width="100%"
+              > */}
+              {imageURL !== '' ? (
                 <Box width="100%">
-                <Typo  variant='body2' >Upload your college id</Typo>
+                  <img
+                    // src="https://firebasestorage.googleapis.com/v0/b/prisma-2k22.appspot.com/o/files%2FLinkedIn%20Banner%20-%20Jigyasu%20Dhingra.png?alt=media&token=0d951620-e0bf-4e67-81eb-476ef902b518"
+                    src={imageURL}
+                    width={50}
+                    alt="uplaoded-college-id"
+                  />
                 </Box>
-                <Box  width="100%">
-                <Icon icon="akar-icons:cloud-upload" color='#a4a4a4' width={20}></Icon>
-                </Box>
-                </Box>
-                
-                {/* <Box>{progress}</Box> */}
-              </label>
-                {/* <Box alignItems='center'> */}
-                  <Button  onClick={handleUploadId}>Upload</Button>
-                {/* </Box> */}
+              ) : (
+                <label htmlFor="upload-photo" style={{ width: '100%' }}>
+                  <input
+                    style={{ display: 'none' }}
+                    id="upload-photo"
+                    name="upload-photo"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleIdChange}
+                  />
+                  {/* <Box
+                    display="flex"
+                    flexDirection="row"
+                    alignItems="center"
+                    p={2}
+                  >
+                    <Box width="100%">
+                      <Icon
+                        icon="akar-icons:cloud-upload"
+                        color="#a4a4a4"
+                        width={20}
+                      />
+                    </Box>
+                  </Box> */}
+
+                  <Box
+                    border={`1px dashed ${THEME_PALETTE.secondary.main} `}
+                    width={50}
+                    height={50}
+                  >
+                    {progress !== 0 ? (
+                      <LinearProgress
+                        color="secondary"
+                        className={classes.loader}
+                      />
+                    ) : (
+                      <Box
+                        border={`1px dashed ${THEME_PALETTE.secondary.main}`}
+                        borderRadius={50}
+                        color={THEME_PALETTE.secondary.main}
+                        width={18}
+                        mt={14 / 8}
+                      >
+                        +
+                      </Box>
+                    )}
+                  </Box>
+                </label>
+              )}
             </Box>
-                </Box>
-            <Box mt={3} pr={20/8}>
+            <Box mt={3} pr={20 / 8}>
               <Button
                 fullWidth
                 variant="outlined"
@@ -330,6 +425,11 @@ const useStyles = makeStyles((theme: Theme) =>
     verticalLineText: {
       color: '#F4A203',
       letterSpacing: 1.1,
+    },
+    loader: {
+      transform: 'translateY(-50%)',
+      marginTop: '50%',
+      marginBottom: '50%',
     },
   })
 );

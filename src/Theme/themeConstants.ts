@@ -12,7 +12,7 @@ export const THEME_PALETTE = {
   },
   text: {
     primary: '#a4a4a4',
-    secondary: '#ff9800',
+    secondary: '#FF914D',
     // primary: "#4D4D4D",
     // secondary: "#808080"
   },
@@ -38,7 +38,7 @@ export const THEME_PALETTE = {
     contrastText: '#FFFFFF',
   },
   secondary: {
-    main: '#ff9800',
+    main: '#FF914D',
     contrastText: '#FFFFFF',
   },
   success: {

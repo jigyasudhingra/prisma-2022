@@ -68,7 +68,7 @@ const NavigationMenu: React.FC = () => {
         <Box
           display="flex"
           flexDirection="row"
-          height={60}
+          height={80}
           width="auto"
           alignItems="center"
           pl={!isDeviceSm ? 9 : 3}
@@ -76,9 +76,9 @@ const NavigationMenu: React.FC = () => {
           justifyContent="center"
         >
           {!isDeviceSm && (
-            <Box alignItems="left" width="100%">
-              <Box>
-                <img width={70} src={LOGO} alt="website-logo" />
+            <Box alignItems="left" width="44%">
+              <Box pt={2}>
+                <img width={120} src={LOGO} alt="website-logo" />
               </Box>
             </Box>
           )}
@@ -87,9 +87,9 @@ const NavigationMenu: React.FC = () => {
             width="100%"
             // flexBasis={!isDeviceSm && 'content'}
           >
-            <Box display="flex" flexDirection="row" width="100%">
+            <Box display="flex" flexDirection="row">
               {NAVIGATION_LINKS.map((nl) => (
-                <Box width="100%" textAlign="center" key={nl.id}>
+                <Box width="56%" textAlign="center" key={nl.id}>
                   <Link
                     smooth
                     to={nl.url}

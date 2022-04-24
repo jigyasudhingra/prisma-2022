@@ -9,13 +9,11 @@ import {
 import React from 'react';
 import { THEME_PALETTE } from 'Theme/themeConstants';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
-import clsx from 'clsx';
 import Typo from 'Components/Typo';
-import HERO_IMAGE from '../../../Assets/PrismaHome.mp4';
+import clsx from 'clsx';
+import HERO_IMAGE from '../../../Assets/1.mp4';
 import 'animate.css';
-import RightSocials from './RightSocials';
 import LeftSocials from './LeftSocials';
-import StyledIcons from './StyledIcons';
 
 const HeroContent: React.FC = () => {
   const classes = useStyles();
@@ -37,101 +35,82 @@ const HeroContent: React.FC = () => {
         />
       </Box>
       <Box className={classes.overlay} />
-      <Box
-        width="100%"
-        display="flex"
-        paddingTop={!isDeviceSm ? 12 : 15}
-        justifyContent="center"
-      >
-        <StyledIcons />
-        {!isDeviceSm && (
-          <Box
-            width="14%"
-            position="relative"
-            className="animate__animated animate__fadeIn animate__delay-1s"
-          >
-            <LeftSocials />
-          </Box>
-        )}
+      {!isDeviceSm && (
         <Box
-          position="relative"
-          width={isDeviceSm ? 'auto' : '72%'}
-          height="100%"
-          textAlign="center"
-          justifyContent="center"
-          alignSelf="center"
-          marginTop={5}
+          // width="14%"
+          left={120}
+          position="absolute"
+          className="animate__animated animate__fadeIn animate__delay-1s"
+          bottom={80}
+          // height="100vh"
         >
-          <Box>
-            <Typo
-              color="textSecondary"
-              style={{ letterSpacing: 1.6 }}
-              variant={!isDeviceSm ? 'body1' : 'body2'}
-            >
-              The Annual Techno Cultural Fest
+          <LeftSocials />
+        </Box>
+      )}
+
+      <Box
+        textAlign="center"
+        justifyContent="center"
+        alignSelf="center"
+        position="relative"
+        pt={20}
+      >
+        <Box bottom={5}>
+          <Typo
+            color="textSecondary"
+            style={{ letterSpacing: 1.6 }}
+            variant={!isDeviceSm ? 'body1' : 'body2'}
+          >
+            The Annual Techno Cultural Fest
+          </Typo>
+        </Box>
+        {/* <Box height={2} /> */}
+        <Box className={classes.heading}>
+          <Typography
+            variant={!isDeviceSm ? 'h2' : 'h4'}
+            className={
+              !isDeviceSm ? classes.nameHeading : classes.mobileNameHeading
+            }
+          >
+            PRISMA 2K22
+          </Typography>
+        </Box>
+        <Box height={25} />
+        <Box className="subHeading">
+          <Box className={classes.subHeading} pl={6} pr={6}>
+            <Typo variant="body2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reiciendis recusandae ipsam veniam incidunt libero deserunt dicta
+              nemo, delectus nisi dolorum fugit. Nam, iure asperiores? Officia
+              quia iure at qui nam adipisci laborum illo obcaecati veniam,
             </Typo>
           </Box>
-          {/* <Box height={2} /> */}
-          <Box className={classes.heading}>
-            <Typography
-              variant={!isDeviceSm ? 'h2' : 'h4'}
-              className={
-                !isDeviceSm ? classes.nameHeading : classes.mobileNameHeading
-              }
-            >
-              PRISMA 2K22
-            </Typography>
-          </Box>
-          <Box height={25} />
-          <Box className="subHeading">
-            <Box className={classes.subHeading} pl={6} pr={6}>
-              <Typo variant="body2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reiciendis recusandae ipsam veniam incidunt libero deserunt
-                dicta nemo, delectus nisi dolorum fugit. Nam, iure asperiores?
-                Officia quia iure at qui nam adipisci laborum illo obcaecati
-                veniam,
-              </Typo>
-            </Box>
-          </Box>
-          <Box height={37} />
-          <Box display="flex" flexDirection="row" justifyContent="center">
-            <Button variant="outlined" color="primary">
-              Register For Fest
-            </Button>
-            {/* <Box width={10} />
+        </Box>
+        <Box height={37} />
+        <Box display="flex" flexDirection="row" justifyContent="center">
+          <Button variant="outlined" color="primary">
+            Register For Fest
+          </Button>
+          {/* <Box width={10} />
           <Button variant="contained" color="secondary">
             Resume
           </Button> */}
-          </Box>
+        </Box>
 
-          {/* Scroll With Vertical Line */}
-          {!isDeviceSm && (
-            <Box marginTop={85 / 8} className="subHeading">
-              <Box>
-                <Typo className={classes.verticalText}>SCROLL</Typo>
-              </Box>
-              <Box
-                display="flex"
-                width="100%"
-                marginTop={2}
-                // className="animate__animated animate__bounce animate__infinite animate__slower "
-              >
-                <Box width="100%" />
-                <Box width="100%">
-                  <Box className={classes.verticalLine} />
-                </Box>
+        {/* Scroll With Vertical Line */}
+        {!isDeviceSm && (
+          <Box marginTop={85 / 8} className="subHeading">
+            <Box
+              display="flex"
+              width="100%"
+              marginTop={2}
+              className="animate__animated animate__bounce animate__infinite animate__slower "
+            >
+              <Box width="100%" />
+              <Box width="100%">
+                <Box className={classes.verticalLine} />
               </Box>
             </Box>
-          )}
-        </Box>
-        {!isDeviceSm && (
-          <Box
-            width="14%"
-            position="relative"
-            className="animate__animated animate__fadeIn animate__delay-1s"
-          >
-            <RightSocials />
           </Box>
         )}
       </Box>
@@ -154,9 +133,9 @@ const useStyles = makeStyles(() =>
     background: {
       // backgroundImage: `url(HERO_IMAGE)`,
       // background
-      height: '100vh',
+      // height: '100vh',
       // backgroundSize: 'cover',
-      // minHeight: 690,
+      minHeight: 690,
       position: 'relative',
     },
     overlay: {

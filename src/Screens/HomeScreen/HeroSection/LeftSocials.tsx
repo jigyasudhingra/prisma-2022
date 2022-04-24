@@ -75,6 +75,12 @@ const LeftSocials: React.FC = () => {
           ))}
         </Box>
       </Box>
+      <Box display="flex" width="100%">
+        <Box width="100%" />
+        <Box width="100%">
+          <Box className={classes.verticalLine} />
+        </Box>
+      </Box>
     </Box>
   );
 };

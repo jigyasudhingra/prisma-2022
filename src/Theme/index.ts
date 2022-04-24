@@ -62,18 +62,21 @@ export default createTheme({
         padding: '1em 3em',
         backgroundSize: '300% 300%',
         fontWeight: 600,
-        transition: '2s',
-        border: '1px solid #C216F2',
+        // transition: '2s',
+        border: '1px solid #FF914D',
         // borderColor: 'transparent',
         // borderImageSlice: 1,
-        // borderRadius: '6 !important',
-        // borderImageSource: 'linear-gradient(135deg,#C216F2 25%,  #140D40 70%)',
+        borderRadius: '6 !important',
+        // borderImageSource: 'linear-gradient(135deg,#CD4885 25%,  #140D40 70%)',
         '&:hover': {
           backgroundPosition: 'right center',
-          backgroundImage:
-            'linear-gradient(135deg, #C216F2 0%, #140D40 50%, #C216F2 100%)',
-          borderColor: 'transparent',
+          // backgroundImage:
+          //   'linear-gradient(135deg, #FF914D 5%, #0A192F 50%, #FF914D 100%)',
+          backgroundImage: '#FF914D',
+          borderColor: '#FF914D',
           borderRadius: 6,
+          backgroundColor: '#FF914D',
+          color: '#0A192F',
         },
       },
       outlinedSizeLarge: {
