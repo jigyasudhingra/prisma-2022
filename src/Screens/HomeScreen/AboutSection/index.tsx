@@ -7,6 +7,7 @@ import { Box, createStyles, IconButton, makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
 import HERO_IMAGE from '../../../Assets/RegistrationEnquiryQR.png';
 import '../../../App.css';
+import ABOUT_PRISMA_BACKGROUND from '../../../Assets/AboutPrismaBackground.png';
 
 const AboutSection: React.FC = () => {
   const classes = useStyles();
@@ -39,7 +40,7 @@ const AboutSection: React.FC = () => {
 
   const images = [HERO_IMAGE, HERO_IMAGE, HERO_IMAGE, HERO_IMAGE];
   return (
-    <Box p={5} className="subHeading">
+    <Box p={5} className={clsx(classes.background, 'subHeading')}>
       <Slider
         centerPadding="0"
         ref={slider}
@@ -52,9 +53,10 @@ const AboutSection: React.FC = () => {
         focusOnSelect
         cssEase="linear"
         touchMove
-        autoplay
-        speed={500}
-        nextArrow={<CarouselNextButton />}
+        // autoplay
+        // speed={500}
+        className={classes.root}
+        nextArrow={<CarouselNextButton className={classes.nextArrow} />}
         prevArrow={<CarouselPrevButton />}
         beforeChange={(current, next) => {
           setImageIndex(next);
@@ -76,6 +78,47 @@ export default AboutSection;
 
 const useStyles = makeStyles(() =>
   createStyles({
+    nextArrow: {
+      left: 500,
+    },
+    background: {
+      backgroundImage: `url(${ABOUT_PRISMA_BACKGROUND})`,
+      height: '100%',
+      backgroundSize: 'cover',
+      minHeight: 690,
+      position: 'relative',
+    },
+    root: {
+      // '& .slick-next:before': {
+      //   fontSize: 1,
+      //   left: 500,
+      // },
+      // '& .slick-prev:before': {
+      //   fontSize: 1,
+      // },
+      // '& .slick-prev': {
+      //   top: 85,
+      //   left: '-75px',
+      // },
+      // '& .slick-arrow': {
+      //   top: 85,
+      //   left: '-75px',
+      // },
+      // '& .slick-next': {
+      //   top: 85,
+      //   paddingLeft: '42px',
+      // },
+      // '& .slick-list': {
+      //   width: 340,
+      //   marginLeft: -20,
+      // },
+      // '& .slick-disabled': {
+      //   opacity: 0.5,
+      //   pointerEvents: 'none',
+      // },
+      // height: 10,
+      // width: 250,
+    },
     activeImage: {
       transform: 'scale(1.1)',
       opacity: 1,

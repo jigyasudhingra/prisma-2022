@@ -3,40 +3,37 @@ import Typo from 'Components/Typo';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
 import React from 'react';
 import { THEME_PALETTE } from 'Theme/themeConstants';
-import ENQUIRY_QR from '../../Assets/RegistrationEnquiryQR.png'
+import ENQUIRY_QR from '../../Assets/RegistrationEnquiryQR.png';
 
 const ContactDetails = () => {
   const classes = useStyles();
   const { isDeviceSm } = useMediaQuery();
   return (
-    <Box pt={4} pl={isDeviceSm ? 4 : 9} pr={isDeviceSm ? 4 : 5} pb={4} >
+    <Box pt={4} pl={isDeviceSm ? 4 : 9} pr={isDeviceSm ? 4 : 5} pb={4}>
       <Box className={classes.background} px={4} pt={4} pb={4}>
-        <Box className={classes.innerBackground} py={2.5} px={5} >
-          <Typo gutterBottom weight='bold' variant='h6'>
-
+        <Box className={classes.innerBackground} py={2.5} px={5}>
+          <Typo gutterBottom weight="bold" variant="h6">
             NOTE:-
           </Typo>
           <Typo className={classes.note} gutterBottom>
-          1. College ID CARD is mandatory for the registration process.
+            1. College ID CARD is mandatory for the registration process.
           </Typo>
           <Typo className={classes.note} gutterBottom>
-          2. The ID Card is required to be uploaded on the website portal. 
+            2. The ID Card is required to be uploaded on the website portal.
           </Typo>
           <Typo className={classes.note} gutterBottom>
-
-          3. The Original ID Card will also be checked at the entry gate on the day of the fest.
+            3. The Original ID Card will also be checked at the entry gate on
+            the day of the fest.
           </Typo>
-          <Typo className={classes.note} gutterBottom weight='bold'>
-
-          *Early Bird Tickets are on Sale, Limited Time Offer!*
+          <Typo className={classes.note} gutterBottom weight="bold">
+            *Early Bird Tickets are on Sale, Limited Time Offer!*
           </Typo>
           <Typo className={classes.note}>
-
-          For any Questions and Queries, Scan the QR Code:-
+            For any Questions and Queries, Scan the QR Code:-
           </Typo>
-            
-          <Box pt={1} alignItems='center' >
-          <img src={ENQUIRY_QR} width={150}/>
+
+          <Box pt={1} alignItems="center">
+            <img src={ENQUIRY_QR} width={150} />
           </Box>
           {/* </Typo> */}
         </Box>
@@ -55,9 +52,9 @@ const useStyles = makeStyles((theme: Theme) =>
     innerBackground: {
       backgroundColor: THEME_PALETTE.primary.main,
     },
-    note:{
+    note: {
       fontSize: 16,
       paddingTop: 12,
-    }
+    },
   })
 );

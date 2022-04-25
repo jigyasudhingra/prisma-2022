@@ -20,6 +20,7 @@
     "clsx": "^1.1.1",
     "easy-peasy": "^3.3.0",
     "firebase": "^9.6.0",
+    "formik": "^2.2.9",
     "notistack": "^2.0.4",
     "razorpay": "^2.8.1",
     "react": "^16.12.0",

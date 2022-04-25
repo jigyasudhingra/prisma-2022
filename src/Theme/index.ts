@@ -58,7 +58,7 @@ export default createTheme({
         textDecoration: 'none',
         textTransform: 'uppercase',
         color: THEME_PALETTE.primary.contrastText,
-        margin: 10,
+        // margin: 10,
         padding: '1em 3em',
         backgroundSize: '300% 300%',
         fontWeight: 600,
@@ -67,6 +67,11 @@ export default createTheme({
         // borderColor: 'transparent',
         // borderImageSlice: 1,
         borderRadius: '6 !important',
+        '&.Mui-disabled': {
+          border: `1px solid ${THEME_PALETTE.secondary.main}`,
+          color: THEME_PALETTE.primary.contrastText,
+          opacity: 0.5,
+        },
         // borderImageSource: 'linear-gradient(135deg,#CD4885 25%,  #140D40 70%)',
         '&:hover': {
           backgroundPosition: 'right center',
