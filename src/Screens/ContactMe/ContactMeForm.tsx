@@ -24,8 +24,8 @@ import useAsyncTask from 'Hooks/useAsyncTask';
 import { useFormik } from 'formik';
 import clsx from 'clsx';
 import Loader from 'Components/Loader';
-import { userSchema } from './UserValidation';
 import EntriesDataService from '../../entries-service';
+import { userSchema } from './UserValidation';
 
 declare global {
   interface Window {
@@ -48,14 +48,13 @@ const ContactMeForm: React.FC = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [razorpayError, setRazorpayError] = useState<string>('');
   const [razorpaySuccess, setRazorpaySuccess] = useState<boolean>(false);
-  const [razorpayPaymentID, setRazorpayPaymentID] = useState('');
-  const [formDetails, setFormDetails] = useState<FormDetails>();
   const [fromSRM, setFromSRM] = useState<boolean>(false);
   const [file, setFile] = useState<any>('');
   const [progress, setProgress] = useState(0);
   const [imageURL, setImageURL] = useState('');
   const [submitText, setSubmitText] = useState('Register');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [paymentId, setPaymentId] = useState('');
   const { showDialog } = useContext(AppDialogContext);
 
   useEffect(() => {
@@ -94,7 +93,7 @@ const ContactMeForm: React.FC = () => {
     }
   }, [razorpayError, razorpaySuccess]);
 
-  const handleClick = (formData: any) => {
+  const handleClick = async (formData: any) => {
     const options = {
       key: 'rzp_test_6pc6uApcFYOURV',
       amount: 300 * 100,
@@ -105,15 +104,15 @@ const ContactMeForm: React.FC = () => {
       // eslint-disable-next-line camelcase
       handler(response: { razorpay_payment_id: string }) {
         if (response.razorpay_payment_id) {
-          formData.paymentId = response.razorpay_payment_id;
           setRazorpaySuccess(true);
-          setRazorpayPaymentID(response.razorpay_payment_id);
+          setPaymentId(response.razorpay_payment_id);
+          // setRazorpayPaymentID(response.razorpay_payment_id);
         }
       },
       prefill: {
-        name: formData.name,
-        email: formData.email,
-        contact: formData.phone,
+        name: formData.values.name,
+        email: formData.values.email,
+        contact: formData.values.phone,
       },
       notes: {
         address: 'SRM University, Sonepat, Haryana',
@@ -135,45 +134,13 @@ const ContactMeForm: React.FC = () => {
     // };
     rzp1.open();
   };
+  const paymentHandler = useAsyncTask(handleClick);
 
   useEffect(() => {
-    const tempForm = {
-      name: formDetails?.name,
-      email: formDetails?.email,
-      fromSRM: formDetails?.fromSRM,
-      phone: formDetails?.phone,
-      imageURL: formDetails?.imageURL,
-      paymentId: razorpayPaymentID,
-    };
-    setFormDetails(tempForm);
-  }, [razorpaySuccess]);
-
-  const createUser = async (event: any) => {
-    event.preventDefault();
-    const formData: FormDetails = {
-      name: event.target[0].value,
-      fromSRM,
-      email: event.target[3].value,
-      collegeName: event.target[4].value,
-      phone: event.target[5].value,
-      imageURL,
-      // paymentId: '',
-    };
-    setFormDetails(formData);
-    const isValid = await userSchema.isValid(formData);
-    // const res = await handleClick(formData);
-    console.log(formData, isValid);
-    // setFormDetails({
-    //   name: '',
-    //   email: '',
-    //   collegeName: '',
-    //   fromSRM: false,
-    //   paymentID: '',
-    //   phone: undefined,
-    //   imageURL: '',
-    // });
-    return isValid;
-  };
+    if (paymentId !== '') saveHandlerRun.run({});
+    formik.setValues(formik.initialValues);
+    setImageURL('');
+  }, [paymentId]);
 
   const handleCheckBox = (e: any) => {
     formik.setFieldValue('fromSRM', e?.target.value);
@@ -239,7 +206,10 @@ const ContactMeForm: React.FC = () => {
   }, [imageURL]);
 
   const saveToFirebase = async () => {
-    const res = await EntriesDataService.addEntry(formik.values);
+    const res = await EntriesDataService.addEntry({
+      ...formik.values,
+      paymentId,
+    });
   };
 
   const saveHandlerRun = useAsyncTask(saveToFirebase);
@@ -256,13 +226,21 @@ const ContactMeForm: React.FC = () => {
     onSubmit: (values) => {
       console.log(values);
       setIsLoading(true);
-      saveHandlerRun.run({});
+      if (fromSRM) {
+        saveHandlerRun.run({});
+        formik.setValues(formik.initialValues);
+        setImageURL('');
+      }
+      if (!fromSRM) paymentHandler.run({ values });
       setIsLoading(false);
-      formik.setValues(formik.initialValues);
-      setImageURL('');
     },
     validationSchema: userSchema,
   });
+  const getAllFieldsHandler = async () => {
+    const res = await EntriesDataService.getAllEntries();
+    console.log(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
+  // getAllFieldsHandler();
   return (
     <Box
       pt={4}
@@ -397,7 +375,7 @@ const ContactMeForm: React.FC = () => {
                     <Typo
                       variant="caption"
                       color="secondary"
-                      style={{ float: 'left' }}
+                      style={{ float: !isDeviceSm && ('left' as any) }}
                     >
                       Required
                     </Typo>
@@ -423,7 +401,6 @@ const ContactMeForm: React.FC = () => {
                       name="upload-photo"
                       type="file"
                       accept="image/*"
-                      required
                       value={formik.values.imageURL}
                       onChange={handleIdChange}
                     />

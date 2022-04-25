@@ -1,75 +1,70 @@
-import './AboutSection.css';
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
-import '../../../../node_modules/slick-carousel/slick/slick.css';
-import { Box, createStyles, IconButton, makeStyles } from '@material-ui/core';
+import React from 'react';
+import { Box, Button, createStyles, makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
-import HERO_IMAGE from '../../../Assets/RegistrationEnquiryQR.png';
 import '../../../App.css';
+import Typo from 'Components/Typo';
 import ABOUT_PRISMA_BACKGROUND from '../../../Assets/AboutPrismaBackground.png';
+import PRISMA_ABOUT_LOGO from '../../../Assets/PrismaLogo-AboutSection.png';
 
 const AboutSection: React.FC = () => {
   const classes = useStyles();
-  const slider = React.useRef<Slider>(null);
-  const [imageIndex, setImageIndex] = useState(0);
-
-  interface CarouselButtonProps {
-    onClick?: () => {};
-    className?: string;
-    alt?: boolean;
-  }
-
-  const CarouselPrevButton = (props: CarouselButtonProps) => {
-    const { onClick, className, alt } = props;
-    return (
-      <IconButton onClick={onClick} className={clsx(className)}>
-        {'<'}
-      </IconButton>
-    );
-  };
-
-  const CarouselNextButton = (props: CarouselButtonProps) => {
-    const { onClick, className, alt } = props;
-    return (
-      <IconButton onClick={onClick} className={clsx(className)}>
-        {'>'}
-      </IconButton>
-    );
-  };
-
-  const images = [HERO_IMAGE, HERO_IMAGE, HERO_IMAGE, HERO_IMAGE];
   return (
-    <Box p={5} className={clsx(classes.background, 'subHeading')}>
-      <Slider
-        centerPadding="0"
-        ref={slider}
-        arrows
-        slidesToShow={3}
-        slidesToScroll={1}
-        dots
-        centerMode
-        infinite
-        focusOnSelect
-        cssEase="linear"
-        touchMove
-        // autoplay
-        // speed={500}
-        className={classes.root}
-        nextArrow={<CarouselNextButton className={classes.nextArrow} />}
-        prevArrow={<CarouselPrevButton />}
-        beforeChange={(current, next) => {
-          setImageIndex(next);
-        }}
+    <Box
+      p={5}
+      className={clsx(classes.background)}
+      display="flex"
+      flexDirection="row"
+    >
+      <Box
+        width="100%"
+        pt={4}
+        alignSelf="center"
+        style={{ textAlignLast: 'right' }}
+        textAlign="right"
       >
-        {images.map((i, idx) => (
-          <Box
-            className={idx === imageIndex ? classes.activeImage : classes.image}
+        <img
+          src={PRISMA_ABOUT_LOGO}
+          alt="prsima-logo-about-section"
+          width={420}
+          style={{ borderRadius: 10 }}
+        />
+      </Box>
+      <Box width="100%" p={10} pt={13} alignSelf="center">
+        <Box maxWidth={500}>
+          <Typo
+            style={{ fontSize: 37, letterSpacing: 1.1 }}
+            weight="bold"
+            color="secondary"
+            gutterBottom
           >
-            <img src={i} alt={i} width={100} />
-          </Box>
-        ))}
-      </Slider>
+            ABOUT PRISMA
+          </Typo>
+          <Typo variant="body2" gutterBottom style={{ marginBottom: 15 }}>
+            The cultural festival PRISMA witnesses the gathering of zealous
+            students from various universities to display their talents,
+            connect, mingle and celebrate their artistry together. At SRM we
+            celebrate our exuberant Annual Cultural Festival PRISMA, The fest is
+            organized by the students themselves, which gives them the
+            opportunity to enhance their management and organizing skills.
+          </Typo>
+          <Typo variant="body2" gutterBottom style={{ marginBottom: 15 }}>
+            At SRM we celebrate our exuberant Annual Cultural Festival PRISMA,
+            The fest is organized by the students themselves, which gives them
+            the opportunity to enhance their management and organizing skills.
+          </Typo>
+          <Typo variant="body2" gutterBottom style={{ marginBottom: 15 }}>
+            Its a PRISMATIC event which enlightens the heart of every student.
+            Students take part in various cultural events and expand the
+            horizons of their talents whilst celebrating their artistic visions
+            together.
+          </Typo>
+        </Box>
+        <Box pt={2.5}>
+          <Button variant="outlined" color="primary">
+            REGISTER FOR EVENT
+          </Button>
+        </Box>
+      </Box>
     </Box>
   );
 };
@@ -83,50 +78,10 @@ const useStyles = makeStyles(() =>
     },
     background: {
       backgroundImage: `url(${ABOUT_PRISMA_BACKGROUND})`,
-      height: '100%',
+      // height: '100%',
       backgroundSize: 'cover',
-      minHeight: 690,
+      // minHeight: 690,
       position: 'relative',
-    },
-    root: {
-      // '& .slick-next:before': {
-      //   fontSize: 1,
-      //   left: 500,
-      // },
-      // '& .slick-prev:before': {
-      //   fontSize: 1,
-      // },
-      // '& .slick-prev': {
-      //   top: 85,
-      //   left: '-75px',
-      // },
-      // '& .slick-arrow': {
-      //   top: 85,
-      //   left: '-75px',
-      // },
-      // '& .slick-next': {
-      //   top: 85,
-      //   paddingLeft: '42px',
-      // },
-      // '& .slick-list': {
-      //   width: 340,
-      //   marginLeft: -20,
-      // },
-      // '& .slick-disabled': {
-      //   opacity: 0.5,
-      //   pointerEvents: 'none',
-      // },
-      // height: 10,
-      // width: 250,
-    },
-    activeImage: {
-      transform: 'scale(1.1)',
-      opacity: 1,
-    },
-    image: {
-      transform: 'scale(0.7)',
-      transition: 'transform 300ms',
-      opacity: 0.5,
     },
   })
 );

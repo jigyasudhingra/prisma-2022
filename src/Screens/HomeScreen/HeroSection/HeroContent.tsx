@@ -11,7 +11,7 @@ import { THEME_PALETTE } from 'Theme/themeConstants';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
 import Typo from 'Components/Typo';
 import clsx from 'clsx';
-import HERO_IMAGE from '../../../Assets/1.mp4';
+import HERO_IMAGE from '../../../Assets/PrismaHome2.mp4';
 import 'animate.css';
 import LeftSocials from './LeftSocials';
 
@@ -143,7 +143,7 @@ const useStyles = makeStyles(() =>
       width: '100%',
       height: '100%',
       backgroundColor: alpha(THEME_PALETTE.primary.main, 0.3),
-      backdropFilter: 'blur(2px)',
+      backdropFilter: 'blur(4px)',
     },
     heading: {
       color: `${THEME_PALETTE.primary.contrastText}! important`,

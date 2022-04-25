@@ -2,6 +2,7 @@ import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
 import Typo from 'Components/Typo';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
 import React from 'react';
+import NavigationMenu from 'Screens/HomeScreen/NavigationMenu';
 import { THEME_PALETTE } from 'Theme/themeConstants';
 import ContactDetails from './ContactDetails';
 import ContactMeForm from './ContactMeForm';
@@ -11,23 +12,17 @@ const ContactMe: React.FC = () => {
   const { isDeviceSm } = useMediaQuery();
   return (
     <Box className={classes.background} id="contact">
+      <NavigationMenu />
       {!isDeviceSm ? (
         <>
-          <Box className="subHeading">
-            <Box display="flex" width="100%">
-              <Box width="100%" />
-              <Box width="100%">
-                <Box className={classes.verticalLine} />
-              </Box>
-            </Box>
-            <Box marginTop={1} />
+          <Box className="subHeading" pt={11}>
             <Typo variant="caption" className={classes.verticalLineText}>
               Get yourself registered
             </Typo>
           </Box>
 
           <Box width="100%" textAlign="center" pt={1}>
-            <Typo style={{ fontSize: 38, color: '#ffff' }} color="textPrimary" >
+            <Typo style={{ fontSize: 38, color: '#ffff' }} color="textPrimary">
               Register for the event
             </Typo>
           </Box>

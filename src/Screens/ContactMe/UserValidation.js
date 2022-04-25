@@ -17,7 +17,7 @@ export const userSchema = yup.object().shape({
       is: 'yes',
       then: yup
         .string()
-        .oneOf(emails, 'Enter valid college email-id')
+        // .oneOf(emails, 'Enter valid college email-id')
         .matches(
           new RegExp(
             /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(stu.srmuniversity.ac.in|srmuniversity.ac.in)$/

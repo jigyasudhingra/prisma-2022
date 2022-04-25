@@ -15,28 +15,28 @@ import LOGO from '../../Assets/PrismaLogo.png';
 const NAVIGATION_LINKS: { id: string; url: string; label: string }[] = [
   {
     id: 'home',
-    url: '#home',
+    url: '/',
     label: 'Home',
   },
   {
     id: 'events',
-    url: '#events',
+    url: '/events',
     label: 'Events',
   },
-  {
-    id: 'events-schedule',
-    url: '#events-schedule',
-    label: 'Events Schedule',
-  },
+  // {
+  //   id: 'events-schedule',
+  //   url: '#events-schedule',
+  //   label: 'Events Schedule',
+  // },
   {
     id: 'teams',
-    url: '#teams',
+    url: '/teams',
     label: 'Teams',
   },
   {
     id: 'register',
     url: '/register',
-    label: 'Contact',
+    label: 'Register',
   },
 ];
 
@@ -84,12 +84,14 @@ const NavigationMenu: React.FC = () => {
           )}
           <Box
             alignItems={!isDeviceSm && 'center'}
-            width="100%"
+            width="57%"
+            textAlign="right"
+            style={{ textAlignLast: 'right' }}
             // flexBasis={!isDeviceSm && 'content'}
           >
-            <Box display="flex" flexDirection="row">
+            <Box display="flex" flexDirection="row" justifyContent="right">
               {NAVIGATION_LINKS.map((nl) => (
-                <Box width="56%" textAlign="center" key={nl.id}>
+                <Box width="20%" textAlign="center" key={nl.id}>
                   <Link
                     smooth
                     to={nl.url}

@@ -1,8 +1,8 @@
 import { Box } from '@material-ui/core';
 import React from 'react';
-import ContactMe from 'Screens/ContactMe';
 import AboutSection from './AboutSection';
 import ArtistSection from './ArtistSection';
+import EventsSection from './EventsSection';
 import HeroContent from './HeroSection/HeroContent';
 import NavigationMenu from './NavigationMenu';
 
@@ -13,7 +13,7 @@ const HomeScreen = () => {
       <HeroContent />
       <AboutSection />
       <ArtistSection />
-      <ContactMe />
+      <EventsSection />
     </Box>
   );
 };
