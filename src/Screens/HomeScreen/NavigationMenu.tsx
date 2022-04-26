@@ -83,15 +83,20 @@ const NavigationMenu: React.FC = () => {
             </Box>
           )}
           <Box
+            alignSelf="center"
             alignItems={!isDeviceSm && 'center'}
-            width="57%"
-            textAlign="right"
-            style={{ textAlignLast: 'right' }}
+            width={isDeviceSm ? '80%' : '57%'}
+            textAlign={!isDeviceSm && 'right'}
+            style={{ textAlignLast: !isDeviceSm && ('right' as any) }}
             // flexBasis={!isDeviceSm && 'content'}
           >
             <Box display="flex" flexDirection="row" justifyContent="right">
               {NAVIGATION_LINKS.map((nl) => (
-                <Box width="20%" textAlign="center" key={nl.id}>
+                <Box
+                  width={isDeviceSm ? '100%' : '20%'}
+                  textAlign="center"
+                  key={nl.id}
+                >
                   <Link
                     smooth
                     to={nl.url}

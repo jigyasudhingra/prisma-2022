@@ -9,7 +9,7 @@ const ContactDetails = () => {
   const classes = useStyles();
   const { isDeviceSm } = useMediaQuery();
   return (
-    <Box pt={4} pl={isDeviceSm ? 4 : 9} pr={isDeviceSm ? 4 : 5} pb={4}>
+    <Box pt={4} pl={isDeviceSm ? 6 : 9} pr={isDeviceSm ? 6 : 5} pb={4}>
       <Box className={classes.background} px={4} pt={4} pb={4}>
         <Box className={classes.innerBackground} py={2.5} px={5}>
           <Typo gutterBottom weight="bold" variant="h6">
@@ -32,8 +32,12 @@ const ContactDetails = () => {
             For any Questions and Queries, Scan the QR Code:-
           </Typo>
 
-          <Box pt={1} alignItems="center">
-            <img src={ENQUIRY_QR} width={150} />
+          <Box pt={3} alignItems="center">
+            <img
+              src={ENQUIRY_QR}
+              width={isDeviceSm ? 70 : 150}
+              alt="enquiry-qr"
+            />
           </Box>
           {/* </Typo> */}
         </Box>
@@ -51,6 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     innerBackground: {
       backgroundColor: THEME_PALETTE.primary.main,
+      borderRadius: 10,
     },
     note: {
       fontSize: 16,

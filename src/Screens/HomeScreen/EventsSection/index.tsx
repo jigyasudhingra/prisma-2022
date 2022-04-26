@@ -60,6 +60,7 @@ const EventsSection: React.FC = () => {
         >
           {images.map((i, idx) => (
             <Box
+              key={i}
               className={
                 idx === imageIndex ? classes.activeImage : classes.image
               }

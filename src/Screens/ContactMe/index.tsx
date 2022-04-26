@@ -28,14 +28,24 @@ const ContactMe: React.FC = () => {
           </Box>
         </>
       ) : (
-        <Box width="100%" textAlign="center" pt={2.5}>
-          <Typo variant="h5" color="textPrimary" gutterBottom>
-            Register for the event
-          </Typo>
+        <Box>
+          <Box width="100%" textAlign="center" pt={2.5}>
+            <Box className="subHeading" pt={11}>
+              <Typo variant="caption" className={classes.verticalLineText}>
+                Get yourself registered
+              </Typo>
+            </Box>
+            <Typo variant="h5" color="textPrimary" gutterBottom>
+              Register for the event
+            </Typo>
+          </Box>
         </Box>
       )}
       {isDeviceSm ? (
-        <ContactMeForm />
+        <>
+          <ContactDetails />
+          <ContactMeForm />
+        </>
       ) : (
         <Box display="flex" flexDirection="row">
           <Box width="50%">
@@ -62,11 +72,11 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: THEME_PALETTE.primary.main,
     },
     verticalLine: {
-      borderLeft: `1px solid #F4A203`,
+      borderLeft: `1px solid ${THEME_PALETTE.secondary.main}`,
       height: 75,
     },
     verticalLineText: {
-      color: '#F4A203',
+      color: THEME_PALETTE.secondary.main,
       letterSpacing: 1.1,
     },
   })
