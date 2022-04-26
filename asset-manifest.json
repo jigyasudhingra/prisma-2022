@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/prisma-2022/static/css/main.38eea998.chunk.css",
-    "main.js": "/prisma-2022/static/js/main.6786565a.chunk.js",
-    "main.js.map": "/prisma-2022/static/js/main.6786565a.chunk.js.map",
+    "main.js": "/prisma-2022/static/js/main.1483cae4.chunk.js",
+    "main.js.map": "/prisma-2022/static/js/main.1483cae4.chunk.js.map",
     "runtime-main.js": "/prisma-2022/static/js/runtime-main.3007a304.js",
     "runtime-main.js.map": "/prisma-2022/static/js/runtime-main.3007a304.js.map",
     "static/css/2.753fdb7f.chunk.css": "/prisma-2022/static/css/2.753fdb7f.chunk.css",
-    "static/js/2.902cd3cc.chunk.js": "/prisma-2022/static/js/2.902cd3cc.chunk.js",
-    "static/js/2.902cd3cc.chunk.js.map": "/prisma-2022/static/js/2.902cd3cc.chunk.js.map",
+    "static/js/2.d918961e.chunk.js": "/prisma-2022/static/js/2.d918961e.chunk.js",
+    "static/js/2.d918961e.chunk.js.map": "/prisma-2022/static/js/2.d918961e.chunk.js.map",
     "index.html": "/prisma-2022/index.html",
-    "precache-manifest.581ec374f9e33cbbb587a13f74ddbdb2.js": "/prisma-2022/precache-manifest.581ec374f9e33cbbb587a13f74ddbdb2.js",
+    "precache-manifest.afeeb25cb7d1419bcba394546bba4b2d.js": "/prisma-2022/precache-manifest.afeeb25cb7d1419bcba394546bba4b2d.js",
     "service-worker.js": "/prisma-2022/service-worker.js",
     "static/css/2.753fdb7f.chunk.css.map": "/prisma-2022/static/css/2.753fdb7f.chunk.css.map",
     "static/css/main.38eea998.chunk.css.map": "/prisma-2022/static/css/main.38eea998.chunk.css.map",
-    "static/js/2.902cd3cc.chunk.js.LICENSE.txt": "/prisma-2022/static/js/2.902cd3cc.chunk.js.LICENSE.txt",
+    "static/js/2.d918961e.chunk.js.LICENSE.txt": "/prisma-2022/static/js/2.d918961e.chunk.js.LICENSE.txt",
     "static/media/AboutPrismaBackground.png": "/prisma-2022/static/media/AboutPrismaBackground.45ecd530.png",
     "static/media/ArtistSectionBackground.png": "/prisma-2022/static/media/ArtistSectionBackground.42669f00.png",
     "static/media/ParmishVerma.png": "/prisma-2022/static/media/ParmishVerma.22c680a1.png",
@@ -26,8 +26,8 @@
   "entrypoints": [
     "static/js/runtime-main.3007a304.js",
     "static/css/2.753fdb7f.chunk.css",
-    "static/js/2.902cd3cc.chunk.js",
+    "static/js/2.d918961e.chunk.js",
     "static/css/main.38eea998.chunk.css",
-    "static/js/main.6786565a.chunk.js"
+    "static/js/main.1483cae4.chunk.js"
   ]
 }
