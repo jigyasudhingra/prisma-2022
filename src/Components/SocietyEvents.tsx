@@ -50,11 +50,11 @@ const SocietyEvents = (props: SocietyEventsProps) => {
         pt={!isDeviceSm ? 8 : 5}
         pb={10}
         style={{ textAlignLast: 'center' }}
-        textAlign="center"
+        textAlign="-webkit-center"
       >
         <Grid container lg={12} item spacing={5} justifyContent="center">
           {Array.from(details).map((i) => (
-            <Grid item lg={4} sm={6} xs={12} key={i.eventName ?? 'fcr'}>
+            <Grid item lg={4} sm={6} xs={12} key={i.eventName}>
               <Box
                 p={2}
                 style={{ backgroundColor: cardColor }}
@@ -80,8 +80,6 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                     onClick={() =>
                       showDialog(
                         <Box pl={5} pr={5}>
-                          <Typo variant="body2">{i.eventDetail}</Typo>
-                          <Typo variant="body2">{i.eventDetail}</Typo>
                           <Typo variant="body2">{i.eventDetail}</Typo>
                         </Box>
                       )
