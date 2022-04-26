@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.38eea998.chunk.css",
+    "main.js": "/static/js/main.88c842af.chunk.js",
+    "main.js.map": "/static/js/main.88c842af.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.19ccc7f6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.19ccc7f6.js.map",
+    "static/css/2.6c2fb8fe.chunk.css": "/static/css/2.6c2fb8fe.chunk.css",
+    "static/js/2.ac928645.chunk.js": "/static/js/2.ac928645.chunk.js",
+    "static/js/2.ac928645.chunk.js.map": "/static/js/2.ac928645.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.02c07d2a5b108404eb483ac5ef5107fa.js": "/precache-manifest.02c07d2a5b108404eb483ac5ef5107fa.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.6c2fb8fe.chunk.css.map": "/static/css/2.6c2fb8fe.chunk.css.map",
+    "static/css/main.38eea998.chunk.css.map": "/static/css/main.38eea998.chunk.css.map",
+    "static/js/2.ac928645.chunk.js.LICENSE.txt": "/static/js/2.ac928645.chunk.js.LICENSE.txt",
+    "static/media/AboutPrismaBackground.png": "/static/media/AboutPrismaBackground.45ecd530.png",
+    "static/media/ArtistSectionBackground.png": "/static/media/ArtistSectionBackground.42669f00.png",
+    "static/media/ParmishVerma.png": "/static/media/ParmishVerma.22c680a1.png",
+    "static/media/PrismaHome2.mp4": "/static/media/PrismaHome2.d664871d.mp4",
+    "static/media/PrismaLogo-AboutSection.png": "/static/media/PrismaLogo-AboutSection.0491d2b3.png",
+    "static/media/PrismaLogo.png": "/static/media/PrismaLogo.3883da3e.png",
+    "static/media/RegistrationEnquiryQR.png": "/static/media/RegistrationEnquiryQR.d2b90f97.png",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19ccc7f6.js",
+    "static/css/2.6c2fb8fe.chunk.css",
+    "static/js/2.ac928645.chunk.js",
+    "static/css/main.38eea998.chunk.css",
+    "static/js/main.88c842af.chunk.js"
+  ]
+}
