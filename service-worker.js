@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/prisma-2022/precache-manifest.afeeb25cb7d1419bcba394546bba4b2d.js"
+  "/prisma-2022/precache-manifest.e66017cbdbf8f063abd245ff24f25c29.js"
 );
 
 self.addEventListener('message', (event) => {
