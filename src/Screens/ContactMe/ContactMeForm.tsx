@@ -210,6 +210,44 @@ const ContactMeForm: React.FC = () => {
       ...formik.values,
       paymentId,
     });
+    showDialog(
+      <Box>
+        <Box>
+          <Typo
+            variant="h5"
+            weight="bold"
+            style={{ color: `${THEME_PALETTE.primary.main}` }}
+          >
+            Congratulations! Your Registration is Successful.
+          </Typo>
+        </Box>
+        <Box mt={3}>
+          <Typo variant="h6" gutterBottom>
+            Your payment details:-
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.name && `Name: ${formik.values.name}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.fromSRM &&
+              `Are you from SRM: ${formik.values.fromSRM}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.email && `Email-id: ${formik.values.email}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.collegeName &&
+              `College Name: ${formik.values.collegeName}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.phone && `Phone Number: ${formik.values.phone}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {paymentId && `Payment Id: ${paymentId}`}
+          </Typo>
+        </Box>
+      </Box>
+    );
   };
 
   const saveHandlerRun = useAsyncTask(saveToFirebase);
