@@ -15,7 +15,8 @@ import Typo from './Typo';
 
 export interface CardDetailsProps {
   eventName: string;
-  eventDetail: string;
+  eventDetail: string | any;
+  eventDetailSummary: string;
 }
 // Summary only of 130 characters only
 export interface SocietyEventsProps {
@@ -33,7 +34,7 @@ const SocietyEvents = (props: SocietyEventsProps) => {
   const { showDialog } = useContext(AppDialogContext);
 
   return (
-    <Box style={{ backgroundColor }} pt={16}>
+    <Box style={{ backgroundColor }} pt={16} className={classes.bottomArrow}>
       <Box style={{ textAlignLast: 'center' }} textAlign="center">
         <Typo
           variant={isDeviceSm ? 'h5' : 'h4'}
@@ -51,6 +52,7 @@ const SocietyEvents = (props: SocietyEventsProps) => {
         pb={10}
         style={{ textAlignLast: 'center' }}
         textAlign="-webkit-center"
+        className={classes.bottomArrow}
       >
         <Grid container lg={12} item spacing={5} justifyContent="center">
           {Array.from(details).map((i) => (
@@ -71,7 +73,7 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                 </Box>
                 <Box>
                   <Typo variant="caption">
-                    {i.eventDetail.slice(0, 130)} ...
+                    {i.eventDetailSummary.slice(0, 126)} ...
                   </Typo>
                 </Box>
                 <Box pt={2} textAlign="-webkit-center">
@@ -79,9 +81,37 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                     style={{ fontSize: 12 }}
                     onClick={() =>
                       showDialog(
-                        <Box pl={5} pr={5}>
+                        <Box pl={5} pr={5} pb={5}>
                           <Typo variant="body2">{i.eventDetail}</Typo>
-                        </Box>
+                          <Box pb={3} pt={3}>
+                            <Typo gutterBottom variant="body2">
+                              Register for the event:{' '}
+                            </Typo>
+                            <Box>
+                              <Typo variant="caption" gutterBottom>
+                                <b>Name: </b> {contactDetails.name}
+                              </Typo>
+                            </Box>
+                            <Typo variant="caption">
+                              <b>Phone: </b>
+                              {contactDetails.phone}
+                            </Typo>
+                          </Box>
+                        </Box>,
+                        {
+                          title: i.eventName,
+                          isActionCloseButton: false,
+                          closeAfterTransition: true,
+                          headerProps: {
+                            headerClasses: classes.headerDialog,
+                            closeButtonClasses: classes.closeDialogButton,
+                          },
+                          PaperProps: {
+                            style: {
+                              backgroundColor: THEME_PALETTE.others.main,
+                            },
+                          },
+                        }
                       )
                     }
                   >
@@ -117,6 +147,21 @@ const useStyles = makeStyles((theme: Theme) =>
     underline: {
       width: 85,
       border: `1px solid ${THEME_PALETTE.secondary.main}`,
+    },
+    headerDialog: {
+      paddingTop: 40,
+      paddingLeft: 60,
+      color: THEME_PALETTE.secondary.main,
+      letterSpacing: 1.1,
+    },
+    closeDialogButton: {
+      color: THEME_PALETTE.grey[200],
+    },
+    bottomArrow: {
+      // backgroundImage: `url(${BOTTOM_ARROW})`,
+      // backgroundPosition: 'center',
+      // backgroundSize: '500px 500px',
+      // backgroundRepeat: 'no-repeat',
     },
   })
 );
