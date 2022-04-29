@@ -32,7 +32,9 @@ const SocietyEvents = (props: SocietyEventsProps) => {
   const classes = useStyles(props);
   const { isDeviceSm } = useMediaQuery();
   const { showDialog } = useContext(AppDialogContext);
-
+  const handleRegisterButton = () => {
+    console.log('Hello');
+  };
   return (
     <Box style={{ backgroundColor }} pt={16} className={classes.bottomArrow}>
       <Box style={{ textAlignLast: 'center' }} textAlign="center">
@@ -73,7 +75,7 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                 </Box>
                 <Box>
                   <Typo variant="caption">
-                    {i.eventDetailSummary.slice(0, 126)} ...
+                    {i.eventDetailSummary?.slice(0, 130)} ...
                   </Typo>
                 </Box>
                 <Box pt={2} textAlign="-webkit-center">
@@ -81,18 +83,22 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                     style={{ fontSize: 12 }}
                     onClick={() =>
                       showDialog(
-                        <Box pl={5} pr={5} pb={5}>
+                        <Box
+                          pl={5}
+                          pr={5}
+                          // pb={5}
+                        >
                           <Typo variant="body2">{i.eventDetail}</Typo>
                           <Box pb={3} pt={3}>
                             <Typo gutterBottom variant="body2">
                               Register for the event:{' '}
                             </Typo>
                             <Box>
-                              <Typo variant="caption" gutterBottom>
+                              <Typo variant="body2" gutterBottom>
                                 <b>Name: </b> {contactDetails.name}
                               </Typo>
                             </Box>
-                            <Typo variant="caption">
+                            <Typo variant="body2">
                               <b>Phone: </b>
                               {contactDetails.phone}
                             </Typo>
@@ -100,17 +106,30 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                         </Box>,
                         {
                           title: i.eventName,
+
                           isActionCloseButton: false,
                           closeAfterTransition: true,
                           headerProps: {
                             headerClasses: classes.headerDialog,
                             closeButtonClasses: classes.closeDialogButton,
                           },
+                          closeButtonText: 'REGISTER',
                           PaperProps: {
                             style: {
                               backgroundColor: THEME_PALETTE.others.main,
                             },
                           },
+                          // actionsChildren: (
+                          //   <Box
+                          //   width="100%"
+                          //   alignSelf="center"
+                          //   style={{ textAlignLast: 'center' }}
+                          //   >
+                          //     <Button href="/prisma2022/register">
+                          //       Register for event
+                          //     </Button>
+                          //   </Box>
+                          // ),
                         }
                       )
                     }
@@ -124,7 +143,7 @@ const SocietyEvents = (props: SocietyEventsProps) => {
         </Grid>
       </Box>
       <Box textAlign="center" pb={8}>
-        <Typo variant="h6">Contact Details</Typo>
+        <Typo variant="h6">For queries related to this event:</Typo>
         <hr className={classes.underline} />
         <Box>
           <Typo variant="body2" gutterBottom>
