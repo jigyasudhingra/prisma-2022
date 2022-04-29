@@ -65,7 +65,7 @@ const HeroContent: React.FC = () => {
           </Typo>
         </Box>
         {/* <Box height={2} /> */}
-        <Box className={classes.heading}>
+        <Box className={classes.heading} pt={2}>
           <Typography
             variant={!isDeviceSm ? 'h2' : 'h4'}
             className={

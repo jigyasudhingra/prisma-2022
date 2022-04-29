@@ -2,6 +2,7 @@ import { createStyles, makeStyles } from '@material-ui/core';
 import { Box } from '@mui/material';
 import clsx from 'clsx';
 import Typo from 'Components/Typo';
+import { useMediaQuery } from 'Hooks/useMediaQuery';
 import React from 'react';
 import { THEME_PALETTE } from 'Theme/themeConstants';
 import ARTIST_SECTION_BACKGROUND from '../../../Assets/ArtistSectionBackground.png';
@@ -9,12 +10,14 @@ import PARMISH_VERMA from '../../../Assets/ParmishVerma.png';
 
 const ArtistSection = () => {
   const classes = useStyles();
+  const { isDeviceSm } = useMediaQuery();
   return (
-    <Box p={10} className={clsx(classes.background)}>
+    <Box p={isDeviceSm ? 4 : 10} className={clsx(classes.background)}>
       <Box
         className={classes.innerBackground}
+        style={{ height: !isDeviceSm ? '70vh' : '' }}
         p={5}
-        display="flex"
+        display={!isDeviceSm ? 'flex' : ''}
         flexDirection="row"
       >
         <Box
@@ -22,18 +25,23 @@ const ArtistSection = () => {
           style={{ textAlignLast: 'center' }}
           alignSelf="center"
           textAlign="center" // For Safari (textAlignLast is not working in safari)
+          py={isDeviceSm ? 2 : 0}
         >
           <img
             src={PARMISH_VERMA}
             alt="parmish-verma"
-            width={380}
+            width={isDeviceSm ? '100%' : 380}
+            height="auto"
             style={{ borderRadius: 15 }}
           />
         </Box>
-        <Box width="100%" p={5} alignSelf="center">
-          <Box maxWidth={500}>
+        <Box width="100%" p={isDeviceSm ? 1 : 5} alignSelf="center">
+          <Box maxWidth={500} pt={isDeviceSm ? 2 : 0}>
             <Typo
-              style={{ fontSize: 37, letterSpacing: 1.1 }}
+              style={{
+                fontSize: isDeviceSm ? 25 : 37,
+                letterSpacing: 1.1,
+              }}
               weight="bold"
               color="secondary"
               gutterBottom
@@ -76,12 +84,11 @@ const useStyles = makeStyles(() =>
     innerBackground: {
       borderRadius: 10,
       backgroundColor: THEME_PALETTE.others.main,
-      height: `70vh`,
       // minHeight: 500,
     },
     background: {
       backgroundImage: `url(${ARTIST_SECTION_BACKGROUND})`,
-      maxHeight: '100vh',
+      // maxHeight: '100vh',
       backgroundSize: 'cover',
     },
   })
