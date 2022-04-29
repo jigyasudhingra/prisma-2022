@@ -1,33 +1,32 @@
 {
   "files": {
     "main.css": "/prisma-2022/static/css/main.38eea998.chunk.css",
-    "main.js": "/prisma-2022/static/js/main.357b4254.chunk.js",
-    "main.js.map": "/prisma-2022/static/js/main.357b4254.chunk.js.map",
+    "main.js": "/prisma-2022/static/js/main.8aa0c47d.chunk.js",
+    "main.js.map": "/prisma-2022/static/js/main.8aa0c47d.chunk.js.map",
     "runtime-main.js": "/prisma-2022/static/js/runtime-main.3007a304.js",
     "runtime-main.js.map": "/prisma-2022/static/js/runtime-main.3007a304.js.map",
-    "static/css/2.753fdb7f.chunk.css": "/prisma-2022/static/css/2.753fdb7f.chunk.css",
-    "static/js/2.362650ca.chunk.js": "/prisma-2022/static/js/2.362650ca.chunk.js",
-    "static/js/2.362650ca.chunk.js.map": "/prisma-2022/static/js/2.362650ca.chunk.js.map",
+    "static/css/2.2ce0d9b2.chunk.css": "/prisma-2022/static/css/2.2ce0d9b2.chunk.css",
+    "static/js/2.f9654db2.chunk.js": "/prisma-2022/static/js/2.f9654db2.chunk.js",
+    "static/js/2.f9654db2.chunk.js.map": "/prisma-2022/static/js/2.f9654db2.chunk.js.map",
     "index.html": "/prisma-2022/index.html",
-    "precache-manifest.e2532aa3655fab29dab328a4b8e24a74.js": "/prisma-2022/precache-manifest.e2532aa3655fab29dab328a4b8e24a74.js",
+    "precache-manifest.bad35fc899c30b8d198babae511b08cb.js": "/prisma-2022/precache-manifest.bad35fc899c30b8d198babae511b08cb.js",
     "service-worker.js": "/prisma-2022/service-worker.js",
-    "static/css/2.753fdb7f.chunk.css.map": "/prisma-2022/static/css/2.753fdb7f.chunk.css.map",
+    "static/css/2.2ce0d9b2.chunk.css.map": "/prisma-2022/static/css/2.2ce0d9b2.chunk.css.map",
     "static/css/main.38eea998.chunk.css.map": "/prisma-2022/static/css/main.38eea998.chunk.css.map",
-    "static/js/2.362650ca.chunk.js.LICENSE.txt": "/prisma-2022/static/js/2.362650ca.chunk.js.LICENSE.txt",
+    "static/js/2.f9654db2.chunk.js.LICENSE.txt": "/prisma-2022/static/js/2.f9654db2.chunk.js.LICENSE.txt",
     "static/media/AboutPrismaBackground.png": "/prisma-2022/static/media/AboutPrismaBackground.45ecd530.png",
-    "static/media/ArtistSectionBackground.png": "/prisma-2022/static/media/ArtistSectionBackground.42669f00.png",
+    "static/media/ArtistSectionBackground.png": "/prisma-2022/static/media/ArtistSectionBackground.f0c685dd.png",
     "static/media/ParmishVerma.png": "/prisma-2022/static/media/ParmishVerma.22c680a1.png",
     "static/media/PrismaHome2.mp4": "/prisma-2022/static/media/PrismaHome2.d664871d.mp4",
     "static/media/PrismaLogo-AboutSection.png": "/prisma-2022/static/media/PrismaLogo-AboutSection.0491d2b3.png",
     "static/media/PrismaLogo.png": "/prisma-2022/static/media/PrismaLogo.3883da3e.png",
-    "static/media/RegistrationEnquiryQR.png": "/prisma-2022/static/media/RegistrationEnquiryQR.d2b90f97.png",
-    "static/media/slick-theme.css": "/prisma-2022/static/media/slick.f97e3bbf.svg"
+    "static/media/RegistrationEnquiryQR.png": "/prisma-2022/static/media/RegistrationEnquiryQR.d2b90f97.png"
   },
   "entrypoints": [
     "static/js/runtime-main.3007a304.js",
-    "static/css/2.753fdb7f.chunk.css",
-    "static/js/2.362650ca.chunk.js",
+    "static/css/2.2ce0d9b2.chunk.css",
+    "static/js/2.f9654db2.chunk.js",
     "static/css/main.38eea998.chunk.css",
-    "static/js/main.357b4254.chunk.js"
+    "static/js/main.8aa0c47d.chunk.js"
   ]
 }
