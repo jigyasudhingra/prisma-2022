@@ -91,7 +91,7 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                           <Typo variant="body2">{i.eventDetail}</Typo>
                           <Box pb={3} pt={3}>
                             <Typo gutterBottom variant="body2">
-                              Register for the event:{' '}
+                              <b>For queries related to this event:</b>
                             </Typo>
                             <Box>
                               <Typo variant="body2" gutterBottom>
@@ -143,7 +143,7 @@ const SocietyEvents = (props: SocietyEventsProps) => {
         </Grid>
       </Box>
       <Box textAlign="center" pb={8}>
-        <Typo variant="h6">For queries related to this event:</Typo>
+        <Typo variant="h6">Contact Details:</Typo>
         <hr className={classes.underline} />
         <Box>
           <Typo variant="body2" gutterBottom>

@@ -42,23 +42,29 @@ const CoreTeamMembers = (props: CoreTeamMembersProps) => {
           {Array.from(details).map((i) => (
             <Grid item lg={4} sm={6} xs={12} key={i.name}>
               <Box
+                maxWidth={170}
                 p={2}
                 style={{ backgroundColor: cardColor }}
                 borderRadius={10}
               >
-                <Box>
-                  <img width={300} src={i.imageURL} alt={`profile-${i.name}`} />
+                <Box borderRadius={10} pt={0.5}>
+                  <img
+                    width={160}
+                    src={i.imageURL}
+                    alt={`profile-${i.name}`}
+                    style={{ borderRadius: 6 }}
+                  />
                 </Box>
-                <Box>
+                <Box pt={2}>
                   <Typo
-                    variant="body1"
+                    variant="body2"
                     style={{ textTransform: 'uppercase', letterSpacing: 1.1 }}
                   >
                     {i.name}
                   </Typo>
                   <Typo
-                    variant="body2"
-                    style={{ textTransform: 'capitalize' }}
+                    variant="caption"
+                    style={{ textTransform: 'uppercase', letterSpacing: 1.1 }}
                     color="secondary"
                   >
                     {i.position}

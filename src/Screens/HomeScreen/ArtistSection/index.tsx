@@ -1,4 +1,4 @@
-import { Button, createStyles, makeStyles } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core';
 import { Box } from '@mui/material';
 import clsx from 'clsx';
 import Typo from 'Components/Typo';
@@ -44,7 +44,8 @@ const ArtistSection = () => {
               PARMISH VERMA a young DIRECTOR, MODEL, SINGER & ACTOR, holds a
               leading position in the PUNJABI MUSIC industry. Although PARMISH
               has done sad and love songs, he is known more for his upbeat
-              tracks.
+              tracks. He started his career as a video director then singer, and
+              later debuted as an actor with the film Rocky Mental.
             </Typo>
             <Typo variant="body2" gutterBottom style={{ marginBottom: 15 }}>
               Some of his popular songs that define his style include Gal Ni
@@ -54,11 +55,11 @@ const ArtistSection = () => {
               fans are like part of the family
             </Typo>
           </Box>
-          <Box pt={2.5}>
+          {/* <Box pt={2.5}>
             <Button variant="outlined" color="primary">
               REGISTER FOR EVENT
             </Button>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </Box>
