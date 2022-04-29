@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/prisma-2022/static/css/main.38eea998.chunk.css",
-    "main.js": "/prisma-2022/static/js/main.8aa0c47d.chunk.js",
-    "main.js.map": "/prisma-2022/static/js/main.8aa0c47d.chunk.js.map",
+    "main.js": "/prisma-2022/static/js/main.50a58f7e.chunk.js",
+    "main.js.map": "/prisma-2022/static/js/main.50a58f7e.chunk.js.map",
     "runtime-main.js": "/prisma-2022/static/js/runtime-main.3007a304.js",
     "runtime-main.js.map": "/prisma-2022/static/js/runtime-main.3007a304.js.map",
     "static/css/2.2ce0d9b2.chunk.css": "/prisma-2022/static/css/2.2ce0d9b2.chunk.css",
     "static/js/2.f9654db2.chunk.js": "/prisma-2022/static/js/2.f9654db2.chunk.js",
     "static/js/2.f9654db2.chunk.js.map": "/prisma-2022/static/js/2.f9654db2.chunk.js.map",
     "index.html": "/prisma-2022/index.html",
-    "precache-manifest.bad35fc899c30b8d198babae511b08cb.js": "/prisma-2022/precache-manifest.bad35fc899c30b8d198babae511b08cb.js",
+    "precache-manifest.9f768ed2e30e721165406818011df412.js": "/prisma-2022/precache-manifest.9f768ed2e30e721165406818011df412.js",
     "service-worker.js": "/prisma-2022/service-worker.js",
     "static/css/2.2ce0d9b2.chunk.css.map": "/prisma-2022/static/css/2.2ce0d9b2.chunk.css.map",
     "static/css/main.38eea998.chunk.css.map": "/prisma-2022/static/css/main.38eea998.chunk.css.map",
@@ -27,6 +27,6 @@
     "static/css/2.2ce0d9b2.chunk.css",
     "static/js/2.f9654db2.chunk.js",
     "static/css/main.38eea998.chunk.css",
-    "static/js/main.8aa0c47d.chunk.js"
+    "static/js/main.50a58f7e.chunk.js"
   ]
 }
