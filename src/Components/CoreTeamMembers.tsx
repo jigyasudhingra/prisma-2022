@@ -49,7 +49,8 @@ const CoreTeamMembers = (props: CoreTeamMembersProps) => {
               >
                 <Box borderRadius={10} pt={0.5}>
                   <img
-                    width={160}
+                    width={isDeviceSm ? '100%' : 160}
+                    height="auto"
                     src={i.imageURL}
                     alt={`profile-${i.name}`}
                     style={{ borderRadius: 6 }}

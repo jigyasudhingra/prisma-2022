@@ -142,7 +142,7 @@ const useStyles = makeStyles(() =>
       position: 'absolute',
       width: '100%',
       height: '100%',
-      backgroundColor: alpha(THEME_PALETTE.primary.main, 0.3),
+      backgroundColor: alpha(THEME_PALETTE.others.main, 0.5),
       backdropFilter: 'blur(4px)',
     },
     heading: {

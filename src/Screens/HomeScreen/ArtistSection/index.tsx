@@ -20,6 +20,21 @@ const ArtistSection = () => {
         display={!isDeviceSm ? 'flex' : ''}
         flexDirection="row"
       >
+        {isDeviceSm && (
+          <Typo
+            style={{
+              fontSize: isDeviceSm ? 25 : 37,
+              letterSpacing: 1.1,
+              textAlign: 'center',
+              textAlignLast: 'center',
+            }}
+            weight="bold"
+            color="secondary"
+            gutterBottom
+          >
+            PARMISH VERMA
+          </Typo>
+        )}
         <Box
           width="100%"
           style={{ textAlignLast: 'center' }}
@@ -37,17 +52,19 @@ const ArtistSection = () => {
         </Box>
         <Box width="100%" p={isDeviceSm ? 1 : 5} alignSelf="center">
           <Box maxWidth={500} pt={isDeviceSm ? 2 : 0}>
-            <Typo
-              style={{
-                fontSize: isDeviceSm ? 25 : 37,
-                letterSpacing: 1.1,
-              }}
-              weight="bold"
-              color="secondary"
-              gutterBottom
-            >
-              PARMISH VERMA
-            </Typo>
+            {!isDeviceSm && (
+              <Typo
+                style={{
+                  fontSize: isDeviceSm ? 25 : 37,
+                  letterSpacing: 1.1,
+                }}
+                weight="bold"
+                color="secondary"
+                gutterBottom
+              >
+                PARMISH VERMA
+              </Typo>
+            )}
             <Typo variant="body2" gutterBottom style={{ marginBottom: 15 }}>
               PARMISH VERMA a young DIRECTOR, MODEL, SINGER & ACTOR, holds a
               leading position in the PUNJABI MUSIC industry. Although PARMISH
