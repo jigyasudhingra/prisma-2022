@@ -28,24 +28,24 @@ const coreMemberDetail: CoreTeamMemberCardProps[] = [
   },
 ];
 
-const managementTeamDetails = [
-  [
-    'Agerf Gersh',
-    'Agerf Gersh',
-    'Agerf Gersh',
-    'Agerf Gersh',
-    'Agerf Gersh',
-    'Agerf Gersh',
-  ],
-  [
-    'Agerf Gersh',
-    'Agerf Gersh',
-    'Agerf Gersh',
-    'Agerf Gersh',
-    'Agerf Gersh',
-    'Agerf Gersh',
-  ],
-];
+// const managementTeamDetails = [
+//   [
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//   ],
+//   [
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//     'Agerf Gersh',
+//   ],
+// ];
 const TeamsScreen = () => {
   return (
     <Box>
@@ -55,12 +55,12 @@ const TeamsScreen = () => {
         backgroundColor={THEME_PALETTE.others.main}
         cardColor={THEME_PALETTE.primary.main}
       />
-      <TeamMembers
+      {/* <TeamMembers
         teamName="Management Team"
         details={managementTeamDetails}
         backgroundColor={THEME_PALETTE.primary.main}
         cardColor={THEME_PALETTE.others.main}
-      />
+      /> */}
     </Box>
   );
 };
