@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage": "http://prisma2k22.in/",
+  "homepage": "https://jigyasudhingra.github.io/prisma-2022",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
