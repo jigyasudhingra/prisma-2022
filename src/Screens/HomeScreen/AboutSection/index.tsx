@@ -1,20 +1,37 @@
 import React from 'react';
 import { Box, Button, createStyles, makeStyles } from '@material-ui/core';
-import clsx from 'clsx';
 import '../../../App.css';
 import Typo from 'Components/Typo';
+import { useMediaQuery } from 'Hooks/useMediaQuery';
+import { THEME_PALETTE } from 'Theme/themeConstants';
 import ABOUT_PRISMA_BACKGROUND from '../../../Assets/AboutPrismaBackground.png';
 import PRISMA_ABOUT_LOGO from '../../../Assets/PrismaLogo-AboutSection.png';
 
 const AboutSection: React.FC = () => {
   const classes = useStyles();
+  const { isDeviceSm } = useMediaQuery();
   return (
     <Box
       p={5}
-      className={clsx(classes.background)}
-      display="flex"
+      className={isDeviceSm ? classes.mobilebackground : classes.background}
+      display={isDeviceSm ? '' : 'flex'}
       flexDirection="row"
     >
+      {isDeviceSm && (
+        <Typo
+          style={{
+            fontSize: isDeviceSm ? 28 : 37,
+            letterSpacing: 1.1,
+            textAlign: 'center',
+            textAlignLast: 'center',
+          }}
+          weight="bold"
+          color="secondary"
+          gutterBottom
+        >
+          ABOUT PRISMA
+        </Typo>
+      )}
       <Box
         width="100%"
         pt={4}
@@ -25,20 +42,28 @@ const AboutSection: React.FC = () => {
         <img
           src={PRISMA_ABOUT_LOGO}
           alt="prsima-logo-about-section"
-          width={420}
+          width={isDeviceSm ? '100%' : 420}
+          height="auto"
           style={{ borderRadius: 10 }}
         />
       </Box>
-      <Box width="100%" p={10} pt={13} alignSelf="center">
+      <Box
+        width="100%"
+        p={isDeviceSm ? 0 : 10}
+        pt={isDeviceSm ? 5 : 13}
+        alignSelf="center"
+      >
         <Box maxWidth={500}>
-          <Typo
-            style={{ fontSize: 37, letterSpacing: 1.1 }}
-            weight="bold"
-            color="secondary"
-            gutterBottom
-          >
-            ABOUT PRISMA
-          </Typo>
+          {!isDeviceSm && (
+            <Typo
+              style={{ fontSize: isDeviceSm ? 25 : 37, letterSpacing: 1.1 }}
+              weight="bold"
+              color="secondary"
+              gutterBottom
+            >
+              ABOUT PRISMA
+            </Typo>
+          )}
           <Typo variant="body2" gutterBottom style={{ marginBottom: 15 }}>
             The cultural festival PRISMA witnesses the gathering of zealous
             students from various universities to display their talents,
@@ -59,7 +84,7 @@ const AboutSection: React.FC = () => {
             together.
           </Typo>
         </Box>
-        <Box pt={2.5}>
+        <Box pt={2.5} pb={isDeviceSm ? 2 : 0}>
           <Button variant="outlined" color="primary">
             REGISTER FOR EVENT
           </Button>
@@ -82,6 +107,9 @@ const useStyles = makeStyles(() =>
       backgroundSize: 'cover',
       // minHeight: 690,
       position: 'relative',
+    },
+    mobilebackground: {
+      backgroundColor: THEME_PALETTE.others.main,
     },
   })
 );

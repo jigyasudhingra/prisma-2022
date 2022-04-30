@@ -14,40 +14,28 @@ import { Icon } from '@iconify/react';
 
 const SOCIAL_ICONS = [
   {
-    icon: 'akar-icons:github-fill',
+    icon: 'ri:instagram-fill',
     url: 'linkedin.com',
     color: THEME_PALETTE.secondary.main,
     tooltip: 'Github',
   },
   {
-    icon: 'simple-icons:codechef',
+    icon: 'ci:facebook',
     url: 'linkedin.com',
     color: 'white',
-    tooltip: 'Codechef',
+    tooltip: 'Facebook',
   },
   {
-    icon: 'simple-icons:leetcode',
+    icon: 'dashicons:whatsapp',
     url: 'linkedin.com',
     color: 'white',
-    tooltip: 'Leetcode',
+    tooltip: 'Whatsapp',
   },
   {
-    icon: 'simple-icons:codeforces',
+    icon: 'fluent:mail-20-filled',
     url: 'linkedin.com',
     color: 'white',
-    tooltip: 'Codeforces',
-  },
-  {
-    icon: 'bx:bxl-linkedin',
-    url: 'linkedin.com',
-    color: 'white',
-    tooltip: 'LinkedIn',
-  },
-  {
-    icon: 'ri:instagram-fill',
-    url: 'linkedin.com',
-    color: 'white',
-    tooltip: 'Instagram',
+    tooltip: 'Mail',
   },
 ];
 

@@ -65,7 +65,7 @@ const HeroContent: React.FC = () => {
           </Typo>
         </Box>
         {/* <Box height={2} /> */}
-        <Box className={classes.heading}>
+        <Box className={classes.heading} pt={2}>
           <Typography
             variant={!isDeviceSm ? 'h2' : 'h4'}
             className={
@@ -142,7 +142,7 @@ const useStyles = makeStyles(() =>
       position: 'absolute',
       width: '100%',
       height: '100%',
-      backgroundColor: alpha(THEME_PALETTE.primary.main, 0.3),
+      backgroundColor: alpha(THEME_PALETTE.others.main, 0.5),
       backdropFilter: 'blur(4px)',
     },
     heading: {

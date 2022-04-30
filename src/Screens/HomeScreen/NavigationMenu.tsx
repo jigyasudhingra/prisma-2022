@@ -71,8 +71,8 @@ const NavigationMenu: React.FC = () => {
           height={80}
           width="auto"
           alignItems="center"
-          pl={!isDeviceSm ? 9 : 3}
-          pr={!isDeviceSm ? 9 : 3}
+          pl={!isDeviceSm ? 9 : 0}
+          pr={!isDeviceSm ? 9 : 0}
           justifyContent="center"
         >
           {!isDeviceSm && (
