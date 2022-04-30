@@ -22,7 +22,7 @@ export const userSchema = yup.object().shape({
           new RegExp(
             /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(stu.srmuniversity.ac.in|srmuniversity.ac.in)$/
           ),
-          'Please enter college email-id'
+          'Please enter university email-id'
         ),
     })
     .matches(new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}'), 'Enter valid email-id'),
@@ -37,8 +37,8 @@ export const userSchema = yup.object().shape({
     .length(10, 'Phone number must consist of 10 digits')
     .required('Phone number is required'),
 
-  collegeName: yup.string().when('fromSRM', {
-    is: 'no',
-    then: yup.string().required('College name is required'),
-  }),
+  // collegeName: yup.string().when('fromSRM', {
+  //   is: 'no',
+  //   then: yup.string().required('College name is required'),
+  // }),
 });

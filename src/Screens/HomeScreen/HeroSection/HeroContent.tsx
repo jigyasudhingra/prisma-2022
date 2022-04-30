@@ -79,10 +79,12 @@ const HeroContent: React.FC = () => {
         <Box className="subHeading">
           <Box className={classes.subHeading} pl={6} pr={6}>
             <Typo variant="body2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis recusandae ipsam veniam incidunt libero deserunt dicta
-              nemo, delectus nisi dolorum fugit. Nam, iure asperiores? Officia
-              quia iure at qui nam adipisci laborum illo obcaecati veniam,
+            The cultural festival PRISMA witnesses the gathering of zealous
+            students from various universities to display their talents,
+            connect, mingle and celebrate their artistry together. At SRM we
+            celebrate our exuberant Annual Cultural Festival PRISMA, The fest is
+            organized by the students themselves, which gives them the
+            opportunity to enhance their management and organizing skills.
             </Typo>
           </Box>
         </Box>

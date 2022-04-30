@@ -26,6 +26,9 @@ import clsx from 'clsx';
 import Loader from 'Components/Loader';
 import EntriesDataService from '../../entries-service';
 import { userSchema } from './UserValidation';
+import {send} from 'emailjs-com';
+import QRCode from "qrcode.react";
+import TICKET_BANNER from '../../Assets/TicketBanner.png';
 
 declare global {
   interface Window {
@@ -36,7 +39,6 @@ export interface FormDetails {
   name: string | undefined;
   email: string | undefined;
   phone: number | undefined;
-  collegeName?: string;
   fromSRM: boolean | undefined;
   imageURL: string | undefined;
   paymentID?: string;
@@ -48,7 +50,7 @@ const ContactMeForm: React.FC = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [razorpayError, setRazorpayError] = useState<string>('');
   const [razorpaySuccess, setRazorpaySuccess] = useState<boolean>(false);
-  const [fromSRM, setFromSRM] = useState<boolean>(false);
+  const [fromSRM, setFromSRM] = useState<boolean>(true);
   const [file, setFile] = useState<any>('');
   const [progress, setProgress] = useState(0);
   const [imageURL, setImageURL] = useState('');
@@ -56,7 +58,26 @@ const ContactMeForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [paymentId, setPaymentId] = useState('');
   const { showDialog } = useContext(AppDialogContext);
-
+  const [toSend, setToSend] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    idURL: '', 
+  });
+  useEffect(() => {
+    send(
+      'SERVICE ID',
+      'TEMPLATE ID',
+      toSend,
+      'User ID'
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+      });
+  }, [toSend])
   useEffect(() => {
     if (razorpaySuccess !== false) {
       const action = (key: any) => (
@@ -96,10 +117,10 @@ const ContactMeForm: React.FC = () => {
   const handleClick = async (formData: any) => {
     const options = {
       key: 'rzp_test_6pc6uApcFYOURV',
-      amount: 300 * 100,
+      amount: 450 * 100,
       currency: 'INR',
       name: 'SRM University, Sonepat, Haryana',
-      description: 'Test Transaction',
+      description: 'College Fest',
       // image: PRISMA_LOGO,
       // eslint-disable-next-line camelcase
       handler(response: { razorpay_payment_id: string }) {
@@ -221,6 +242,19 @@ const ContactMeForm: React.FC = () => {
             Congratulations! Your Registration is Successful.
           </Typo>
         </Box>
+        <Box pt={3}>
+          <img src={TICKET_BANNER} alt="ticket-banner" style={{width: "100%", height: 'auto'}}/>
+        </Box>
+        {
+          !fromSRM ? (<Box pt={3} style={{textAlignLast: 'center', textAlign: '-webkit-center' as any}}>
+          <QRCode 
+          value={paymentId}
+          size={300}
+          level={"H"}
+          includeMargin
+          />
+        </Box>) : null
+        }
         <Box mt={3}>
           <Typo variant="h6" gutterBottom>
             Your payment details:-
@@ -230,14 +264,10 @@ const ContactMeForm: React.FC = () => {
           </Typo>
           <Typo variant="body2" gutterBottom>
             {formik.values.fromSRM &&
-              `Are you from SRM: ${formik.values.fromSRM}`}
+              `Are you from SRM University: ${formik.values.fromSRM}`}
           </Typo>
           <Typo variant="body2" gutterBottom>
             {formik.values.email && `Email-id: ${formik.values.email}`}
-          </Typo>
-          <Typo variant="body2" gutterBottom>
-            {formik.values.collegeName &&
-              `College Name: ${formik.values.collegeName}`}
           </Typo>
           <Typo variant="body2" gutterBottom>
             {formik.values.phone && `Phone Number: ${formik.values.phone}`}
@@ -246,7 +276,21 @@ const ContactMeForm: React.FC = () => {
             {paymentId && `Payment Id: ${paymentId}`}
           </Typo>
         </Box>
-      </Box>
+      </Box>, 
+      {
+        isActionCloseButton: false,
+        actionsChildren: (
+                            <Box
+                            width="100%"
+                            alignSelf="center"
+                            style={{ textAlignLast: 'center' }}
+                            >
+                              <Button onClick={() => {window.print()}}>
+                                Print
+                              </Button>
+                            </Box>
+                          ),
+      }
     );
   };
 
@@ -258,7 +302,6 @@ const ContactMeForm: React.FC = () => {
       email: '',
       phone: '' as any,
       fromSRM: false,
-      collegeName: '',
       imageURL: '',
     },
     onSubmit: (values) => {
@@ -358,26 +401,6 @@ const ContactMeForm: React.FC = () => {
                   autoComplete="off"
                 />
               </Box>
-              {!fromSRM && (
-                <Box mt={2.5} key="collegeName">
-                  <TextField
-                    fullWidth
-                    id="collegeName"
-                    label="Enter college name"
-                    variant="filled"
-                    onChange={formik.handleChange}
-                    value={formik.values.collegeName}
-                    className={classes.textField}
-                    InputProps={{
-                      disableUnderline: true,
-                    }}
-                    helperText={
-                      formik.errors.collegeName ? formik.errors.collegeName : ''
-                    }
-                    autoComplete="off"
-                  />
-                </Box>
-              )}
               <Box mt={2.5} key="phone">
                 <TextField
                   fullWidth
@@ -405,9 +428,10 @@ const ContactMeForm: React.FC = () => {
                   <Typo
                     style={{
                       textAlignLast: isDeviceSm ? 'center' : 'left',
+                      textAlign: 'left'
                     }}
                   >
-                    Upload your college ID :
+                    { fromSRM ? 'Upload Your Institution ID : ': 'Upload Your ID (Adhaar Card, PAN Card, or any other valid ID): '}
                   </Typo>
                   {!imageURL && (
                     <Typo
@@ -421,20 +445,21 @@ const ContactMeForm: React.FC = () => {
                 </Box>
                 {imageURL !== '' ? (
                   <Box width="100%">
-                    <img src={imageURL} height={70} alt="uplaoded-college-id" />
+                    <img src={imageURL} height={70} alt="uplaoded-id" />
                   </Box>
                 ) : (
                   <label
                     htmlFor="upload-photo"
                     style={{
                       width: '100%',
+                      paddingLeft: !isDeviceSm ? 10 : 0,
                       textAlign: !isDeviceSm
                         ? ('-webkit-left' as any)
                         : '-webkit-center',
                     }}
                   >
                     <input
-                      style={{ display: 'none' }}
+                      style={{ display: 'none',  }}
                       id="upload-photo"
                       name="upload-photo"
                       type="file"
