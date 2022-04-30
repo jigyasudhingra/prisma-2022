@@ -16,7 +16,7 @@ const ContactDetails = () => {
             NOTE:-
           </Typo>
           <Typo className={classes.note} gutterBottom>
-            1. College ID CARD is mandatory for the registration process.
+            1. Identity Card is mandatory for the registration process.
           </Typo>
           <Typo className={classes.note} gutterBottom>
             2. The ID Card is required to be uploaded on the website portal.

@@ -116,8 +116,8 @@ const ContactMeForm: React.FC = () => {
 
   const handleClick = async (formData: any) => {
     const options = {
-      key: 'rzp_test_6pc6uApcFYOURV',
-      amount: 450 * 100,
+      key: 'rzp_live_237PtIJqfqr5bn',
+      amount: 400 * 100,
       currency: 'INR',
       name: 'SRM University, Sonepat, Haryana',
       description: 'College Fest',
@@ -210,7 +210,7 @@ const ContactMeForm: React.FC = () => {
 
   useEffect(() => {
     if (fromSRM === true) setSubmitText('Register');
-    if (fromSRM === false) setSubmitText('Pay Rs. 300');
+    if (fromSRM === false) setSubmitText('Pay Rs. 400');
   }, [fromSRM]);
 
   const handleIdChange = async (e: any) => {
@@ -275,6 +275,32 @@ const ContactMeForm: React.FC = () => {
           <Typo variant="body2" gutterBottom>
             {paymentId && `Payment Id: ${paymentId}`}
           </Typo>
+        </Box>
+        <Box>
+          TERMS & CONDITIONS:
+          <br></br>
+          <br></br>
+        ALL THE COVID GUIDELINES SHOULD BE STRICTLY FOLLOWED
+•	MASK IS MANDATORY
+•	THE TICKET BEARER SHOULD BE FULLY VACCINATED
+•	SOCIAL DISTANCING SHOULD BE FOLLOWED
+
+ENTRY WILL NOT BE GIVEN IF THE TICKET BEARER COMES WITHOUT AN OFFICIAL ID AND THE PASS
+
+IF A PERSON LEAVES THE COLLEGE PREMISES DURING THE EVENT, THEY WILL NOT BE ALLOWED TO ENTER THE PREMISES AGAIN
+
+USE OR POSSESSION OF ALCOHOL AND ANY KIND OF DRUG IS STRICTLY PROHIBITED 
+
+POSESSION OF ANY HARMFUL OBJECT OR WEAPON IS STRICTLY PROHIBITED
+
+THE UNIVERSITY HAS FULL AUTHORITY TO BANISH A PERSON FROM COLLEGE PREMISES IN CASE OF BAD BEHAVIOUR
+
+THE PASS BEARER IS RESPONSIBLE FOR THEIR OWN BELONGINGS
+
+PERSONAL FOOD ITEMS OR BEVERAGES ARE NOT ALLOWED
+
+
+THE TICKET AMOUNT IS REFUNDABLE IN CASE OF THE EVENT CANCELLATION
         </Box>
       </Box>, 
       {

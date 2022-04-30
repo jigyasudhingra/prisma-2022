@@ -14,6 +14,8 @@ import clsx from 'clsx';
 import HERO_IMAGE from '../../../Assets/PrismaHome2.mp4';
 import 'animate.css';
 import LeftSocials from './LeftSocials';
+import { NavHashLink as Link } from 'react-router-hash-link';
+
 
 const HeroContent: React.FC = () => {
   const classes = useStyles();
@@ -91,7 +93,14 @@ const HeroContent: React.FC = () => {
         <Box height={37} />
         <Box display="flex" flexDirection="row" justifyContent="center">
           <Button variant="outlined" color="primary">
+            <Link to="/register"
+            className={
+              !isDeviceSm ? classes.navMenu : classes.mobileMenu
+            }
+            >
+            
             Register For Fest
+            </Link>
           </Button>
           {/* <Box width={10} />
           <Button variant="contained" color="secondary">
@@ -139,6 +148,25 @@ const useStyles = makeStyles(() =>
       // backgroundSize: 'cover',
       minHeight: 690,
       position: 'relative',
+    },
+    navMenu: {
+      // marginLeft: 80,
+      // paddingLeft: 130,
+      textDecoration: 'none ! important ',
+      color: THEME_PALETTE.text.primary,
+      fontFamily: 'poppins',
+      '&:hover': {
+        color: THEME_PALETTE.primary.main,
+      },
+    },
+    mobileMenu: {
+      textDecoration: 'none ! important ',
+      color: THEME_PALETTE.text.primary,
+      fontFamily: 'poppins',
+      fontSize: 14,
+      '&:hover': {
+        color: THEME_PALETTE.secondary.main,
+      },
     },
     overlay: {
       position: 'absolute',
