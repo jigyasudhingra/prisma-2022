@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9b6cfc8a652fbd803738b4b7ac5d56ae",
+    "revision": "d522118e04d9ce23ce63642ac181ed1c",
     "url": "/prisma-2022/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/prisma-2022/static/css/2.2ce0d9b2.chunk.css"
   },
   {
-    "revision": "810f599a4a593d51b636",
+    "revision": "19d155e414d31792c862",
     "url": "/prisma-2022/static/css/main.38eea998.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/prisma-2022/static/js/2.ef1bc56d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "810f599a4a593d51b636",
-    "url": "/prisma-2022/static/js/main.214034cd.chunk.js"
+    "revision": "19d155e414d31792c862",
+    "url": "/prisma-2022/static/js/main.56b3ac73.chunk.js"
   },
   {
     "revision": "c7bddb6bbd8e2effc445",
