@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage": "https://jigyasudhingra.github.io/prisma-2022",
+  "homepage": "https://jigyasudhingra.github.io/prisma-2022/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -36,7 +36,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "deploy": "yarn build && echo 'prisma2k22.in' > ./build/CNAME && gh-pages -d build",
+    "deploy": "yarn build && echo 'jigyasudhingra.github.io/prisma-2022/' > ./build/CNAME && gh-pages -d build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.ts{,x}",
