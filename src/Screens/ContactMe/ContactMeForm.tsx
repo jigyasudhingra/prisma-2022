@@ -88,7 +88,7 @@ const ContactMeForm: React.FC = () => {
       );
       enqueueSnackbar('Payment Successful', {
         variant: 'success',
-        anchorOrigin: { horizontal: 'center', vertical: 'bottom' },
+        anchorOrigin: { horizontal: isDeviceSm ? 'center' :'left', vertical: isDeviceSm ? 'bottom' : 'top' },
         autoHideDuration: null,
         action,
       });
@@ -207,7 +207,7 @@ const ContactMeForm: React.FC = () => {
 
   useEffect(() => {
     if (fromSRM === true) setSubmitText('Register');
-    if (fromSRM === false) setSubmitText('Pay Rs. 400');
+    if (fromSRM === false) setSubmitText('Pay Rs. 450');
   }, [fromSRM]);
 
   const handleIdChange = async (e: any) => {

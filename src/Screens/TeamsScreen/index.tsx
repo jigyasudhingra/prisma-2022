@@ -57,7 +57,7 @@ const coreMemberDetail: CoreTeamMemberCardProps[] = [
     name: 'Bhavjot Singh',
     imageURL:
     BHAVJOT_IMG,
-    position: 'Miscellaneous',
+    position: 'Crowd Management',
   },
   {
     name: 'Manya Gupta',
