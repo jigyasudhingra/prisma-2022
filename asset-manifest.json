@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.38eea998.chunk.css",
-    "main.js": "/static/js/main.6af7db10.chunk.js",
-    "main.js.map": "/static/js/main.6af7db10.chunk.js.map",
+    "main.js": "/static/js/main.ee71d914.chunk.js",
+    "main.js.map": "/static/js/main.ee71d914.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.08188522.js",
     "runtime-main.js.map": "/static/js/runtime-main.08188522.js.map",
     "static/css/2.2ce0d9b2.chunk.css": "/static/css/2.2ce0d9b2.chunk.css",
-    "static/js/2.520d0622.chunk.js": "/static/js/2.520d0622.chunk.js",
-    "static/js/2.520d0622.chunk.js.map": "/static/js/2.520d0622.chunk.js.map",
+    "static/js/2.8fdc1743.chunk.js": "/static/js/2.8fdc1743.chunk.js",
+    "static/js/2.8fdc1743.chunk.js.map": "/static/js/2.8fdc1743.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f39df1d08a5da99603d33c797d4afe47.js": "/precache-manifest.f39df1d08a5da99603d33c797d4afe47.js",
+    "precache-manifest.af3aac3672bfef659f810162d3197a69.js": "/precache-manifest.af3aac3672bfef659f810162d3197a69.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.2ce0d9b2.chunk.css.map": "/static/css/2.2ce0d9b2.chunk.css.map",
     "static/css/main.38eea998.chunk.css.map": "/static/css/main.38eea998.chunk.css.map",
-    "static/js/2.520d0622.chunk.js.LICENSE.txt": "/static/js/2.520d0622.chunk.js.LICENSE.txt",
+    "static/js/2.8fdc1743.chunk.js.LICENSE.txt": "/static/js/2.8fdc1743.chunk.js.LICENSE.txt",
     "static/media/AboutPrismaBackground.png": "/static/media/AboutPrismaBackground.45ecd530.png",
     "static/media/ArtistSectionBackground.png": "/static/media/ArtistSectionBackground.f0c685dd.png",
     "static/media/Aryan.jpeg": "/static/media/Aryan.71cd91eb.jpeg",
@@ -21,7 +21,7 @@
     "static/media/PrismaHome2.mp4": "/static/media/PrismaHome2.d664871d.mp4",
     "static/media/PrismaLogo-AboutSection.png": "/static/media/PrismaLogo-AboutSection.0491d2b3.png",
     "static/media/PrismaLogo.png": "/static/media/PrismaLogo.3883da3e.png",
-    "static/media/RegistrationEnquiryQR.png": "/static/media/RegistrationEnquiryQR.d2b90f97.png",
+    "static/media/RaghavQRCode.jpeg": "/static/media/RaghavQRCode.b23331a9.jpeg",
     "static/media/TicketBanner.png": "/static/media/TicketBanner.f4566a72.png",
     "static/media/bhavjot.jpeg": "/static/media/bhavjot.aa960503.jpeg",
     "static/media/devansh.jpeg": "/static/media/devansh.e02a048f.jpeg",
@@ -35,8 +35,8 @@
   "entrypoints": [
     "static/js/runtime-main.08188522.js",
     "static/css/2.2ce0d9b2.chunk.css",
-    "static/js/2.520d0622.chunk.js",
+    "static/js/2.8fdc1743.chunk.js",
     "static/css/main.38eea998.chunk.css",
-    "static/js/main.6af7db10.chunk.js"
+    "static/js/main.ee71d914.chunk.js"
   ]
 }
