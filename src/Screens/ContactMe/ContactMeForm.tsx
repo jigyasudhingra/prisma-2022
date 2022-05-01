@@ -114,10 +114,10 @@ const ContactMeForm: React.FC = () => {
   const handleClick = async (formData: any) => {
     const options = {
       key: 'rzp_live_y7aE4rLT5WUDo0',
-      amount: 400 * 100,
+      amount: 450 * 100,
       currency: 'INR',
       name: 'SRM University, Sonepat, Haryana',
-      description: 'College Fest',
+      description: 'University Fest',
       // image: PRISMA_LOGO,
       // eslint-disable-next-line camelcase
       handler(response: { razorpay_payment_id: string }) {
@@ -246,15 +246,17 @@ const ContactMeForm: React.FC = () => {
           !fromSRM ? (<Box pt={3} style={{textAlignLast: 'center', textAlign: '-webkit-center' as any}}>
           <QRCode 
           value={paymentId}
-          size={300}
+          size={200}
           level={"H"}
           includeMargin
           />
         </Box>) : null
         }
         <Box mt={3}>
-          <Typo variant="h6" gutterBottom>
-            Your payment details:-
+          <Typo variant="body2" gutterBottom>
+            <b>
+              YOUR PAYMENT DETAILS:-
+            </b>
           </Typo>
           <Typo variant="body2" gutterBottom>
             {formik.values.name && `Name: ${formik.values.name}`}
@@ -273,31 +275,36 @@ const ContactMeForm: React.FC = () => {
             {paymentId && `Payment Id: ${paymentId}`}
           </Typo>
         </Box>
-        <Box>
+        <Box mt={3}>
           <Typo variant='body2'>
-          TERMS & CONDITIONS:
+          <b>
+            
+            TERMS & CONDITIONS:
+            </b>
           <br></br>
           <br></br>
-        ALL THE COVID GUIDELINES SHOULD BE STRICTLY FOLLOWED<br></br>
-•	MASK IS MANDATORY<br></br>
-•	THE TICKET BEARER SHOULD BE FULLY VACCINATED<br></br>
-•	SOCIAL DISTANCING SHOULD BE FOLLOWED<br></br>
+        1. ALL THE COVID GUIDELINES SHOULD BE STRICTLY FOLLOWED: <br></br>
+•	MASK IS MANDATOR.Y<br></br>
+•	THE TICKET BEARER SHOULD BE FULLY VACCINATED.<br></br>
+•	SOCIAL DISTANCING SHOULD BE FOLLOWED.<br></br>
 
-ENTRY WILL NOT BE GIVEN IF THE TICKET BEARER COMES WITHOUT AN OFFICIAL ID AND THE PASS<br></br>
+2.<b> THE GATES WILL CLOSED AT 6PM SHARP, NO ENTRY WILL BE GIVEN AFTER THAT.</b><br></br>
+3.<b> THE DOWNLOADED PASS WILL BE CHECKED AT THE ENTRY GATE.</b><br></br>
+4. ENTRY WILL NOT BE GIVEN IF THE TICKET BEARER COMES WITHOUT AN OFFICIAL ID AND THE PASS.<br></br>
 
-IF A PERSON LEAVES THE COLLEGE PREMISES DURING THE EVENT, THEY WILL NOT BE ALLOWED TO ENTER THE PREMISES AGAIN<br></br>
+5. IF A PERSON LEAVES THE COLLEGE PREMISES DURING THE EVENT, THEY WILL NOT BE ALLOWED TO ENTER THE PREMISES AGAIN.<br></br>
 
-USE OR POSSESSION OF ALCOHOL AND ANY KIND OF DRUG IS STRICTLY PROHIBITED<br></br>
+6. USE OR POSSESSION OF ALCOHOL AND ANY KIND OF DRUG IS STRICTLY PROHIBITED.<br></br>
 
-POSESSION OF ANY HARMFUL OBJECT OR WEAPON IS STRICTLY PROHIBITED<br></br>
+7. POSESSION OF ANY HARMFUL OBJECT OR WEAPON IS STRICTLY PROHIBITED.<br></br>
 
-THE UNIVERSITY HAS FULL AUTHORITY TO BANISH A PERSON FROM COLLEGE PREMISES IN CASE OF BAD BEHAVIOUR<br></br>
+8. THE UNIVERSITY HAS FULL AUTHORITY TO BANISH A PERSON FROM COLLEGE PREMISES IN CASE OF BAD BEHAVIOUR.<br></br>
 
-THE PASS BEARER IS RESPONSIBLE FOR THEIR OWN BELONGINGS<br></br>
+9. THE PASS BEARER IS RESPONSIBLE FOR THEIR OWN BELONGINGS.<br></br>
 
-PERSONAL FOOD ITEMS OR BEVERAGES ARE NOT ALLOWED<br></br>
+10. PERSONAL FOOD ITEMS OR BEVERAGES ARE NOT ALLOWED.<br></br>
 
-THE TICKET AMOUNT IS REFUNDABLE IN CASE OF THE EVENT CANCELLATION<br></br>
+11. THE TICKET AMOUNT IS REFUNDABLE IN CASE OF THE EVENT CANCELLATION.<br></br>
           </Typo>
           
         </Box>
