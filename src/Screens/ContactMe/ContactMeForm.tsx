@@ -113,7 +113,7 @@ const ContactMeForm: React.FC = () => {
 
   const handleClick = async (formData: any) => {
     const options = {
-      key: 'rzp_test_6pc6uApcFYOURV',
+      key: 'rzp_live_y7aE4rLT5WUDo0',
       amount: 400 * 100,
       currency: 'INR',
       name: 'SRM University, Sonepat, Haryana',
