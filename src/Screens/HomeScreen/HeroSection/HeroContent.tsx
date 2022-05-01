@@ -165,7 +165,7 @@ const useStyles = makeStyles(() =>
       fontFamily: 'poppins',
       fontSize: 14,
       '&:hover': {
-        color: THEME_PALETTE.secondary.main,
+        color: THEME_PALETTE.primary.main,
       },
     },
     overlay: {
