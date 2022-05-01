@@ -26,7 +26,7 @@ import clsx from 'clsx';
 import Loader from 'Components/Loader';
 import EntriesDataService from '../../entries-service';
 import { userSchema } from './UserValidation';
-import {send} from 'emailjs-com';
+import emailjs from 'emailjs-com';
 import QRCode from "qrcode.react";
 import TICKET_BANNER from '../../Assets/TicketBanner.png';
 
@@ -64,20 +64,17 @@ const ContactMeForm: React.FC = () => {
     phoneNumber: '',
     idURL: '', 
   });
+  
   useEffect(() => {
-    send(
-      'SERVICE ID',
-      'TEMPLATE ID',
+    emailjs.send(
+      'service_mpfaiky',
+      'template_p8f1t5h',
       toSend,
-      'User ID'
-    )
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-      })
-      .catch((err) => {
-        console.log('FAILED...', err);
-      });
-  }, [toSend])
+      'oKkYBnqrPpHZWXvyy'
+    );
+
+  }, [toSend]);
+
   useEffect(() => {
     if (razorpaySuccess !== false) {
       const action = (key: any) => (
@@ -333,6 +330,12 @@ THE TICKET AMOUNT IS REFUNDABLE IN CASE OF THE EVENT CANCELLATION
     onSubmit: (values) => {
       console.log(values);
       setIsLoading(true);
+      setToSend({
+        name: values.name,
+        email: values.email,
+        phoneNumber: values.phone,
+        idURL: imageURL,
+      })
       if (fromSRM) {
         saveHandlerRun.run({});
         formik.setValues(formik.initialValues);
