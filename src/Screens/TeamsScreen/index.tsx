@@ -101,7 +101,7 @@ const TeamsScreen = () => {
         cardColor={THEME_PALETTE.primary.main}
       />
       <TeamMembers
-        teamName="Organizer's Team"
+        teamName="Organizer Team"
         details={organizerTeamDetails}
         backgroundColor={THEME_PALETTE.primary.main}
         cardColor={THEME_PALETTE.others.main}

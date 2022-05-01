@@ -59,7 +59,8 @@ const HeroContent: React.FC = () => {
       >
         <Box bottom={5}>
           <Typo
-            color="textSecondary"
+            color="secondary"
+            weight="bold"
             style={{ letterSpacing: 1.6 }}
             variant={!isDeviceSm ? 'body1' : 'body2'}
           >
@@ -76,6 +77,9 @@ const HeroContent: React.FC = () => {
           >
             PRISMA 2K22
           </Typography>
+          <Box mt={2}>
+            <Typo variant="h6" weight="bold" style={{letterSpacing: 1.1}} color="secondary">07 - 08 MAY, 2022</Typo>
+          </Box>
         </Box>
         <Box height={25} />
         <Box className="subHeading">

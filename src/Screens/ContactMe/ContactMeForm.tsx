@@ -279,16 +279,15 @@ const ContactMeForm: React.FC = () => {
           <Typo variant='body2'>
           <b>
             
-            TERMS & CONDITIONS:
+            TERMS & CONDITIONS:-
             </b>
           <br></br>
-          <br></br>
         1. ALL THE COVID GUIDELINES SHOULD BE STRICTLY FOLLOWED: <br></br>
-•	MASK IS MANDATOR.Y<br></br>
+•	MASK IS MANDATORY.<br></br>
 •	THE TICKET BEARER SHOULD BE FULLY VACCINATED.<br></br>
 •	SOCIAL DISTANCING SHOULD BE FOLLOWED.<br></br>
 
-2.<b> THE GATES WILL CLOSED AT 6PM SHARP, NO ENTRY WILL BE GIVEN AFTER THAT.</b><br></br>
+2.<b> THE GATES WILL BE CLOSED AT 6PM SHARP, NO ENTRY WILL BE GIVEN AFTER THAT.</b><br></br>
 3.<b> THE DOWNLOADED PASS WILL BE CHECKED AT THE ENTRY GATE.</b><br></br>
 4. ENTRY WILL NOT BE GIVEN IF THE TICKET BEARER COMES WITHOUT AN OFFICIAL ID AND THE PASS.<br></br>
 
