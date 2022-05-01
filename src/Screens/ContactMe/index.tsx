@@ -51,7 +51,7 @@ const ContactMe: React.FC = () => {
           <Box width="50%">
             <ContactDetails />
           </Box>
-          <Box width="50%">
+          <Box width="50%" alignSelf="center">
             <ContactMeForm />
           </Box>
         </Box>

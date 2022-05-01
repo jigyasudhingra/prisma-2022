@@ -23,12 +23,11 @@ import { AppDialogContext } from 'Contexts/AppDialogContext';
 import useAsyncTask from 'Hooks/useAsyncTask';
 import { useFormik } from 'formik';
 import clsx from 'clsx';
-import Loader from 'Components/Loader';
 import emailjs from 'emailjs-com';
-import QRCode from 'qrcode.react';
+import QRCode from 'qrcode';
 import EntriesDataService from '../../entries-service';
-import { userSchema } from './UserValidation';
 import TICKET_BANNER from '../../Assets/TicketBanner.png';
+import { userSchema } from './UserValidation';
 
 declare global {
   interface Window {
@@ -58,20 +57,45 @@ const ContactMeForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [paymentId, setPaymentId] = useState('');
   const { showDialog } = useContext(AppDialogContext);
+  const [qrCodeURL, setQrCodeURL] = useState('');
   const [toSend, setToSend] = useState({
     name: '',
     email: '',
     phoneNumber: '',
     idURL: '',
+    qrCodeURL: '',
   });
 
+  const generateQRCode = () => {
+    QRCode.toDataURL(paymentId)
+      .then((url) => {
+        setQrCodeURL(url);
+        console.log(url);
+      })
+      .catch((err) => {
+        enqueueSnackbar(err, {
+          variant: 'error',
+          anchorOrigin: { horizontal: 'center', vertical: 'bottom' },
+        });
+      });
+  };
+
   useEffect(() => {
-    emailjs.send(
-      'service_mpfaiky',
-      'template_p8f1t5h',
-      toSend,
-      'oKkYBnqrPpHZWXvyy'
-    );
+    if (toSend.name !== '')
+      if (qrCodeURL !== '')
+        emailjs.send(
+          'service_mpfaiky',
+          'template_p8f1t5h',
+          toSend,
+          'oKkYBnqrPpHZWXvyy'
+        );
+      else
+        emailjs.send(
+          'service_mpfaiky',
+          'template_p8f1t5h',
+          toSend,
+          'oKkYBnqrPpHZWXvyy'
+        );
   }, [toSend]);
 
   useEffect(() => {
@@ -126,6 +150,7 @@ const ContactMeForm: React.FC = () => {
         if (response.razorpay_payment_id) {
           setRazorpaySuccess(true);
           setPaymentId(response.razorpay_payment_id);
+          generateQRCode();
           // setRazorpayPaymentID(response.razorpay_payment_id);
         }
       },
@@ -226,6 +251,7 @@ const ContactMeForm: React.FC = () => {
   }, [imageURL]);
 
   const saveToFirebase = async () => {
+    setIsLoading(true);
     const res = await EntriesDataService.addEntry({
       ...formik.values,
       paymentId,
@@ -248,7 +274,7 @@ const ContactMeForm: React.FC = () => {
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>
-        {!fromSRM ? (
+        {!fromSRM && qrCodeURL ? (
           <Box
             pt={3}
             style={{
@@ -256,7 +282,8 @@ const ContactMeForm: React.FC = () => {
               textAlign: '-webkit-center' as any,
             }}
           >
-            <QRCode value={paymentId} size={200} level="H" includeMargin />
+            <img src={qrCodeURL} alt="after-payment-qr-code" />
+            {/* <QRCode value={paymentId} size={200} level="H" includeMargin /> */}
           </Box>
         ) : null}
         <Box mt={3}>
@@ -324,6 +351,9 @@ const ContactMeForm: React.FC = () => {
       </Box>,
       {
         isActionCloseButton: false,
+        headerProps: {
+          headerClasses: classes.headerDialog,
+        },
         actionsChildren: (
           <Box
             width="100%"
@@ -334,6 +364,7 @@ const ContactMeForm: React.FC = () => {
               onClick={() => {
                 window.print();
               }}
+              style={{ color: 'black', letterSpacing: 1.1 }}
             >
               Print
             </Button>
@@ -341,6 +372,7 @@ const ContactMeForm: React.FC = () => {
         ),
       }
     );
+    setIsLoading(false);
   };
 
   const saveHandlerRun = useAsyncTask(saveToFirebase);
@@ -355,20 +387,21 @@ const ContactMeForm: React.FC = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-      setIsLoading(true);
       setToSend({
         name: values.name,
         email: values.email,
         phoneNumber: values.phone,
         idURL: imageURL,
+        qrCodeURL,
       });
       if (fromSRM) {
         saveHandlerRun.run({});
         formik.setValues(formik.initialValues);
         setImageURL('');
       }
-      if (!fromSRM) paymentHandler.run({ values });
-      setIsLoading(false);
+      if (!fromSRM) {
+        saveHandlerRun.run({ values });
+      }
     },
     validationSchema: userSchema,
   });
@@ -385,7 +418,7 @@ const ContactMeForm: React.FC = () => {
       pb={4}
       className="subHeading"
     >
-      {!isLoading ? (
+      {saveHandlerRun.status !== 'PROCESSING' ? (
         <Box className={classes.background} width="90%">
           <Box pl={isDeviceSm ? 4 : 6} pr={isDeviceSm ? 4 : 6} pt={3} pb={4}>
             <form onSubmit={formik.handleSubmit}>
@@ -582,7 +615,7 @@ const ContactMeForm: React.FC = () => {
           </Box>
         </Box>
       ) : (
-        <Loader overlayed />
+        <LinearProgress />
       )}
     </Box>
   );
@@ -621,6 +654,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     background: {
       backgroundColor: THEME_PALETTE.others.main,
+    },
+    headerDialog: {
+      // paddingTop: 20,
     },
     SRMText: {
       float: 'left',
