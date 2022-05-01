@@ -10,7 +10,7 @@ const useAppInit = () => {
     setLoading(false);
   };
   const initialize = async () => {
-    setTimeout(updateloading, 0);
+    setTimeout(updateloading, 1500);
   };
 
   return {

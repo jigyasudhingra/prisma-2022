@@ -43,7 +43,7 @@ export interface FormDetails {
   imageURL: string | undefined;
   paymentID?: string;
 }
-
+export const TICKET_AMOUNT = 450;
 const ContactMeForm: React.FC = () => {
   const classes = useStyles();
   const { isDeviceSm } = useMediaQuery();
@@ -116,7 +116,7 @@ const ContactMeForm: React.FC = () => {
   const handleClick = async (formData: any) => {
     const options = {
       key: 'rzp_live_y7aE4rLT5WUDo0',
-      amount: 450 * 100,
+      amount: TICKET_AMOUNT * 100,
       currency: 'INR',
       name: 'SRM University, Sonepat, Haryana',
       description: 'University Fest',
@@ -209,7 +209,7 @@ const ContactMeForm: React.FC = () => {
 
   useEffect(() => {
     if (fromSRM === true) setSubmitText('Register');
-    if (fromSRM === false) setSubmitText('Pay Rs. 450');
+    if (fromSRM === false) setSubmitText(`Pay Rs. ${TICKET_AMOUNT}`);
   }, [fromSRM]);
 
   const handleIdChange = async (e: any) => {
@@ -408,39 +408,56 @@ const ContactMeForm: React.FC = () => {
               <Box
                 mt={2.5}
                 key="fromSRM"
-                display="flex"
+                display={isDeviceSm ? '' : 'flex'}
                 flexDirection="row"
                 alignItems="center"
               >
-                <Box>
-                  <Typo>Are you from SRM: </Typo>
+                <Box width="100%">
+                  <Typo className={!isDeviceSm ? classes.SRMText : ''}>
+                    Are you from SRM University:
+                  </Typo>
                 </Box>
-                <Box pl={3}>
-                  <RadioGroup
-                    row
-                    name="fromSRM"
-                    id="fromSRM"
-                    value={formik.values.fromSRM}
-                    onChange={handleCheckBox}
-                    defaultChecked
-                    defaultValue="no"
-                  >
-                    <FormControlLabel
-                      value="yes"
-                      control={<Radio />}
-                      label="Yes"
-                      style={{ color: THEME_PALETTE.text.primary }}
-                    />
-                    <FormControlLabel
-                      value="no"
-                      control={<Radio />}
-                      label="No"
-                      style={{ color: THEME_PALETTE.text.primary }}
-                    />
-                  </RadioGroup>
+                <Box pl={!isDeviceSm ? 3 : 0} width="100%">
+                  <Box>
+                    <RadioGroup
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-around',
+                      }}
+                      name="fromSRM"
+                      id="fromSRM"
+                      value={formik.values.fromSRM}
+                      onChange={handleCheckBox}
+                      defaultChecked
+                      defaultValue="no"
+                    >
+                      <FormControlLabel
+                        value="yes"
+                        control={<Radio />}
+                        label="Yes"
+                        style={{ color: THEME_PALETTE.text.primary }}
+                      />
+                      <FormControlLabel
+                        value="no"
+                        control={<Radio />}
+                        label="No"
+                        style={{ color: THEME_PALETTE.text.primary }}
+                      />
+                    </RadioGroup>
+                  </Box>
                 </Box>
               </Box>
-              <Box mt={2.5} key="email">
+              {formik.errors.fromSRM && (
+                <Typo
+                  variant="caption"
+                  color="secondary"
+                  style={{ float: !isDeviceSm && ('left' as any) }}
+                >
+                  Required
+                </Typo>
+              )}
+              <Box mt={formik.errors.fromSRM ? 5 : 2.5} key="email">
                 <TextField
                   fullWidth
                   id="email"
@@ -604,6 +621,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     background: {
       backgroundColor: THEME_PALETTE.others.main,
+    },
+    SRMText: {
+      float: 'left',
     },
     verticalLine: {
       borderLeft: `1px solid #F4A203`,
