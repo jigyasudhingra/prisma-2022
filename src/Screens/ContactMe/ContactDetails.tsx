@@ -3,7 +3,7 @@ import Typo from 'Components/Typo';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
 import React from 'react';
 import { THEME_PALETTE } from 'Theme/themeConstants';
-import ENQUIRY_QR from '../../Assets/RegistrationEnquiryQR.png';
+import ENQUIRY_QR from '../../Assets/RaghavQRCode.jpeg';
 
 const ContactDetails = () => {
   const classes = useStyles();

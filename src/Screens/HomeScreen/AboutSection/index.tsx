@@ -4,10 +4,9 @@ import '../../../App.css';
 import Typo from 'Components/Typo';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
 import { THEME_PALETTE } from 'Theme/themeConstants';
+import { NavHashLink as Link } from 'react-router-hash-link';
 import ABOUT_PRISMA_BACKGROUND from '../../../Assets/AboutPrismaBackground.png';
 import PRISMA_ABOUT_LOGO from '../../../Assets/PrismaLogo-AboutSection.png';
-import { NavHashLink as Link } from 'react-router-hash-link';
-
 
 const AboutSection: React.FC = () => {
   const classes = useStyles();
@@ -87,16 +86,14 @@ const AboutSection: React.FC = () => {
           </Typo>
         </Box>
         <Box pt={2.5} pb={isDeviceSm ? 2 : 0}>
-        <Button variant="outlined" color="primary">
-            <Link to="/register"
-            className={
-              !isDeviceSm ? classes.navMenu : classes.mobileMenu
-            }
-            >
-            
-            Register For Fest
-            </Link>
-          </Button>
+          <Link
+            to="/register"
+            className={!isDeviceSm ? classes.navMenu : classes.mobileMenu}
+          >
+            <Button variant="outlined" color="primary">
+              Register For Fest
+            </Button>
+          </Link>
         </Box>
       </Box>
     </Box>

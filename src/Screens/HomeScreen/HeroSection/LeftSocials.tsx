@@ -15,25 +15,25 @@ import { Icon } from '@iconify/react';
 const SOCIAL_ICONS = [
   {
     icon: 'ri:instagram-fill',
-    url: 'linkedin.com',
+    url: 'https://instagram.com/prisma.srmuh?igshid=YmMyMTA2M2Y=',
     color: THEME_PALETTE.secondary.main,
-    tooltip: 'Github',
+    tooltip: 'Instagram',
   },
   {
     icon: 'ci:facebook',
-    url: 'linkedin.com',
+    url: 'https://www.facebook.com/Prisma22-110282064986927/',
     color: 'white',
     tooltip: 'Facebook',
   },
   {
     icon: 'dashicons:whatsapp',
-    url: 'linkedin.com',
+    url: 'https://wa.me/7503302027?text=Hi,%20I%20have%20a%20query%20regarding%20the%20registration.',
     color: 'white',
     tooltip: 'Whatsapp',
   },
   {
     icon: 'fluent:mail-20-filled',
-    url: 'linkedin.com',
+    url: 'mailto:prisma@srmuniversity.ac.in',
     color: 'white',
     tooltip: 'Mail',
   },
@@ -50,15 +50,27 @@ const LeftSocials: React.FC = () => {
         </Box>
       </Box>
       <Box marginTop={2}>
-        <Box display="flex" flexDirection="column" alignItems="center">
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          zIndex={20}
+        >
           {SOCIAL_ICONS.map((m) => (
             <Box key={m.tooltip}>
-              <MuiThemeProvider theme={theme}>
-                <Tooltip title={m.tooltip} placement="right" arrow>
-                  <Icon icon={m.icon} color={m.color} width={20} />
-                </Tooltip>
-                <Box height={25} />
-              </MuiThemeProvider>
+              <a
+                href={m.url}
+                style={{ textDecoration: 'none' }}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MuiThemeProvider theme={theme}>
+                  <Tooltip title={m.tooltip} placement="right" arrow>
+                    <Icon icon={m.icon} color={m.color} width={20} />
+                  </Tooltip>
+                  <Box height={25} />
+                </MuiThemeProvider>
+              </a>
             </Box>
           ))}
         </Box>

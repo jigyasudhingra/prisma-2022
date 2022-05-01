@@ -14,8 +14,7 @@ import clsx from 'clsx';
 import HERO_IMAGE from '../../../Assets/PrismaHome2.mp4';
 import 'animate.css';
 import LeftSocials from './LeftSocials';
-import { NavHashLink as Link } from 'react-router-hash-link';
-
+import { Link } from 'react-router-dom';
 
 const HeroContent: React.FC = () => {
   const classes = useStyles();
@@ -37,18 +36,6 @@ const HeroContent: React.FC = () => {
         />
       </Box>
       <Box className={classes.overlay} />
-      {!isDeviceSm && (
-        <Box
-          // width="14%"
-          left={120}
-          position="absolute"
-          className="animate__animated animate__fadeIn animate__delay-1s"
-          bottom={80}
-          // height="100vh"
-        >
-          <LeftSocials />
-        </Box>
-      )}
 
       <Box
         textAlign="center"
@@ -57,6 +44,18 @@ const HeroContent: React.FC = () => {
         position="relative"
         pt={20}
       >
+        {!isDeviceSm && (
+          <Box
+            // width="14%"
+            left={120}
+            position="absolute"
+            className="animate__animated animate__fadeIn animate__delay-1s"
+            bottom={80}
+            // height="100vh"
+          >
+            <LeftSocials />
+          </Box>
+        )}
         <Box bottom={5}>
           <Typo
             color="secondary"
@@ -78,34 +77,37 @@ const HeroContent: React.FC = () => {
             PRISMA 2K22
           </Typography>
           <Box mt={2}>
-            <Typo variant="h6" weight="bold" style={{letterSpacing: 1.1}} color="secondary">07 - 08 MAY, 2022</Typo>
+            <Typo
+              variant="h6"
+              weight="bold"
+              style={{ letterSpacing: 1.1 }}
+              color="secondary"
+            >
+              07 - 08 MAY, 2022
+            </Typo>
           </Box>
         </Box>
         <Box height={25} />
         <Box className="subHeading">
           <Box className={classes.subHeading} pl={6} pr={6}>
             <Typo variant="body2">
-            The cultural festival PRISMA witnesses the gathering of zealous
-            students from various universities to display their talents,
-            connect, mingle and celebrate their artistry together. At SRM we
-            celebrate our exuberant Annual Cultural Festival PRISMA, The fest is
-            organized by the students themselves, which gives them the
-            opportunity to enhance their management and organizing skills.
+              Evenings turning into Nights, Friends turning into Family. A 2-day
+              fun-filled event that will leave you with Memories of a Lifetime!
+              Get Ready to witness the most Unforgettable nights of your life
+              with - PRISMA 2K22
             </Typo>
           </Box>
         </Box>
         <Box height={37} />
         <Box display="flex" flexDirection="row" justifyContent="center">
-          <Button variant="outlined" color="primary">
-            <Link to="/register"
-            className={
-              !isDeviceSm ? classes.navMenu : classes.mobileMenu
-            }
-            >
-            
-            Register For Fest
-            </Link>
-          </Button>
+          <Link
+            to="/register"
+            className={!isDeviceSm ? classes.navMenu : classes.mobileMenu}
+          >
+            <Button variant="outlined" color="primary">
+              Register For Fest
+            </Button>
+          </Link>
           {/* <Box width={10} />
           <Button variant="contained" color="secondary">
             Resume
@@ -176,7 +178,7 @@ const useStyles = makeStyles(() =>
       position: 'absolute',
       width: '100%',
       height: '100%',
-      backgroundColor: alpha(THEME_PALETTE.others.main, 0.5),
+      backgroundColor: alpha(THEME_PALETTE.others.main, 0.6),
       backdropFilter: 'blur(4px)',
     },
     heading: {

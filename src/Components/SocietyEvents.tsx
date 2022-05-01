@@ -70,7 +70,9 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                     color="secondary"
                     style={{ letterSpacing: 0.8, textTransform: 'uppercase' }}
                   >
-                    {i.eventName.slice(0, 18)}
+                    {i.eventName.length > 15 && !isDeviceSm
+                      ? `${i.eventName.slice(0, 15)}...`
+                      : i.eventName}
                   </Typo>
                 </Box>
                 <Box>
