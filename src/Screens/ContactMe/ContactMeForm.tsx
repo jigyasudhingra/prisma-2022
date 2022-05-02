@@ -400,7 +400,7 @@ const ContactMeForm: React.FC = () => {
         setImageURL('');
       }
       if (!fromSRM) {
-        saveHandlerRun.run({ values });
+        paymentHandler.run({ values });
       }
     },
     validationSchema: userSchema,
@@ -418,7 +418,8 @@ const ContactMeForm: React.FC = () => {
       pb={4}
       className="subHeading"
     >
-      {saveHandlerRun.status !== 'PROCESSING' ? (
+      {saveHandlerRun.status !== 'PROCESSING' ||
+      paymentHandler.status !== 'PROCESSING' ? (
         <Box className={classes.background} width="90%">
           <Box pl={isDeviceSm ? 4 : 6} pr={isDeviceSm ? 4 : 6} pt={3} pb={4}>
             <form onSubmit={formik.handleSubmit}>
