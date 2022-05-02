@@ -20,7 +20,7 @@ const EventsHeroContent = () => {
     const classes = useStyles();
   const { isDeviceSm } = useMediaQuery();
     return (
-        <Box p={10} pt={15} pl={isDeviceSm ? 5 : 30} pr={isDeviceSm ? 5 : 30} className={classes.background} textAlign="center" style={{textAlignLast: '-webkit-center' as any}}>
+        <Box p={10} pt={isDeviceSm ? 11 : 15} pl={isDeviceSm ? 5 : 30} pr={isDeviceSm ? 5 : 30} className={classes.background} textAlign="center" style={{textAlignLast: '-webkit-center' as any}}>
            <Box>
                 <Typo variant={isDeviceSm ? "h6" :"h4"} gutterBottom color="secondary" weight="bold" style={{textTransform: 'uppercase'}} >
                     Cultural Socities   
@@ -30,7 +30,7 @@ const EventsHeroContent = () => {
                 </Typo> 
             </Box>
             <Box pt={6}>
-            <Grid container lg={12} item spacing={5} justifyContent="center">
+            <Grid container lg={12} item spacing={isDeviceSm ? 2 : 3} justifyContent="center">
             {Array.from(details).map((i) => (
                 <Grid item lg={4} sm={6} xs={6} key={`${i}`}>
                         <Link
@@ -40,7 +40,7 @@ const EventsHeroContent = () => {
                         duration={1000}
                         >
                         <Box className={classes.card}>
-                            <Typo variant='body1'>
+                            <Typo variant='body2'>
                                 {i}
                             </Typo> 
                         </Box>
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     card: {
         borderRadius: 10,
-        padding: 10,
+        padding: 11,
         backgroundColor: THEME_PALETTE.primary.main,
         cursor: 'pointer',
     }

@@ -46,7 +46,7 @@ interface Props {
   children: React.ReactElement;
 }
 
-function HideOnScroll(props: Props) {
+export function HideOnScroll(props: Props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
@@ -103,8 +103,8 @@ const NavigationMenu: React.FC = () => {
                     className={
                       !isDeviceSm ? classes.navMenu : classes.mobileMenu
                     }
-                    // activeClassName="selected"
-                    // activeStyle={{ color: THEME_PALETTE.secondary.main }}
+                    activeClassName="selected"
+                    activeStyle={{ color: THEME_PALETTE.secondary.main }}
                   >
                     {nl.label}
                   </Link>
