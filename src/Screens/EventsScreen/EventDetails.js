@@ -460,7 +460,7 @@ GENERAL RULES:<br />
 ];
 const danceEventDetails = [
   {
-    eventName: 'Group Dance(Western/General)',
+    eventName: 'Group Dance (Western/General)',
     eventDetailSummary:
       'Team of not more than 18 students & not less than 6 students. Team may consist of boys, girls or both.',
     eventDetail: (
