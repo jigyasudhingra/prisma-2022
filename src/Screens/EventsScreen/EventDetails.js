@@ -4,7 +4,7 @@ const musicEventDetails = [
   {
     eventName: 'Solo Singing',
     eventDetailSummary:
-      'The number of accompanists should not be more than two.Time allotted is not less than 2 minutes and not more than 5 minutes including setup time.',
+      'Time allotted is not less than 2 minutes and not more than 5 minutes including setup time. Judgement will be made on the qualities like vo',
     eventDetail: (
       <div>
         The number of accompanists should not be more than two.<br /><br />

@@ -25,9 +25,10 @@ export interface SocietyEventsProps {
   backgroundColor: string;
   cardColor: string;
   contactDetails: { name: string; phone: number };
+  id?: string;
 }
 const SocietyEvents = (props: SocietyEventsProps) => {
-  const { societyName, details, backgroundColor, cardColor, contactDetails } =
+  const { societyName, details, backgroundColor, cardColor, contactDetails, id } =
     props;
   const classes = useStyles(props);
   const { isDeviceSm } = useMediaQuery();
@@ -36,7 +37,7 @@ const SocietyEvents = (props: SocietyEventsProps) => {
     console.log('Hello');
   };
   return (
-    <Box style={{ backgroundColor }} pt={16} className={classes.bottomArrow}>
+    <Box style={{ backgroundColor }} pt={10} className={classes.bottomArrow} id={id ? id : ''}>
       <Box style={{ textAlignLast: 'center' }} textAlign="center">
         <Typo
           variant={isDeviceSm ? 'h5' : 'h4'}

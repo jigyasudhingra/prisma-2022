@@ -15,17 +15,20 @@ import { gamingretroEventDetails } from './EventDetails';
 import { gamingpcEventDetails } from './EventDetails';
 import { gamingmobileEventDetails } from './EventDetails';
 import { PhotoEventDetails } from './EventDetails';
+import EventsHeroContent from './EventsHeroContent';
 
 const EventsScreen = () => {
   return (
     <Box>
       <NavigationMenu />
+      <EventsHeroContent />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}
         cardColor={THEME_PALETTE.others.main}
         societyName="Music"
         contactDetails={{ name: 'Aaryan', phone: 7015224175 }}
         details={musicEventDetails}
+        id="Music"
       />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}
@@ -33,6 +36,7 @@ const EventsScreen = () => {
         societyName="Drama"
         contactDetails={{ name: 'Sakshi Jha', phone: 7428865587 }}
         details={dramaEventDetails}
+        id="Drama"
       />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}
@@ -40,6 +44,7 @@ const EventsScreen = () => {
         societyName="Art & Craft(Solo)"
         contactDetails={{ name: 'Esha Gupta', phone: 8777272637 }}
         details={ArtsoloEventDetails}
+        id="Art & Craft"
       />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}
@@ -54,6 +59,7 @@ const EventsScreen = () => {
         societyName="Dance"
         contactDetails={{ name: 'Mansi Jha', phone: 8506873142 }}
         details={danceEventDetails}
+        id="Dance"
       />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}
@@ -61,13 +67,15 @@ const EventsScreen = () => {
         societyName="Fashion"
         contactDetails={{ name: 'Varsha', phone: 9674924258 }}
         details={FashionEventDetails}
+        id="Fashion"
       />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}
         cardColor={THEME_PALETTE.others.main}
         societyName="Literary"
-        contactDetails={{ name: 'Himani', phone: 7725986316 }}
+        contactDetails={{ name: 'Sakshi Singh', phone: 7988842098 }}
         details={LiteraryEventDetails}
+        id="Literary"
       />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}
@@ -75,6 +83,7 @@ const EventsScreen = () => {
         societyName="Photography"
         contactDetails={{ name: 'Soubhik Chakraborty', phone: 8420741342 }}
         details={PhotoEventDetails}
+        id="Photography"
       />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}
@@ -82,6 +91,7 @@ const EventsScreen = () => {
         societyName="Gaming- Controller Games"
         contactDetails={{ name: 'Ruben', phone: 7905650174 }}
         details={gamingcontrollerEventDetails}
+        id="Gaming"
       />
       <SocietyEvents
         backgroundColor={THEME_PALETTE.primary.main}

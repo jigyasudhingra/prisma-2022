@@ -62,7 +62,7 @@ const LeftSocials: React.FC = () => {
                 href={m.url}
                 style={{ textDecoration: 'none' }}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <MuiThemeProvider theme={theme}>
                   <Tooltip title={m.tooltip} placement="right" arrow>
