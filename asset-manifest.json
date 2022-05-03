@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.38eea998.chunk.css",
-    "main.js": "/static/js/main.f90cff41.chunk.js",
-    "main.js.map": "/static/js/main.f90cff41.chunk.js.map",
+    "main.css": "/static/css/main.d5285675.chunk.css",
+    "main.js": "/static/js/main.96cf33b5.chunk.js",
+    "main.js.map": "/static/js/main.96cf33b5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.08188522.js",
     "runtime-main.js.map": "/static/js/runtime-main.08188522.js.map",
     "static/css/2.2ce0d9b2.chunk.css": "/static/css/2.2ce0d9b2.chunk.css",
-    "static/js/2.752d4ea7.chunk.js": "/static/js/2.752d4ea7.chunk.js",
-    "static/js/2.752d4ea7.chunk.js.map": "/static/js/2.752d4ea7.chunk.js.map",
+    "static/js/2.3357a486.chunk.js": "/static/js/2.3357a486.chunk.js",
+    "static/js/2.3357a486.chunk.js.map": "/static/js/2.3357a486.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.62bf08a5fa7f3eb659c50aafd8d11aac.js": "/precache-manifest.62bf08a5fa7f3eb659c50aafd8d11aac.js",
+    "precache-manifest.e349b5908bf13bb90eebdf001fc25a97.js": "/precache-manifest.e349b5908bf13bb90eebdf001fc25a97.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.2ce0d9b2.chunk.css.map": "/static/css/2.2ce0d9b2.chunk.css.map",
-    "static/css/main.38eea998.chunk.css.map": "/static/css/main.38eea998.chunk.css.map",
-    "static/js/2.752d4ea7.chunk.js.LICENSE.txt": "/static/js/2.752d4ea7.chunk.js.LICENSE.txt",
+    "static/css/main.d5285675.chunk.css.map": "/static/css/main.d5285675.chunk.css.map",
+    "static/js/2.3357a486.chunk.js.LICENSE.txt": "/static/js/2.3357a486.chunk.js.LICENSE.txt",
     "static/media/AboutPrismaBackground.png": "/static/media/AboutPrismaBackground.45ecd530.png",
     "static/media/ArtistSectionBackground.png": "/static/media/ArtistSectionBackground.f0c685dd.png",
     "static/media/Aryan.jpeg": "/static/media/Aryan.71cd91eb.jpeg",
@@ -22,7 +22,7 @@
     "static/media/PrismaLogo-AboutSection.png": "/static/media/PrismaLogo-AboutSection.0491d2b3.png",
     "static/media/PrismaLogo.png": "/static/media/PrismaLogo.3883da3e.png",
     "static/media/RaghavQRCode.jpeg": "/static/media/RaghavQRCode.b23331a9.jpeg",
-    "static/media/TicketBanner.png": "/static/media/TicketBanner.f4566a72.png",
+    "static/media/TicketBanner.webp": "/static/media/TicketBanner.6ef59602.webp",
     "static/media/bhavjot.jpeg": "/static/media/bhavjot.aa960503.jpeg",
     "static/media/devansh.jpeg": "/static/media/devansh.e02a048f.jpeg",
     "static/media/dipanshu.jpeg": "/static/media/dipanshu.3052a2cf.jpeg",
@@ -35,8 +35,8 @@
   "entrypoints": [
     "static/js/runtime-main.08188522.js",
     "static/css/2.2ce0d9b2.chunk.css",
-    "static/js/2.752d4ea7.chunk.js",
-    "static/css/main.38eea998.chunk.css",
-    "static/js/main.f90cff41.chunk.js"
+    "static/js/2.3357a486.chunk.js",
+    "static/css/main.d5285675.chunk.css",
+    "static/js/main.96cf33b5.chunk.js"
   ]
 }
