@@ -23,11 +23,13 @@ import { AppDialogContext } from 'Contexts/AppDialogContext';
 import useAsyncTask from 'Hooks/useAsyncTask';
 import { useFormik } from 'formik';
 import clsx from 'clsx';
-import emailjs from 'emailjs-com';
-import QRCode from 'qrcode.react';
+// import QRCode from 'qrcode.react';
+import QRCode from 'qrcode';
 import Loader from 'Components/Loader';
+import emailjs from 'emailjs-com';
+import PRISMA_LOGO from '../../Assets/PrismaLogo.png';
 import EntriesDataService from '../../entries-service';
-import TICKET_BANNER from '../../Assets/TicketBanner.png';
+import TICKET_BANNER from '../../Assets/TicketBanner.webp';
 import { userSchema } from './UserValidation';
 
 declare global {
@@ -61,42 +63,54 @@ const ContactMeForm: React.FC = () => {
   const [qrCodeURL, setQrCodeURL] = useState('');
   const [toSend, setToSend] = useState({
     name: '',
+    fromSRM,
     email: '',
-    phoneNumber: '',
-    idURL: '',
-    qrCodeURL: '',
+    phone: '',
+    canvas: '',
+    payId: '',
   });
 
+  const generateQRCode = async () => {
+    await QRCode.toDataURL(paymentId)
+      .then((url) => {
+        setQrCodeURL(url);
+        console.log(url);
+      })
+      .catch((err) => {
+        enqueueSnackbar(err, {
+          variant: 'error',
+          anchorOrigin: { horizontal: 'center', vertical: 'bottom' },
+        });
+      });
+  };
   // const generateQRCode = () => {
-  //   QRCode.toDataURL(paymentId)
-  //     .then((url) => {
-  //       setQrCodeURL(url);
-  //       console.log(url);
-  //     })
-  //     .catch((err) => {
-  //       enqueueSnackbar(err, {
-  //         variant: 'error',
-  //         anchorOrigin: { horizontal: 'center', vertical: 'bottom' },
-  //       });
-  //     });
+  //   const canva = document.getElementById('helloQR > canvas');
+  //   const url = canva.toDataURL();
+  //   console.log(url);
   // };
 
   useEffect(() => {
-    if (toSend.name !== '')
+    if (toSend.name !== '') {
       if (qrCodeURL !== '')
         emailjs.send(
-          'service_mpfaiky',
-          'template_p8f1t5h',
+          'service_he4gn6c',
+          'template_0443q29',
           toSend,
-          'oKkYBnqrPpHZWXvyy'
+          '92Pn8mccLt7W6Ya9t'
         );
       else
         emailjs.send(
-          'service_mpfaiky',
-          'template_p8f1t5h',
+          'service_he4gn6c',
+          'template_ti2hwl7',
           toSend,
-          'oKkYBnqrPpHZWXvyy'
+          '92Pn8mccLt7W6Ya9t'
         );
+    }
+
+    formik.setValues(formik.initialValues);
+    setImageURL('');
+    setQrCodeURL('');
+    setPaymentId('');
   }, [toSend]);
 
   useEffect(() => {
@@ -116,7 +130,6 @@ const ContactMeForm: React.FC = () => {
           horizontal: isDeviceSm ? 'center' : 'left',
           vertical: !isDeviceSm ? 'bottom' : 'top',
         },
-        autoHideDuration: null,
         action,
       });
     } else if (razorpayError !== '') {
@@ -148,7 +161,7 @@ const ContactMeForm: React.FC = () => {
       currency: 'INR',
       name: 'SRM University, Sonepat, Haryana',
       description: 'University Fest',
-      // image: PRISMA_LOGO,
+      image: PRISMA_LOGO,
       // eslint-disable-next-line camelcase
       handler(response: { razorpay_payment_id: string }) {
         if (response.razorpay_payment_id) {
@@ -184,12 +197,40 @@ const ContactMeForm: React.FC = () => {
     rzp1.open();
   };
   const paymentHandler = useAsyncTask(handleClick);
+  const generateQRCodeHandler = useAsyncTask(generateQRCode);
 
   useEffect(() => {
-    if (paymentId !== '') saveHandlerRun.run({});
-    formik.setValues(formik.initialValues);
-    setImageURL('');
+    if (paymentId !== '') {
+      generateQRCodeHandler.run({});
+    }
   }, [paymentId]);
+
+  useEffect(() => {
+    if (qrCodeURL !== '') {
+      saveHandlerRun.run({});
+      const { values } = formik;
+      setToSend({
+        name: values.name,
+        fromSRM,
+        email: values.email,
+        phone: values.phone,
+        canvas: qrCodeURL,
+        payId: paymentId,
+      });
+    }
+    // formik.setValues(formik.initialValues);
+    // setImageURL('');
+    // setQrCodeURL('');
+    // setPaymentId('');
+    // setToSend({
+    //   name: '',
+    //   fromSRM,
+    //   email: '',
+    //   phone: '',
+    //   canvas: '',
+    //   payId: '',
+    // });
+  }, [qrCodeURL]);
 
   const handleCheckBox = (e: any) => {
     formik.setFieldValue('fromSRM', e?.target.value);
@@ -296,7 +337,7 @@ const ContactMeForm: React.FC = () => {
             textAlign: '-webkit-center' as any,
           }}
         >
-          <QRCode value={paymentId} size={200} level="H" includeMargin />
+          {/* <QRCode value={paymentId} size={200} level="H" includeMargin /> */}
         </Box>
         <Box mt={3}>
           <Typo variant="body2" gutterBottom>
@@ -371,6 +412,7 @@ const ContactMeForm: React.FC = () => {
             width="100%"
             alignSelf="center"
             style={{ textAlignLast: 'center' }}
+            textAlign="center"
           >
             <Button
               onClick={() => {
@@ -399,15 +441,18 @@ const ContactMeForm: React.FC = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-      setToSend({
-        name: values.name,
-        email: values.email,
-        phoneNumber: values.phone,
-        idURL: imageURL,
-        qrCodeURL,
-      });
+
       if (fromSRM) {
         saveHandlerRun.run({});
+        const { values } = formik;
+        setToSend({
+          name: values.name,
+          fromSRM,
+          email: values.email,
+          phone: values.phone,
+          canvas: qrCodeURL,
+          payId: paymentId,
+        });
         formik.setValues(formik.initialValues);
         setImageURL('');
       }
