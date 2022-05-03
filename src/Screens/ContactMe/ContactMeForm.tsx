@@ -24,7 +24,8 @@ import useAsyncTask from 'Hooks/useAsyncTask';
 import { useFormik } from 'formik';
 import clsx from 'clsx';
 import emailjs from 'emailjs-com';
-import QRCode from 'qrcode';
+import QRCode from 'qrcode.react';
+import Loader from 'Components/Loader';
 import EntriesDataService from '../../entries-service';
 import TICKET_BANNER from '../../Assets/TicketBanner.png';
 import { userSchema } from './UserValidation';
@@ -66,19 +67,19 @@ const ContactMeForm: React.FC = () => {
     qrCodeURL: '',
   });
 
-  const generateQRCode = () => {
-    QRCode.toDataURL(paymentId)
-      .then((url) => {
-        setQrCodeURL(url);
-        console.log(url);
-      })
-      .catch((err) => {
-        enqueueSnackbar(err, {
-          variant: 'error',
-          anchorOrigin: { horizontal: 'center', vertical: 'bottom' },
-        });
-      });
-  };
+  // const generateQRCode = () => {
+  //   QRCode.toDataURL(paymentId)
+  //     .then((url) => {
+  //       setQrCodeURL(url);
+  //       console.log(url);
+  //     })
+  //     .catch((err) => {
+  //       enqueueSnackbar(err, {
+  //         variant: 'error',
+  //         anchorOrigin: { horizontal: 'center', vertical: 'bottom' },
+  //       });
+  //     });
+  // };
 
   useEffect(() => {
     if (toSend.name !== '')
@@ -113,7 +114,7 @@ const ContactMeForm: React.FC = () => {
         variant: 'success',
         anchorOrigin: {
           horizontal: isDeviceSm ? 'center' : 'left',
-          vertical: isDeviceSm ? 'bottom' : 'top',
+          vertical: !isDeviceSm ? 'bottom' : 'top',
         },
         autoHideDuration: null,
         action,
@@ -130,7 +131,10 @@ const ContactMeForm: React.FC = () => {
       );
       enqueueSnackbar('Checkout failed', {
         variant: 'error',
-        anchorOrigin: { horizontal: 'center', vertical: 'bottom' },
+        anchorOrigin: {
+          horizontal: isDeviceSm ? 'center' : 'left',
+          vertical: !isDeviceSm ? 'bottom' : 'top',
+        },
         autoHideDuration: null,
         action,
       });
@@ -150,7 +154,7 @@ const ContactMeForm: React.FC = () => {
         if (response.razorpay_payment_id) {
           setRazorpaySuccess(true);
           setPaymentId(response.razorpay_payment_id);
-          generateQRCode();
+          // generateQRCode();
           // setRazorpayPaymentID(response.razorpay_payment_id);
         }
       },
@@ -283,9 +287,17 @@ const ContactMeForm: React.FC = () => {
             }}
           >
             <img src={qrCodeURL} alt="after-payment-qr-code" />
-            {/* <QRCode value={paymentId} size={200} level="H" includeMargin /> */}
           </Box>
         ) : null}
+        <Box
+          pt={3}
+          style={{
+            textAlignLast: 'center',
+            textAlign: '-webkit-center' as any,
+          }}
+        >
+          <QRCode value={paymentId} size={200} level="H" includeMargin />
+        </Box>
         <Box mt={3}>
           <Typo variant="body2" gutterBottom>
             <b>YOUR PAYMENT DETAILS:-</b>
@@ -418,8 +430,7 @@ const ContactMeForm: React.FC = () => {
       pb={4}
       className="subHeading"
     >
-      {saveHandlerRun.status !== 'PROCESSING' ||
-      paymentHandler.status !== 'PROCESSING' ? (
+      {saveHandlerRun.status !== 'PROCESSING' ? (
         <Box className={classes.background} width="90%">
           <Box pl={isDeviceSm ? 4 : 6} pr={isDeviceSm ? 4 : 6} pt={3} pb={4}>
             <form onSubmit={formik.handleSubmit}>
@@ -616,7 +627,7 @@ const ContactMeForm: React.FC = () => {
           </Box>
         </Box>
       ) : (
-        <LinearProgress />
+        <Loader overlayed />
       )}
     </Box>
   );
