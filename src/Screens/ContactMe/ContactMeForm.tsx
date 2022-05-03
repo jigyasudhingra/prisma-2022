@@ -45,7 +45,7 @@ export interface FormDetails {
   imageURL: string | undefined;
   paymentID?: string;
 }
-export const TICKET_AMOUNT = 450;
+export const TICKET_AMOUNT = 500;
 const ContactMeForm: React.FC = () => {
   const classes = useStyles();
   const { isDeviceSm } = useMediaQuery();
