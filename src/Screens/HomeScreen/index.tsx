@@ -6,6 +6,7 @@ import AboutSection from './AboutSection';
 import ArtistSection from './ArtistSection';
 import HeroContent from './HeroSection/HeroContent';
 import NavigationMenu from './NavigationMenu';
+import SponsorsSection from './SponsorsSection';
 
 const HomeScreen = () => {
   const { loading } = useAppInit();
@@ -19,6 +20,7 @@ const HomeScreen = () => {
       <AboutSection />
       <ArtistSection />
       {/* <EventsSection /> */}
+      <SponsorsSection />
     </Box>
   );
 };

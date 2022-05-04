@@ -6,6 +6,10 @@ import Slider from 'react-slick';
 import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
 import '../../../../node_modules/slick-carousel/slick/slick.css';
 import HERO_IMAGE from '../../../Assets/RegistrationEnquiryQR.png';
+import MACV_IMAGE from '../../../Assets/macv.png';
+import MOJOLAND_IMAGE from '../../../Assets/mojoland.png';
+import TIMEX_IMAGE from '../../../Assets/timex_page-0001.jpg';
+import F9_IMAGE from '../../../Assets/logobig.png';
 
 interface CarouselButtonProps {
   onClick?: () => {};
@@ -21,7 +25,7 @@ const CarouselPrevButton = (props: CarouselButtonProps) => {
     </IconButton>
   );
 };
-const images = [HERO_IMAGE, HERO_IMAGE, HERO_IMAGE, HERO_IMAGE];
+const images = [MACV_IMAGE, MOJOLAND_IMAGE, TIMEX_IMAGE, F9_IMAGE];
 
 const CarouselNextButton = (props: CarouselButtonProps) => {
   const { onClick, className, alt } = props;
@@ -40,7 +44,7 @@ const EventsSection: React.FC = () => {
       <Box p={5} className={clsx(classes.background, 'subHeading')}>
         <Slider
           centerPadding="0"
-          arrows
+          arrows={false}
           slidesToShow={3}
           slidesToScroll={1}
           dots
@@ -49,8 +53,8 @@ const EventsSection: React.FC = () => {
           focusOnSelect
           cssEase="linear"
           touchMove
-          // autoplay
-          // speed={500}
+          autoplay
+          speed={100}
           className={classes.root}
           nextArrow={<CarouselNextButton className={classes.nextArrow} />}
           prevArrow={<CarouselPrevButton />}
@@ -65,12 +69,12 @@ const EventsSection: React.FC = () => {
                 idx === imageIndex ? classes.activeImage : classes.image
               }
             >
-              <img src={i} alt={i} width={100} />
+              <img src={i} alt={i} width='100%' height='auto' />
             </Box>
           ))}
         </Slider>
       </Box>
-      );
+      {/* ); */}
     </Box>
   );
 };
@@ -121,13 +125,13 @@ const useStyles = makeStyles(() =>
       // width: 250,
     },
     activeImage: {
-      transform: 'scale(1.1)',
-      opacity: 1,
+      // transform: 'scale(1.1)',
+      // opacity: 1,
     },
     image: {
-      transform: 'scale(0.7)',
-      transition: 'transform 300ms',
-      opacity: 0.5,
+      // transform: 'scale(0.7)',
+      // transition: 'transform 300ms',
+      // opacity: 0.5,
     },
   })
 );

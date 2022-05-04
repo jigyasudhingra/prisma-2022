@@ -462,55 +462,64 @@ const danceEventDetails = [
   {
     eventName: 'Group Dance (Western/General)',
     eventDetailSummary:
-      'Team of not more than 18 students & not less than 6 students. Team may consist of boys, girls or both.',
+      'Maximum students to perform is 15 and minimum should be 6. Team may consist of boys, girls or both.',
     eventDetail: (
       <div>
-        1. Team of not more than 18 students & not less than 6 students.<br />
+       1. Maximum students to perform is 15 and minimum should be 6.<br />
 2. Team may consist of boys, girls or both.<br />
-3. Duration of the Dance should not be more than 10 mins.<br />
+3. Duration of the Dance should be minimum 4mins and maximum 10 mins.<br />
 4. No individual will be adjudged as Best Dancer.<br />
-5. The participating teams will be responsible for removing of their
-sets/properties immediately after the completion of their performance.<br />
-6. Track to be emailed 2 days beforehand along with name and contact number as
+5. The participating teams will be responsible for removing of their props
+immediately after the completion of their performance.<br />
+6. There is strict prohibition on using of any powder and inflammable substance.<br />
+7. Track to be emailed 2 days beforehand along with name and contact number as
 the file name.<br />
-7. If the time limit exceeds negative marking would be done.<br />
-8. The participants must report to the Stage Secretary at least 30 minutes before
-the commencement of the Event.<br /><br />
+8. If the time limit exceeds negative marking would be done.<br />
+9. The participants must report to the Stage Secretary at least 30 minutes before
+the commencement of the Event.<br />
+10. The decision of the judges shall be final and biding.<br /><br />
       </div>
     ),
   },
   {
     eventName: 'Duet Dance (Western/General)',
     eventDetailSummary:
-      'A College/Institution can enter only 2 participants. Time allowed for Dance is not more than 4 minutes.',
+      'Only 2 duo participations will be allowed from any Instituition. Minimum time duration is 2 mins and maximum is 4 mins.',
     eventDetail: (
       <div>
-        1. A College/Institution can enter only 2 participants.<br />
-2. Time allowed for Dance is not more than 4 minutes.<br />
-3. Judgment will be based on formation, music, singing, costume, make-up,
+        1. Only 2 duo participations will be allowed from any Instituition.<br />
+2. Minimum time duration is 2 mins and maximum is 4 mins.<br />
+3. Judgment will be based on expressions, postures, music, costume, make-up,
 coordination and overall impact.<br />
 4. Track to be emailed 2 days beforehand along with name and contact number as
 the file name.<br />
-5. If the time limit exceeds negative marking would be done.<br /><br />
+5. If the time limit exceeds negative marking would be done.<br />
+6. The participants are responsible for removing of their props immediately after
+the completion of their performance.<br />
+7. There is strict prohibition on using of any powder and inflammable substance.<br />
+8. The participants must report to the Stage Secretary at least 30 minutes before
+the commencement of the Event.<br />
+9. The decision of the judges shall be final and biding.<br /><br />
       </div>
     ),
   },
   {
     eventName: 'Face Off',
     eventDetailSummary:
-      ' It will be a dance faceoff between 2 teams at a time. The timer for a team starts as soon as the dancers (solo, duo or group) step into the performance area and will be switched after 45 seconds.',
+      '  Dance face off will be between two participants, let it be solo, group or duo. The timer for a team starts as soon as the dancers (solo, duo or group) step into the performance area and will be switched after 45 seconds.',
     eventDetail: (
       <div>
-        1. It will be a dance faceoff between 2 teams at a time.<br />
+        1. Dance face off will be between two participants, let it be solo, group or duo.<br />
 2. The timer for a team starts as soon as the dancers (solo, duo or group) step into
 the performance area and will be switched after 45 seconds.<br />
-3. The music will be provided to each team 5-minutes just before the
-performance.<br />
-4. Participants must not physically interfere with their opponents’ performance in
-the battle. Doing so will result in negative points or straight away disqualification.<br />
-5. One team will be selected after each battle. So, the team which will perform
-better in the last battle will be the winner.<br />
-6. The decision of the judges shall be final and binding.
+3. The music will be provided to each team 10-minutes prior.<br />
+4. Participants can't physically interfere their opponents performance in the
+battle. Doing so will result in straight away disqualification.<br />
+5. One team will be selected after each battle. Final battle wining team will be the
+Winner.<br />
+6. The participants must report to the Stage Secretary at least 30 minutes before
+the commencement of the Event.<br />
+7. The decision of the judges shall be final and biding.
 <br /><br />
       </div>
     ),
@@ -518,31 +527,45 @@ better in the last battle will be the winner.<br />
   {
     eventName: 'Dance Solo (Western/General) (Male/Female)',
     eventDetailSummary:
-      'Time allowed for Dance is not more than 3 minutes. The number of accompanists admissible is three if required.',
+      'Time duration; maximum is 4 mins and minimum is 2 mins. The number of accompanists admissible is three if required.',
     eventDetail: (
       <div>
-        1. Time allowed for Dance is not more than 3 minutes.<br />
+        1. Time duration; maximum is 4 mins and minimum is 2mins.<br />
 2. The number of accompanists admissible is three if required.<br />
-3. Judgment will be based on formation, music, singing, costume, make-up,
-coordination and overall impact.<br />
-4. Track to be emailed 2 days beforehand along with name and contact number as
-the file name.<br />
-5. If the time limit exceeds negative marking would be done.<br /><br />
+3. Judgment will be based on expression, postures, body movements, music,
+costume, make-up and overall impact.<br />
+4. Track to be emailed 2 days beforehand along with name and contact number
+as the file name.<br />
+5. If the time limit exceeds negative marking would be done.<br />
+6. The participant is responsible for removing of his/her props immediately after
+the completion of his/her performance.<br />
+7. There is strict prohibition on using of any powder and inflammable substance.<br />
+8. The participants must report to the Stage Secretary at least 30 minutes before
+the commencement of the Event.<br />
+9. The decision of the judges shall be final and biding.
+<br /><br />
       </div>
     ),
   },
   {
     eventName: 'Classical solo dance',
     eventDetailSummary:
-      'Time allowed for Dance is not more than 4 minutes. Judgment will be based on formation, costume, make-up, coordination, footwork, expressions and overall impact.',
+      'Time duration; maximum is 4 mins and minimum is 2 mins. The number of accompanists admissible is three if required.',
     eventDetail: (
       <div>
-       1. Time allowed for Dance is not more than 4 minutes.<br />
-2. Judgment will be based on formation, costume, make-up, coordination,
-footwork, expressions and overall impact.<br />
-3. Track to be emailed 2 days beforehand along with name and contact number as
-the file name.<br />
-4. If the time limit exceeds negative marking would be done.<br /><br />
+       1. Time duration; maximum is 4 mins and minimum is 2mins.<br />
+2. The number of accompanists admissible is three if required.<br />
+3. Judgment will be based on expression, postures, body movements, music,
+costume, make-up and overall impact.<br />
+4. Track to be emailed 2 days beforehand along with name and contact number
+as the file name.<br />
+5. If the time limit exceeds negative marking would be done.<br />
+6. The participant is responsible for removing of his/her props immediately after
+the completion of his/her performance.<br />
+7. There is strict prohibition on using of any powder and inflammable substance.<br />
+8. The participants must report to the Stage Secretary at least 30 minutes before
+the commencement of the Event.<br />
+9. The decision of the judges shall be final and biding.<br /><br />
       </div>
     ),
   },
@@ -1059,4 +1082,7 @@ inthe e-mail.<br />
   
 ];
 
-export { musicEventDetails, dramaEventDetails, ArtsoloEventDetails, ArtgroupEventDetails, danceEventDetails, FashionEventDetails, LiteraryEventDetails, gamingcontrollerEventDetails, gamingretroEventDetails, gamingpcEventDetails, gamingmobileEventDetails, PhotoEventDetails };
+const AnimeEventDetails = [
+  {}
+]
+export { musicEventDetails, dramaEventDetails, ArtsoloEventDetails, ArtgroupEventDetails, danceEventDetails, FashionEventDetails, LiteraryEventDetails, gamingcontrollerEventDetails, gamingretroEventDetails, gamingpcEventDetails, gamingmobileEventDetails, PhotoEventDetails, AnimeEventDetails };

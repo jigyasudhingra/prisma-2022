@@ -57,7 +57,7 @@ const EventsScreen = () => {
         backgroundColor={THEME_PALETTE.primary.main}
         cardColor={THEME_PALETTE.others.main}
         societyName="Dance"
-        contactDetails={{ name: 'Mansi Jha', phone: 8506873142 }}
+        contactDetails={{ name: 'Ipsita Dalai', phone: 8249508480 }}
         details={danceEventDetails}
         id="Dance"
       />
