@@ -1,27 +1,31 @@
 {
   "files": {
     "main.css": "/static/css/main.d5285675.chunk.css",
-    "main.js": "/static/js/main.099f10f7.chunk.js",
-    "main.js.map": "/static/js/main.099f10f7.chunk.js.map",
+    "main.js": "/static/js/main.5b7c8c27.chunk.js",
+    "main.js.map": "/static/js/main.5b7c8c27.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.08188522.js",
     "runtime-main.js.map": "/static/js/runtime-main.08188522.js.map",
-    "static/css/2.2ce0d9b2.chunk.css": "/static/css/2.2ce0d9b2.chunk.css",
-    "static/js/2.3357a486.chunk.js": "/static/js/2.3357a486.chunk.js",
-    "static/js/2.3357a486.chunk.js.map": "/static/js/2.3357a486.chunk.js.map",
+    "static/css/2.6c2fb8fe.chunk.css": "/static/css/2.6c2fb8fe.chunk.css",
+    "static/js/2.2f853fd3.chunk.js": "/static/js/2.2f853fd3.chunk.js",
+    "static/js/2.2f853fd3.chunk.js.map": "/static/js/2.2f853fd3.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.61125128dfaf387cce04ff9805dbfd0b.js": "/precache-manifest.61125128dfaf387cce04ff9805dbfd0b.js",
+    "precache-manifest.8117b9cd9be59cfecb4adb59d4ebfad7.js": "/precache-manifest.8117b9cd9be59cfecb4adb59d4ebfad7.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.2ce0d9b2.chunk.css.map": "/static/css/2.2ce0d9b2.chunk.css.map",
+    "static/css/2.6c2fb8fe.chunk.css.map": "/static/css/2.6c2fb8fe.chunk.css.map",
     "static/css/main.d5285675.chunk.css.map": "/static/css/main.d5285675.chunk.css.map",
-    "static/js/2.3357a486.chunk.js.LICENSE.txt": "/static/js/2.3357a486.chunk.js.LICENSE.txt",
+    "static/js/2.2f853fd3.chunk.js.LICENSE.txt": "/static/js/2.2f853fd3.chunk.js.LICENSE.txt",
     "static/media/AboutPrismaBackground.png": "/static/media/AboutPrismaBackground.45ecd530.png",
     "static/media/ArtistSectionBackground.png": "/static/media/ArtistSectionBackground.f0c685dd.png",
     "static/media/Aryan.jpeg": "/static/media/Aryan.71cd91eb.jpeg",
+    "static/media/F9.jpg": "/static/media/F9.0fb62a88.jpg",
+    "static/media/MacV.jpg": "/static/media/MacV.1b80e68f.jpg",
+    "static/media/MojoLand.jpg": "/static/media/MojoLand.2e117be8.jpg",
     "static/media/ParmishVerma.png": "/static/media/ParmishVerma.22c680a1.png",
     "static/media/PrismaHome2.mp4": "/static/media/PrismaHome2.d664871d.mp4",
     "static/media/PrismaLogo-AboutSection.png": "/static/media/PrismaLogo-AboutSection.0491d2b3.png",
     "static/media/PrismaLogo.png": "/static/media/PrismaLogo.3883da3e.png",
     "static/media/RaghavQRCode.jpeg": "/static/media/RaghavQRCode.b23331a9.jpeg",
+    "static/media/TIMEX.jpg": "/static/media/TIMEX.0796a886.jpg",
     "static/media/TicketBanner.webp": "/static/media/TicketBanner.6ef59602.webp",
     "static/media/bhavjot.jpeg": "/static/media/bhavjot.aa960503.jpeg",
     "static/media/devansh.jpeg": "/static/media/devansh.e02a048f.jpeg",
@@ -30,13 +34,14 @@
     "static/media/jigyasu.jpeg": "/static/media/jigyasu.f63b4e7f.jpeg",
     "static/media/manya.jpeg": "/static/media/manya.ae4c17e0.jpeg",
     "static/media/raghav.jpeg": "/static/media/raghav.4bad043e.jpeg",
-    "static/media/sakaar.jpeg": "/static/media/sakaar.ef313719.jpeg"
+    "static/media/sakaar.jpeg": "/static/media/sakaar.ef313719.jpeg",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.08188522.js",
-    "static/css/2.2ce0d9b2.chunk.css",
-    "static/js/2.3357a486.chunk.js",
+    "static/css/2.6c2fb8fe.chunk.css",
+    "static/js/2.2f853fd3.chunk.js",
     "static/css/main.d5285675.chunk.css",
-    "static/js/main.099f10f7.chunk.js"
+    "static/js/main.5b7c8c27.chunk.js"
   ]
 }
