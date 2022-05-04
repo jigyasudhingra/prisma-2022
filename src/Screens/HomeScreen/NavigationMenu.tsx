@@ -34,6 +34,11 @@ const NAVIGATION_LINKS: { id: string; url: string; label: string }[] = [
     label: 'Teams',
   },
   {
+    id: 'sponsors',
+    url: '/sponsors',
+    label: 'Sponsors',
+  },
+  {
     id: 'register',
     url: '/register',
     label: 'Register',
@@ -85,7 +90,7 @@ const NavigationMenu: React.FC = () => {
           <Box
             alignSelf="center"
             alignItems={!isDeviceSm && 'center'}
-            width={isDeviceSm ? '80%' : '57%'}
+            width={isDeviceSm ? '100%' : '57%'}
             textAlign={!isDeviceSm && 'right'}
             style={{ textAlignLast: !isDeviceSm && ('right' as any) }}
             // flexBasis={!isDeviceSm && 'content'}

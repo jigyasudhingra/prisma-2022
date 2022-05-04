@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => {
   const { isDeviceSm } = useMediaQuery();
   return (
     <Box
-      p={5}
+      p={7}
       className={isDeviceSm ? classes.mobilebackground : classes.background}
       display={isDeviceSm ? '' : 'flex'}
       flexDirection="row"

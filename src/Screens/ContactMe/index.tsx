@@ -22,8 +22,13 @@ const ContactMe: React.FC = () => {
           </Box>
 
           <Box width="100%" textAlign="center" pt={1}>
-            <Typo style={{ fontSize: 38, color: '#ffff' }} color="textPrimary">
-              Register for the event
+            <Typo
+              style={{ fontSize: 35, color: '#ffff' }}
+              color="textPrimary"
+              weight="bold"
+              gutterBottom
+            >
+              REGISTER FOR THE EVENT
             </Typo>
           </Box>
         </>
@@ -35,8 +40,8 @@ const ContactMe: React.FC = () => {
                 Get yourself registered
               </Typo>
             </Box>
-            <Typo variant="h5" color="textPrimary" gutterBottom>
-              Register for the event
+            <Typo variant="h5" color="textPrimary" gutterBottom weight="bold">
+              REGISTER FOR THE EVENT
             </Typo>
           </Box>
         </Box>

@@ -73,6 +73,13 @@ const ArtistSection = () => {
               later debuted as an actor with the film Rocky Mental.
             </Typo>
             <Typo variant="body2" gutterBottom style={{ marginBottom: 15 }}>
+              Parmish started his career as a director with zimmewari bhukh te
+              doori which was the story of an adolescent boy based on the life
+              of Verma where he described the hard time which he faced while
+              living in Australia and about the advice given to him by Gurikk
+              Maan.
+            </Typo>
+            <Typo variant="body2" gutterBottom style={{ marginBottom: 15 }}>
               Some of his popular songs that define his style include Gal Ni
               Kadni (2017), Shada (2018) and Chal Oye (2019). He is also known
               for Dil Diya Gallan (2019), Jinde Meriye (2020) and Rocky Mental

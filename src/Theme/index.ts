@@ -68,7 +68,7 @@ export default createTheme({
         // borderColor: 'transparent',
         // borderImageSlice: 1,
         letterSpacing: 1.1,
-        borderRadius: 5,
+        // borderRadius: 5,
         '&.Mui-disabled': {
           border: `1px solid ${THEME_PALETTE.secondary.main}`,
           color: THEME_PALETTE.primary.contrastText,
@@ -81,7 +81,7 @@ export default createTheme({
           //   'linear-gradient(135deg, #FF914D 5%, #0A192F 50%, #FF914D 100%)',
           backgroundImage: '#FF914D',
           borderColor: '#FF914D',
-          borderRadius: 8,
+          // borderRadius: 8,
           backgroundColor: '#FF914D',
           color: '#0A192F',
         },
