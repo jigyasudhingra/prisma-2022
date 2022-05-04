@@ -71,7 +71,7 @@ const EventsSection: React.FC = () => {
           MEET OUR SPONSORS
         </Typo>
       </Box>
-      <Box pt={3} pb={3}>
+      <Box py={isDeviceSm ? 8 : 3}>
         <Slider
           centerPadding="0"
           arrows={false}
