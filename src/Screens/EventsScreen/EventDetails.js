@@ -1082,7 +1082,83 @@ inthe e-mail.<br />
   
 ];
 
-const AnimeEventDetails = [
-  {}
+const HarryPotterQuizDetails = [
+  {
+    eventName: '',
+    eventDetailSummary: 'Questions will be projected as well as dictated, whoever guesses the correct answer first will be awarded points for the same. At the end of the quiz, the cumulative scores will be totalled.',
+    eventDetail: (
+      <div>
+        Questions will be projected as well as dictated, whoever guesses the correct answer first will be awarded points for the same.
+        <br />
+        <br />
+        At the end of the quiz, the cumulative scores will be totalled.
+      </div>
+    )
+  }
 ]
-export { musicEventDetails, dramaEventDetails, ArtsoloEventDetails, ArtgroupEventDetails, danceEventDetails, FashionEventDetails, LiteraryEventDetails, gamingcontrollerEventDetails, gamingretroEventDetails, gamingpcEventDetails, gamingmobileEventDetails, PhotoEventDetails, AnimeEventDetails };
+
+const AnimeQuizDetails = [
+  {
+    eventName: 'Anime Opening',
+    eventDetailSummary: 'An Anime opening song will be played and whoever guesses the Anime first will be awarded points for the same. At the end of this, the cumulative score will be totalled.',
+    eventDetail: (
+      <div>
+        An Anime opening song will be played and whoever guesses the Anime first will be awarded points for the same.
+<br /> <br/>At the end of this, the cumulative score will be totalled.
+      </div>
+    )
+  },
+  {
+    eventName: 'An Anime Quiz',
+    eventDetailSummary: ' An Anime Quiz will be conducted on the following anime: 1. Dragon Ball 2. Jujutsu Kaisen 3. Demon Slayer 4. Naruto Questions will be projected whoever guesses the correct answer first will be awarded points for the same.',
+    eventDetail: (
+      <div>
+        An Anime Quiz will be conducted on the following anime:-
+        <br /><br />
+1. Dragon Ball
+<br />
+2. Jujutsu Kaisen
+<br />
+
+3. Demon Slayer
+<br />
+
+4. Naruto
+<br />
+<br />
+
+Questions will be projected whoever guesses the correct answer first will be awarded points for the same. At the end of this, the cumulative score will be totalled.
+      </div>
+    )
+  },
+  {
+    eventName: 'Anime Character',
+    eventDetailSummary: 'An Anime Character Figure will be projected, whoever guesses the Anime Character first will be awarded points for the same. At th the cumulative score will be totalled.',
+    eventDetail: (
+      <div>
+        An Anime Character Figure will be projected, whoever guesses the Anime Character first will be awarded points for the same.
+<br /> <br />At the end of this, the cumulative score will be totalled.
+      </div>
+    )
+  },
+  {
+    eventName: 'Surprise Event',
+    eventDetailSummary: 'Details regarding this event will be briefed on the spot.',
+    eventDetail: (
+      <div>
+        Details regarding this event will be briefed on the spot.
+      </div>
+    )
+  },
+  {
+    eventName: 'Anime Quote',
+    eventDetailSummary: 'An Anime Quote Figure will be projected, whoever guesses the Anime(The quote is from) first will be awarded points for the same. At the end of this, the cumulative score will be totalled.',
+    eventDetail: (
+      <div>
+        An Anime Quote Figure will be projected, whoever guesses the Anime(The quote is from) first will be awarded points for the same.
+<br /><br />At the end of this, the cumulative score will be totalled.
+      </div>
+    )
+  }
+]
+export { musicEventDetails, dramaEventDetails, HarryPotterQuizDetails, ArtsoloEventDetails, ArtgroupEventDetails, danceEventDetails, FashionEventDetails, LiteraryEventDetails, gamingcontrollerEventDetails, gamingretroEventDetails, gamingpcEventDetails, gamingmobileEventDetails, PhotoEventDetails, AnimeQuizDetails };

@@ -3,7 +3,7 @@ import SocietyEvents from 'Components/SocietyEvents';
 import React from 'react';
 import NavigationMenu from 'Screens/HomeScreen/NavigationMenu';
 import { THEME_PALETTE } from 'Theme/themeConstants';
-import { musicEventDetails } from './EventDetails';
+import { AnimeQuizDetails, HarryPotterQuizDetails, musicEventDetails } from './EventDetails';
 import { dramaEventDetails } from './EventDetails';
 import { ArtsoloEventDetails } from './EventDetails';
 import { ArtgroupEventDetails } from './EventDetails';
@@ -114,7 +114,21 @@ const EventsScreen = () => {
         contactDetails={{ name: 'Ruben', phone: 7905650174 }}
         details={gamingmobileEventDetails}
       />
-      
+      <SocietyEvents
+        backgroundColor={THEME_PALETTE.primary.main}
+        cardColor={THEME_PALETTE.others.main}
+        societyName="Harry Potter Quiz"
+        contactDetails={{ name: 'Riya Dahiya', phone: 9488728622 }}
+        details={HarryPotterQuizDetails}
+        id="Quiz"
+      />
+      <SocietyEvents
+        backgroundColor={THEME_PALETTE.primary.main}
+        cardColor={THEME_PALETTE.others.main}
+        societyName="Anime Quiz"
+        contactDetails={{ name: 'Abhishek Sharma', phone: 9667502650 }}
+        details={AnimeQuizDetails}
+      />
     </Box>
   );
 };

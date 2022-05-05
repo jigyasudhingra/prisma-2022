@@ -18,6 +18,7 @@ import MACV_IMAGE from '../../../Assets/MacV.jpg';
 import MOJOLAND_IMAGE from '../../../Assets/MojoLand.jpg';
 import TIMEX_IMAGE from '../../../Assets/TIMEX.jpg';
 import F9_IMAGE from '../../../Assets/F9.jpg';
+import BALIJWAN_IMAGE from '../../../Assets/Baljiwan.jpeg';
 
 interface CarouselButtonProps {
   onClick?: () => {};
@@ -33,7 +34,7 @@ const CarouselPrevButton = (props: CarouselButtonProps) => {
     </IconButton>
   );
 };
-const images = [MACV_IMAGE, MOJOLAND_IMAGE, TIMEX_IMAGE, F9_IMAGE];
+const images = [MACV_IMAGE, MOJOLAND_IMAGE, TIMEX_IMAGE, F9_IMAGE, BALIJWAN_IMAGE];
 
 const CarouselNextButton = (props: CarouselButtonProps) => {
   const { onClick, className, alt } = props;
