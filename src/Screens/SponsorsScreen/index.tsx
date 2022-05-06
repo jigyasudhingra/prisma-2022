@@ -155,7 +155,7 @@ const SponsorsPage: React.FC = () => {
         <Box textAlign="center">
           <Box>
             <Typo variant="h5" weight="bold" color="secondary">
-              ADVENTURE PARTNER
+              EVENT SPONSOR
             </Typo>
           </Box>
           <Box py={3}>
@@ -231,7 +231,7 @@ const details = [
   {
     name: 'Baljiwan',
     description: 'BALJIWAN Medicines Pvt. Ltd., Aligarh is a front runner organization in the field of Herbal Medicines in India. It was established in the year 1913 by Hakim Tulsi Prasad Agrawal. After the death of Hakim Sahab in the year 1952 his only son Shyam Sunder Agrawal started looking after the workings of this organization. At present Mr. Shyam Sunder Agrawal’s able sons are taking this business organization to great heights.',
-    partnership: 'Event Sponsor',
+    partnership: 'EVENT SPONSOR',
     url: BALIJWAN_IMG,
     backgroundColor: THEME_PALETTE.others.main,
   }
