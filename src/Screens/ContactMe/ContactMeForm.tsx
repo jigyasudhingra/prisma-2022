@@ -20,6 +20,7 @@ import { storage } from 'firebase-config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import Typo from 'Components/Typo';
 import { AppDialogContext } from 'Contexts/AppDialogContext';
+import exportFromJSON from 'export-from-json';
 import useAsyncTask from 'Hooks/useAsyncTask';
 import { useFormik } from 'formik';
 import clsx from 'clsx';
@@ -471,6 +472,10 @@ const ContactMeForm: React.FC = () => {
   });
   const getAllFieldsHandler = async () => {
     const res = await EntriesDataService.getAllEntries();
+    const fileName = 'download';
+    const exportType = 'xls';
+    const data = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    exportFromJSON({ data, fileName, exportType });
     console.log(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
   // getAllFieldsHandler();
@@ -686,6 +691,13 @@ const ContactMeForm: React.FC = () => {
               </Box>
             </form>
           </Box>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={getAllFieldsHandler}
+          >
+            Get all entries
+          </Button>
         </Box>
       ) : (
         <Loader overlayed />
