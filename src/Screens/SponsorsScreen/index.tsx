@@ -151,7 +151,7 @@ const SponsorsPage: React.FC = () => {
           </Box>
         </Box>
       </Box>
-      <Box style={{ backgroundColor: THEME_PALETTE.primary.main }} py={7}>
+      {/* <Box style={{ backgroundColor: THEME_PALETTE.primary.main }} py={7}>
         <Box textAlign="center">
           <Box>
             <Typo variant="h5" weight="bold" color="secondary">
@@ -186,7 +186,7 @@ const SponsorsPage: React.FC = () => {
             </Typo>
           </Box>
         </Box>
-      </Box>
+      </Box> */}
       {details.map((d) => (
         <Box style={{ backgroundColor: d.backgroundColor }} py={7}>
         <Box textAlign="center">

@@ -34,7 +34,7 @@ const CarouselPrevButton = (props: CarouselButtonProps) => {
     </IconButton>
   );
 };
-const images = [MACV_IMAGE, MOJOLAND_IMAGE, TIMEX_IMAGE, F9_IMAGE, BALIJWAN_IMAGE];
+const images = [MACV_IMAGE, MOJOLAND_IMAGE, TIMEX_IMAGE, BALIJWAN_IMAGE];
 
 const CarouselNextButton = (props: CarouselButtonProps) => {
   const { onClick, className, alt } = props;
