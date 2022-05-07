@@ -78,7 +78,7 @@ const organizerTeamDetails = [
     
     'Bharat Gupta',
     'Vipra',
-    'Udit Vats',
+    // 'Udit Vats',
     'Chirag Jain',
     
     
