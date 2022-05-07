@@ -79,12 +79,12 @@ const organizerTeamDetails = [
     'Bharat Gupta',
     'Vipra',
     // 'Udit Vats',
+    'Abhishek Sharma',
     'Chirag Jain',
     
     
   ],
   [
-    'Abhishek Sharma',
     'Shahrukh Sheikh',
     'Siddhant Kasliwal',
     'Srishti'
