@@ -8,7 +8,7 @@ import NavigationMenu from 'Screens/HomeScreen/NavigationMenu';
 import { THEME_PALETTE } from 'Theme/themeConstants';
 import DIPANSHU_IMG from '../../Assets/dipanshu.jpeg'
 import RAGHAV_IMG from '../../Assets/raghav.jpeg'
-import ARYAN_IMG from '../../Assets/Aryan.jpeg'
+import ARYAN_IMG from '../../Assets/Aryan.jpg'
 import DEVANSH_IMG from '../../Assets/devansh.jpeg'
 import SAKAAR_IMG from '../../Assets/sakaar.jpeg'
 import JIGYASU_IMG from '../../Assets/jigyasu.jpeg'
