@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.cf91a8ab.chunk.css",
-    "main.js": "/static/js/main.01d11e14.chunk.js",
-    "main.js.map": "/static/js/main.01d11e14.chunk.js.map",
+    "main.css": "/static/css/main.d5285675.chunk.css",
+    "main.js": "/static/js/main.476ce987.chunk.js",
+    "main.js.map": "/static/js/main.476ce987.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.08188522.js",
     "runtime-main.js.map": "/static/js/runtime-main.08188522.js.map",
     "static/css/2.6c2fb8fe.chunk.css": "/static/css/2.6c2fb8fe.chunk.css",
-    "static/js/2.f2f4bb62.chunk.js": "/static/js/2.f2f4bb62.chunk.js",
-    "static/js/2.f2f4bb62.chunk.js.map": "/static/js/2.f2f4bb62.chunk.js.map",
+    "static/js/2.c707a83a.chunk.js": "/static/js/2.c707a83a.chunk.js",
+    "static/js/2.c707a83a.chunk.js.map": "/static/js/2.c707a83a.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.be48dbcf14e7adafddcbd22b7ca15e27.js": "/precache-manifest.be48dbcf14e7adafddcbd22b7ca15e27.js",
+    "precache-manifest.95367f229d9c2b9b2d917fbea663295a.js": "/precache-manifest.95367f229d9c2b9b2d917fbea663295a.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.6c2fb8fe.chunk.css.map": "/static/css/2.6c2fb8fe.chunk.css.map",
-    "static/css/main.cf91a8ab.chunk.css.map": "/static/css/main.cf91a8ab.chunk.css.map",
-    "static/js/2.f2f4bb62.chunk.js.LICENSE.txt": "/static/js/2.f2f4bb62.chunk.js.LICENSE.txt",
+    "static/css/main.d5285675.chunk.css.map": "/static/css/main.d5285675.chunk.css.map",
+    "static/js/2.c707a83a.chunk.js.LICENSE.txt": "/static/js/2.c707a83a.chunk.js.LICENSE.txt",
     "static/media/AboutPrismaBackground.png": "/static/media/AboutPrismaBackground.45ecd530.png",
     "static/media/ArtistSectionBackground.png": "/static/media/ArtistSectionBackground.f0c685dd.png",
     "static/media/Aryan.jpg": "/static/media/Aryan.d07661d2.jpg",
@@ -35,13 +35,14 @@
     "static/media/manya.jpeg": "/static/media/manya.ae4c17e0.jpeg",
     "static/media/raghav.jpeg": "/static/media/raghav.4bad043e.jpeg",
     "static/media/sakaar.jpeg": "/static/media/sakaar.ef313719.jpeg",
+    "static/media/shagun.png": "/static/media/shagun.ddb26003.png",
     "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.08188522.js",
     "static/css/2.6c2fb8fe.chunk.css",
-    "static/js/2.f2f4bb62.chunk.js",
-    "static/css/main.cf91a8ab.chunk.css",
-    "static/js/main.01d11e14.chunk.js"
+    "static/js/2.c707a83a.chunk.js",
+    "static/css/main.d5285675.chunk.css",
+    "static/js/main.476ce987.chunk.js"
   ]
 }
