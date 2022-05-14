@@ -2,6 +2,7 @@ import { Box, Grid } from '@material-ui/core';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
 import React from 'react';
 import Typo from './Typo';
+import DIPANSHU_IMG from '../Assets/dipanshu.jpeg';
 
 export interface CoreTeamMemberCardProps {
   imageURL: string;
@@ -38,6 +39,47 @@ const CoreTeamMembers = (props: CoreTeamMembersProps) => {
         style={{ textAlignLast: 'center' }}
         textAlign="-webkit-center"
       >
+        <Grid
+          item
+          lg={4}
+          sm={6}
+          xs={12}
+          key="dipanshu"
+          style={{ paddingBottom: 48 }}
+        >
+          <Box
+            maxWidth={170}
+            p={2}
+            style={{ backgroundColor: cardColor }}
+            borderRadius={10}
+          >
+            <Box borderRadius={10} pt={0.5}>
+              <img
+                width={isDeviceSm ? '100%' : 160}
+                height="auto"
+                src={DIPANSHU_IMG}
+                alt="profile-dipanshu"
+                style={{ borderRadius: 6 }}
+              />
+            </Box>
+            <Box pt={2}>
+              <Typo
+                variant="body2"
+                style={{ textTransform: 'uppercase', letterSpacing: 1.1 }}
+              >
+                Dipanshu
+              </Typo>
+              <Typo
+                variant="caption"
+                style={{ textTransform: 'uppercase', letterSpacing: 1.1 }}
+                color="secondary"
+              >
+                Convenor
+              </Typo>
+            </Box>
+          </Box>
+        </Grid>
+
         <Grid container lg={12} item spacing={5} justifyContent="center">
           {Array.from(details).map((i) => (
             <Grid item lg={4} sm={6} xs={12} key={i.name}>
