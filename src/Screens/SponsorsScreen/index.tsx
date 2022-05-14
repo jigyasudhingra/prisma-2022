@@ -5,12 +5,10 @@ import React from 'react';
 import NavigationMenu from 'Screens/HomeScreen/NavigationMenu';
 import { THEME_PALETTE } from 'Theme/themeConstants';
 import MOJOLAND_IMG from '../../Assets/MojoLand.jpg';
-import F9_IMG from '../../Assets/F9.jpg';
 import MACV_IMG from '../../Assets/MacV.jpg';
 import TIMEX_IMG from '../../Assets/TIMEX.jpg';
 import BALIJWAN_IMG from '../../Assets/Baljiwan.jpeg';
-import { Details } from '@material-ui/icons';
- 
+
 const SponsorsPage: React.FC = () => {
   const classes = useStyles();
   const { isDeviceSm } = useMediaQuery();
@@ -189,37 +187,35 @@ const SponsorsPage: React.FC = () => {
       </Box> */}
       {details.map((d) => (
         <Box style={{ backgroundColor: d.backgroundColor }} py={7}>
-        <Box textAlign="center">
-          <Box>
-            <Typo variant="h5" weight="bold" color="secondary">
-              {d.partnership}
-            </Typo>
-          </Box>
-          <Box py={3}>
-            <img
-              src={d.url}
-              alt="mojoland"
-              width={250}
-              height="auto"
-              style={{ borderRadius: 10 }}
-            />
-          </Box>
-          <Box px={!isDeviceSm ? 60 : 7}>
-            <Typo
-              variant="h6"
-              weight="bold"
-              color="secondary"
-              gutterBottom
-              style={{ letterSpacing: 1.1, textTransform: 'uppercase' }}
-            >
-              {d.name}
-            </Typo>
-            <Typo variant="body2">
-              {d.description}
-            </Typo>
+          <Box textAlign="center">
+            <Box>
+              <Typo variant="h5" weight="bold" color="secondary">
+                {d.partnership}
+              </Typo>
+            </Box>
+            <Box py={3}>
+              <img
+                src={d.url}
+                alt="mojoland"
+                width={250}
+                height="auto"
+                style={{ borderRadius: 10 }}
+              />
+            </Box>
+            <Box px={!isDeviceSm ? 60 : 7}>
+              <Typo
+                variant="h6"
+                weight="bold"
+                color="secondary"
+                gutterBottom
+                style={{ letterSpacing: 1.1, textTransform: 'uppercase' }}
+              >
+                {d.name}
+              </Typo>
+              <Typo variant="body2">{d.description}</Typo>
+            </Box>
           </Box>
         </Box>
-      </Box>
       ))}
     </Box>
   );
@@ -230,11 +226,12 @@ export default SponsorsPage;
 const details = [
   {
     name: 'Baljiwan',
-    description: 'BALJIWAN Medicines Pvt. Ltd., Aligarh is a front runner organization in the field of Herbal Medicines in India. It was established in the year 1913 by Hakim Tulsi Prasad Agrawal. After the death of Hakim Sahab in the year 1952 his only son Shyam Sunder Agrawal started looking after the workings of this organization. At present Mr. Shyam Sunder Agrawal’s able sons are taking this business organization to great heights.',
+    description:
+      'BALJIWAN Medicines Pvt. Ltd., Aligarh is a front runner organization in the field of Herbal Medicines in India. It was established in the year 1913 by Hakim Tulsi Prasad Agrawal. After the death of Hakim Sahab in the year 1952 his only son Shyam Sunder Agrawal started looking after the workings of this organization. At present Mr. Shyam Sunder Agrawal’s able sons are taking this business organization to great heights.',
     partnership: 'EVENT SPONSOR',
     url: BALIJWAN_IMG,
-    backgroundColor: THEME_PALETTE.others.main,
-  }
+    backgroundColor: THEME_PALETTE.primary.main,
+  },
 ];
 
 const useStyles = makeStyles(() =>
