@@ -7,7 +7,7 @@ import {
   Theme,
 } from '@material-ui/core';
 import { AppDialogContext } from 'Contexts/AppDialogContext';
-
+import '../App.css';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
 import React, { useContext } from 'react';
 import { THEME_PALETTE } from 'Theme/themeConstants';
@@ -28,8 +28,14 @@ export interface SocietyEventsProps {
   id?: string;
 }
 const SocietyEvents = (props: SocietyEventsProps) => {
-  const { societyName, details, backgroundColor, cardColor, contactDetails, id } =
-    props;
+  const {
+    societyName,
+    details,
+    backgroundColor,
+    cardColor,
+    contactDetails,
+    id,
+  } = props;
   const classes = useStyles(props);
   const { isDeviceSm } = useMediaQuery();
   const { showDialog } = useContext(AppDialogContext);
@@ -37,7 +43,12 @@ const SocietyEvents = (props: SocietyEventsProps) => {
     console.log('Hello');
   };
   return (
-    <Box style={{ backgroundColor }} pt={10} className={classes.bottomArrow} id={id ? id : ''}>
+    <Box
+      style={{ backgroundColor }}
+      pt={10}
+      className={classes.bottomArrow}
+      id={id || ''}
+    >
       <Box style={{ textAlignLast: 'center' }} textAlign="center">
         <Typo
           variant={isDeviceSm ? 'h5' : 'h4'}
@@ -70,15 +81,18 @@ const SocietyEvents = (props: SocietyEventsProps) => {
                     variant="body1"
                     color="secondary"
                     style={{ letterSpacing: 0.8, textTransform: 'uppercase' }}
+                    className="heading1"
                   >
-                    {i.eventName.length > 15 && !isDeviceSm
+                    {/* {i.eventName.length > 15 && !isDeviceSm
                       ? `${i.eventName.slice(0, 15)}...`
-                      : i.eventName}
+                      : i.eventName} */}
+                    {i.eventName}
                   </Typo>
                 </Box>
                 <Box>
-                  <Typo variant="caption">
-                    {i.eventDetailSummary?.slice(0, 130)} ...
+                  <Typo variant="caption" className="text1">
+                    {/* {i.eventDetailSummary?.slice(0, 130)} ... */}
+                    {i.eventDetailSummary}
                   </Typo>
                 </Box>
                 <Box pt={2} textAlign="-webkit-center">

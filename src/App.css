@@ -61,3 +61,18 @@
        margin-bottom: 0;
      }
 }
+
+.text1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  min-height:80px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.heading1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

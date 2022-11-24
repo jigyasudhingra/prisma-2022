@@ -23,7 +23,7 @@ const details = [
   'Literary',
   'Photography',
   'Gaming',
-  'Quiz'
+  'Quiz',
 ];
 
 const EventsHeroContent = () => {
