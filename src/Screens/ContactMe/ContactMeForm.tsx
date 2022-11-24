@@ -156,7 +156,8 @@ const ContactMeForm: React.FC = () => {
 
   const handleClick = async (formData: any) => {
     const options = {
-      key: 'rzp_live_9VgwhAekzCrImZ',
+      // key: 'rzp_live_9VgwhAekzCrImZ',
+      key: 'rzp_test_kIQLRyb7RMILro',
       amount: TICKET_AMOUNT * 100,
       currency: 'INR',
       name: 'SRM University, Sonepat, Haryana',
@@ -300,40 +301,31 @@ const ContactMeForm: React.FC = () => {
     const res = await EntriesDataService.addEntry({
       ...formik.values,
       paymentId,
-      mode: fromSRM ? '' : 'insider',
+      mode: 'afterEvent',
+      // mode: fromSRM ? '' : 'insider',
     });
 
     // TODO: FOR INSIDER
-    fromSRM &&
-      showDialog(
+    // fromSRM &&
+    showDialog(
+      <Box>
         <Box>
-          <Box>
-            <Typo
-              variant="h5"
-              weight="bold"
-              style={{ color: `${THEME_PALETTE.primary.main}` }}
-            >
-              Congratulations! Your Registration is Successful.
-            </Typo>
-          </Box>
-          <Box pt={3}>
-            <img
-              src={TICKET_BANNER}
-              alt="ticket-banner"
-              style={{ width: '100%', height: 'auto' }}
-            />
-          </Box>
-          {!fromSRM && qrCodeURL ? (
-            <Box
-              pt={3}
-              style={{
-                textAlignLast: 'center',
-                textAlign: '-webkit-center' as any,
-              }}
-            >
-              <img src={qrCodeURL} alt="after-payment-qr-code" />
-            </Box>
-          ) : null}
+          <Typo
+            variant="h5"
+            weight="bold"
+            style={{ color: `${THEME_PALETTE.primary.main}` }}
+          >
+            Congratulations! Your Registration is Successful.
+          </Typo>
+        </Box>
+        <Box pt={3}>
+          <img
+            src={TICKET_BANNER}
+            alt="ticket-banner"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Box>
+        {!fromSRM && qrCodeURL ? (
           <Box
             pt={3}
             style={{
@@ -341,96 +333,105 @@ const ContactMeForm: React.FC = () => {
               textAlign: '-webkit-center' as any,
             }}
           >
-            {/* <QRCode value={paymentId} size={200} level="H" includeMargin /> */}
+            <img src={qrCodeURL} alt="after-payment-qr-code" />
           </Box>
-          <Box mt={3}>
-            <Typo variant="body2" gutterBottom>
-              <b>YOUR PAYMENT DETAILS:-</b>
-            </Typo>
-            <Typo variant="body2" gutterBottom>
-              {formik.values.name && `Name: ${formik.values.name}`}
-            </Typo>
-            <Typo variant="body2" gutterBottom>
-              {formik.values.fromSRM &&
-                `Are you from SRM University: ${formik.values.fromSRM}`}
-            </Typo>
-            <Typo variant="body2" gutterBottom>
-              {formik.values.email && `Email-id: ${formik.values.email}`}
-            </Typo>
-            <Typo variant="body2" gutterBottom>
-              {formik.values.phone && `Phone Number: ${formik.values.phone}`}
-            </Typo>
-            <Typo variant="body2" gutterBottom>
-              {paymentId && `Payment Id: ${paymentId}`}
-            </Typo>
-          </Box>
-          <Box mt={3}>
-            <Typo variant="body2">
-              <b>TERMS & CONDITIONS:-</b>
-              <br />
-              1. ALL THE COVID GUIDELINES SHOULD BE STRICTLY FOLLOWED: <br />•
-              MASK IS MANDATORY.
-              <br />• THE TICKET BEARER SHOULD BE FULLY VACCINATED.
-              <br />• SOCIAL DISTANCING SHOULD BE FOLLOWED.
-              <br />
-              2.
-              <b>
-                {' '}
-                THE GATES WILL BE CLOSED AT 6PM SHARP, NO ENTRY WILL BE GIVEN
-                AFTER THAT.
-              </b>
-              <br />
-              3.<b> THE DOWNLOADED PASS WILL BE CHECKED AT THE ENTRY GATE.</b>
-              <br />
-              4. ENTRY WILL NOT BE GIVEN IF THE TICKET BEARER COMES WITHOUT AN
-              OFFICIAL ID AND THE PASS.
-              <br />
-              5. IF A PERSON LEAVES THE COLLEGE PREMISES DURING THE EVENT, THEY
-              WILL NOT BE ALLOWED TO ENTER THE PREMISES AGAIN.
-              <br />
-              6. USE OR POSSESSION OF ALCOHOL AND ANY KIND OF DRUG IS STRICTLY
-              PROHIBITED.
-              <br />
-              7. POSESSION OF ANY HARMFUL OBJECT OR WEAPON IS STRICTLY
-              PROHIBITED.
-              <br />
-              8. THE UNIVERSITY HAS FULL AUTHORITY TO BANISH A PERSON FROM
-              COLLEGE PREMISES IN CASE OF BAD BEHAVIOUR.
-              <br />
-              9. THE PASS BEARER IS RESPONSIBLE FOR THEIR OWN BELONGINGS.
-              <br />
-              10. PERSONAL FOOD ITEMS OR BEVERAGES ARE NOT ALLOWED.
-              <br />
-              11. THE TICKET AMOUNT IS REFUNDABLE IN CASE OF THE EVENT
-              CANCELLATION.
-              <br />
-            </Typo>
-          </Box>
-        </Box>,
-        {
-          isActionCloseButton: false,
-          headerProps: {
-            headerClasses: classes.headerDialog,
-          },
-          actionsChildren: (
-            <Box
-              width="100%"
-              alignSelf="center"
-              style={{ textAlignLast: 'center' }}
-              textAlign="center"
+        ) : null}
+        <Box
+          pt={3}
+          style={{
+            textAlignLast: 'center',
+            textAlign: '-webkit-center' as any,
+          }}
+        >
+          {/* <QRCode value={paymentId} size={200} level="H" includeMargin /> */}
+        </Box>
+        <Box mt={3}>
+          <Typo variant="body2" gutterBottom>
+            <b>YOUR PAYMENT DETAILS:-</b>
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.name && `Name: ${formik.values.name}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.fromSRM &&
+              `Are you from SRM University: ${formik.values.fromSRM}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.email && `Email-id: ${formik.values.email}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {formik.values.phone && `Phone Number: ${formik.values.phone}`}
+          </Typo>
+          <Typo variant="body2" gutterBottom>
+            {paymentId && `Payment Id: ${paymentId}`}
+          </Typo>
+        </Box>
+        <Box mt={3}>
+          <Typo variant="body2">
+            <b>TERMS & CONDITIONS:-</b>
+            <br />
+            1. ALL THE COVID GUIDELINES SHOULD BE STRICTLY FOLLOWED: <br />•
+            MASK IS MANDATORY.
+            <br />• THE TICKET BEARER SHOULD BE FULLY VACCINATED.
+            <br />• SOCIAL DISTANCING SHOULD BE FOLLOWED.
+            <br />
+            2.
+            <b>
+              {' '}
+              THE GATES WILL BE CLOSED AT 6PM SHARP, NO ENTRY WILL BE GIVEN
+              AFTER THAT.
+            </b>
+            <br />
+            3.<b> THE DOWNLOADED PASS WILL BE CHECKED AT THE ENTRY GATE.</b>
+            <br />
+            4. ENTRY WILL NOT BE GIVEN IF THE TICKET BEARER COMES WITHOUT AN
+            OFFICIAL ID AND THE PASS.
+            <br />
+            5. IF A PERSON LEAVES THE COLLEGE PREMISES DURING THE EVENT, THEY
+            WILL NOT BE ALLOWED TO ENTER THE PREMISES AGAIN.
+            <br />
+            6. USE OR POSSESSION OF ALCOHOL AND ANY KIND OF DRUG IS STRICTLY
+            PROHIBITED.
+            <br />
+            7. POSESSION OF ANY HARMFUL OBJECT OR WEAPON IS STRICTLY PROHIBITED.
+            <br />
+            8. THE UNIVERSITY HAS FULL AUTHORITY TO BANISH A PERSON FROM COLLEGE
+            PREMISES IN CASE OF BAD BEHAVIOUR.
+            <br />
+            9. THE PASS BEARER IS RESPONSIBLE FOR THEIR OWN BELONGINGS.
+            <br />
+            10. PERSONAL FOOD ITEMS OR BEVERAGES ARE NOT ALLOWED.
+            <br />
+            11. THE TICKET AMOUNT IS REFUNDABLE IN CASE OF THE EVENT
+            CANCELLATION.
+            <br />
+          </Typo>
+        </Box>
+      </Box>,
+      {
+        isActionCloseButton: false,
+        headerProps: {
+          headerClasses: classes.headerDialog,
+        },
+        actionsChildren: (
+          <Box
+            width="100%"
+            alignSelf="center"
+            style={{ textAlignLast: 'center' }}
+            textAlign="center"
+          >
+            <Button
+              onClick={() => {
+                window.print();
+              }}
+              style={{ color: 'black', letterSpacing: 1.1 }}
             >
-              <Button
-                onClick={() => {
-                  window.print();
-                }}
-                style={{ color: 'black', letterSpacing: 1.1 }}
-              >
-                Print
-              </Button>
-            </Box>
-          ),
-        }
-      );
+              Print
+            </Button>
+          </Box>
+        ),
+      }
+    );
     setIsLoading(false);
   };
 
@@ -463,8 +464,8 @@ const ContactMeForm: React.FC = () => {
       }
       if (!fromSRM) {
         // TODO: Comment out for the INSIDER
-        // paymentHandler.run({ values });
-        saveHandlerRun.run({});
+        paymentHandler.run({ values });
+        // saveHandlerRun.run({});
       }
     },
     validationSchema: userSchema,
@@ -479,8 +480,8 @@ const ContactMeForm: React.FC = () => {
   };
   const handleHello = () => {
     saveHandlerRun.run({});
-    if (!fromSRM)
-      window.location.href = 'https://insider.in/prisma-2k22-may7-2022/event';
+    // if (!fromSRM)
+    //   window.location.href = 'https://insider.in/prisma-2k22-may7-2022/event';
   };
   return (
     <Box
@@ -679,7 +680,7 @@ const ContactMeForm: React.FC = () => {
                   color="primary"
                   type={getSubmitButtonType as any}
                   disabled={!formik.dirty || !formik.isValid || !imageURL}
-                  onClick={!fromSRM ? handleHello : () => {}}
+                  // onClick={!fromSRM ? handleHello : () => {}}
                 >
                   {submitText}
                 </Button>
